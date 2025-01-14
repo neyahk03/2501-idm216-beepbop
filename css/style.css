@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'gomepixel-regular';
+    src:url('../fonts/gomepixel-regular-webfont.woff') format('woff'),
+    url('../fonts/gomepixel-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'gomepixel-rounded';
+    src:url('../fonts/gomepixel-rounded-webfont.woff') format('woff'),
+    url('../fonts/gomepixel-rounded-webfont.woff2') format('woff2');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    
+    --dark-blue: #015582;
+    --light-blue: #C9DEEA;
+    --dark-yellow: #FFBD5C;
+    --light-yellow: #FFD598;
+    --red: #A63B33;
+
+    --background-color: var(var(--red));
+
+    --main-font: 'gomepixel-regular';
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--main-font);
+}
+
+h1 {
+    text-align: center;
+    margin: 3rem;
+}
+
+.container {
+    display: flex;
+    gap: 3rem;
+    margin: 0 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.card {
+    padding: 1rem;
+    /* border: black 1px solid; */
+    width: 400px;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+    }
+
+    .info {
+        display: inline;
+
+        p:first-child{
+            margin-bottom: 0;
+        }
+    }
+
+    .icon {
+        width: 24px;
+        margin-right: 10px;
+    }
+
+
+
+}
+
+h3 {
+    text-align: center;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
