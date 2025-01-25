@@ -63,12 +63,14 @@ p {
 
 .intro {
     margin: 1rem;
-    background-color: var(--light-blue);
+    background-color: white;
     padding: 2rem 2rem 1.5rem 2rem;
     border: 1px solid black;
     border-radius: 0.625rem;
     text-align: center;
     width: 70%;
+    max-width: 50rem;  
+    margin: 1rem auto;  
     
 }
 
