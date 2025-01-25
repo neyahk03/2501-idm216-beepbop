@@ -1,0 +1,10 @@
+<svg width="431" height="22" viewBox="0 0 431 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 3C0 1.34315 1.34315 0 3 0H428C429.657 0 431 1.34315 431 3V22H0V3Z" fill="#FFD598"/>
+<rect x="412.24" y="3.15" width="15.7896" height="15.7896" rx="1.85" fill="#FFBD5C" stroke="black" stroke-width="0.3"/>
+<rect x="393.195" y="3.15" width="15.7896" height="15.7896" rx="1.85" fill="#FFBD5C" stroke="black" stroke-width="0.3"/>
+<rect x="374.15" y="3.15" width="15.7896" height="15.7896" rx="1.85" fill="#FFBD5C" stroke="black" stroke-width="0.3"/>
+<rect x="377.941" y="10.7163" width="8.37313" height="0.492537" rx="0.246269" fill="black"/>
+<rect x="397.879" y="6.5355" width="8.23564" height="8.23564" rx="0.85" fill="#FFBD5C" stroke="black" stroke-width="0.3"/>
+<rect x="396.659" y="7.75474" width="8.23564" height="8.23564" rx="0.85" fill="#FFBD5C" stroke="black" stroke-width="0.3"/>
+<path d="M417.661 14.3546L417.317 14.0107L420.037 11.2908L417.317 8.57092L417.661 8.22705L420.381 10.947L423.101 8.22705L423.445 8.57092L420.725 11.2908L423.445 14.0107L423.101 14.3546L420.381 11.6347L417.661 14.3546Z" fill="black"/>
+</svg>
