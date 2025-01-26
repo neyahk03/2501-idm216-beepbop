@@ -40,44 +40,89 @@ $items = $menuStatement->get_result()->fetch_all(MYSQLI_ASSOC);
     <title>Beepbop database</title>
     <link rel="stylesheet" href="css/record.css">
 </head>
+
 <body>
 
-    <h1>Beepbop Database</h1>
+    <section class="title">
+        <div class="bar"></div>
+        <h1>BEEPBOP DATABASE</h1>
+    </section>
 
-    <h2>Users</h2>
+    <div class="container">
 
-    <table>
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($users)): ?>
-                <?php foreach ($users as $user): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($user['id']); ?></td>
-                        <td><?php echo $user['firstname']; ?></td>
-                        <td><?php echo $user['lastname']; ?></td>
-                        <td><?php echo htmlspecialchars($user['username']); ?></td>
-                        <td><?php echo htmlspecialchars($user['email']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
+    <section class="window">
+        <div class="window-top">
+            <h2>Users</h2>
+
+            <div class="icon">
+                <div>
+                    <img src="images/database/minimize.svg" alt="minimize icon">
+                </div>
+
+                <div>
+                    <img src="images/database/tab.svg" alt="tab icon">
+                </div>
+
+                <div>
+                    <img src="images/database/close.svg" alt="close icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <table>
+            <thead>
                 <tr>
-                    <td colspan="3">No records found.</td>
+                    <th>No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
                 </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php if (!empty($users)): ?>
+                    <?php foreach ($users as $user): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($user['id']); ?></td>
+                            <td><?php echo $user['firstname']; ?></td>
+                            <td><?php echo $user['lastname']; ?></td>
+                            <td><?php echo htmlspecialchars($user['username']); ?></td>
+                            <td><?php echo htmlspecialchars($user['email']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">No records found.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+        </div>
 
-    <h2>Menu</h2>
+    </section>
 
-    <table>
+    <section class="window">
+        <div class="window-top">
+            <h2>Menus</h2>
+
+            <div class="icon">
+                <div>
+                    <img src="images/database/minimize.svg" alt="minimize icon">
+                </div>
+
+                <div>
+                    <img src="images/database/tab.svg" alt="tab icon">
+                </div>
+
+                <div>
+                    <img src="images/database/close.svg" alt="close icon">
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+        <table>
         <thead>
             <tr>
                 <th>No.</th>
@@ -99,16 +144,29 @@ $items = $menuStatement->get_result()->fetch_all(MYSQLI_ASSOC);
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="3">No records found.</td>
+                    <td colspan="3">No records found.</td> 
                 </tr>
             <?php endif; ?>
         
-
+        
+        
+            
         </tbody>
     </table>
+        </div>
 
 
 
+
+    </section>
+
+    
+
+
+    
+
+
+    </div>
 
 
 </body>

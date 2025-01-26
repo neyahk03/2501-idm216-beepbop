@@ -1,16 +1,127 @@
+@font-face {
+    font-family: 'gomepixel-regular';
+    src:url('../fonts/gomepixel-regular-webfont.woff') format('woff'),
+    url('../fonts/gomepixel-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'gomepixel-rounded';
+    src:url('../fonts/gomepixel-rounded-webfont.woff') format('woff'),
+    url('../fonts/gomepixel-rounded-webfont.woff2') format('woff2');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+
+    --dark-blue: #015582;
+    --light-blue: #C9DEEA;
+    --dark-yellow: #FFBD5C;
+    --light-yellow: #FFD598;
+    --red: #A63B33;
+
+    --background-color: var(--red);
+
+    --main-font: 'Montserrat', sans-serif;
+    --header-font: 'gomepixel-regular'
+}
+
 body {
+
+    background-color: var(--background-color);
+    font-family: var(--main-font);
+    margin: 0;
+
+    
+}
+
+.title {
+    margin: 1rem;
+    border-radius: 0.625rem;
+    background-color: var(--light-yellow);
+    padding: 0.5rem;
+    border: 1px solid #000;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bar {
+    width: 0.25rem;
+    height: 2rem;
+    background-color: black;
+}
+
+h1,h2 {
+    margin: 0;
+    font-family: var(--header-font);
+}
+
+.container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
+.window {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 0.625rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 1rem;
+
+}
+
+.window-top {
+    background-color: var(--light-yellow);
+    border-radius: 0.625rem 0.625rem 0 0;
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    border-bottom: 1px solid black;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    div {
+        width: 2rem;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.content {
+    padding: 2rem;
+
+}
+
+table {
+    width: 40vw;
+}
+
 table, th, td {
     border:1px solid black;
     border-collapse: collapse;
+
 
 }
 
 th, td {
     padding: 0.5rem 1rem;
 }
+
