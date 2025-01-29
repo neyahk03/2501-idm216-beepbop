@@ -76,13 +76,17 @@ h1,h2 {
     border-radius: 0.625rem;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     margin: 1rem;
+    width: 90%;
+    max-width: 50rem;
+
+    /* overflow: scroll; */
 
 }
 
 .window-top {
     background-color: var(--light-yellow);
     border-radius: 0.625rem 0.625rem 0 0;
-    padding: 0.75rem 1rem 0.75rem 2rem;
+    padding: 0.25rem 0.75rem 0.25rem 2rem;
     border-bottom: 1px solid black;
 
     display: flex;
@@ -108,18 +112,18 @@ h1,h2 {
 
 .content {
     padding: 3rem;
+    overflow:hidden;
+    overflow-x: scroll;
+
+    display: flex;
+    justify-content: center;
 
 }
 
-table {
-min-width: 40vw;
-
-}
 
 table, th, td {
     border:1px solid black;
     border-collapse: collapse;
-
 
 }
 

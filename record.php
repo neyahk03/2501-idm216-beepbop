@@ -81,6 +81,7 @@ $items = $menuStatement->get_result()->fetch_all(MYSQLI_ASSOC);
                     <th>Email</th>
                 </tr>
             </thead>
+            
             <tbody>
                 <?php if (!empty($users)): ?>
                     <?php foreach ($users as $user): ?>
