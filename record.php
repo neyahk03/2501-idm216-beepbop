@@ -37,7 +37,7 @@ $items = $menuStatement->get_result()->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beepbop database</title>
+    <title>Beepbop's Database</title>
     <link rel="stylesheet" href="css/record.css">
     <link rel="icon" type="image/gif" href="images/petes-lunchbox-logo.svg" />
 </head>

@@ -63,6 +63,8 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
     $_SESSION['cart'][$_SESSION['user_id']] = [];
 }
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['items'])) {
     $_SESSION['cart'][$_SESSION['user_id']]['selected_items'] = $_POST['items']; 
     $_SESSION['cart'][$_SESSION['user_id']]['subtotal'] = 0;
@@ -79,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['items'])) {
             }
         }
     }
+
 
     $_SESSION['cart'][$_SESSION['user_id']]['total_price'] = $_SESSION['cart'][$_SESSION['user_id']]['subtotal'] * (1 + $tax_rate);
     
