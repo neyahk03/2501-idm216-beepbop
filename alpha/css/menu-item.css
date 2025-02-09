@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+
+    --red: #C73715;
+    --grey: #414141;
+    --black: #000;
+    --brown: #470D01;
+    --bag-red: #FF5858;
+    --mustard-yellow: #FFBB00;
+    --light-yellow: #FFEEDC;
+    --bg-yellow: #FFD598;
+
+    --background-color: #A63B33;
+
+    --main-font: 'gomepixel-regular';
+
+    /* font-size */
+    --bottom-nav-font-size: 0.75rem;
+    --bottom-nav-font-weight: 700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--background-color);
+
+
+}
+
+/* .screen-container {
+    width: 27.5rem;
+    height: 956px;
+    margin: auto;
+    overflow: hidden;
+
+    --main-font: 'Montserrat', sans-serif;
+    --menu-font: 'Inter', sans-serif;
+
+    background-color: white;
+
+    overflow: auto;
+
+
+} */
+
+.menu-container {
+    width: 27.5rem;
+    background-color: white;
+    font-family: var(--menu-font);
+    color: var(--grey);
+    margin-top: 2rem;
+
+    transform: translateY(8rem);
+    padding-bottom: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding-bottom: 8rem;
+
+    height: calc(100vh-14rem);
+    overflow: auto;
+
+    h2 {
+        text-align: center;
+    }
+    
+    
+}
+
+.category {
+    width: 27.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    padding: 0 2rem;
+    /* margin: 0 2rem; */
+}
+
+.item {
+    grid-column: span 2;
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .line {
+        width: 3rem;
+        height: 0.2rem;
+        background-color: black;
+    }
+}
+
+.title h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--main-font);
+    margin: 0;
+}
