@@ -7,7 +7,7 @@
                 <div class="line"></div>
             </div>
 
-            <div class="category">
+            <div class="category" id="sandwiches">
                 
                 <a href="detail.html" class="item">
                 <img src="../images/menu-item/egg-and-cheese.jpg" alt="egg and cheese">
@@ -42,7 +42,7 @@
             </div>
 
 
-            <div class="category">
+            <div class="category" id="cheese-steak">
 
                 <a href="detail.html" class="item">
                 <img src="../images/menu-item/cheese-steak.jpg " alt="Cheese Steak">
@@ -93,7 +93,7 @@
                 <div class="line"></div>
             </div>
 
-            <div class="category">
+            <div class="category" id="salads">
 
                 <div class="item">
                     <img src="../images/menu-item/garden-salad.jpg" alt="garden salad">
@@ -145,7 +145,7 @@
             </div>
 
 
-            <div class="category">
+            <div class="category" id="pastries">
 
                 <div class="item">
                     <img src="../images/menu-item/bagel-and-cream-cheese.jpg" alt="Bagel w/ Cream Cheese">
@@ -189,7 +189,7 @@
             </div>
 
 
-            <div class="category">
+            <div class="category" id="drinks">
 
                 <div class="item">
                     <img src="../images/menu-item/hot-coffee.jpg" alt="Hot Coffee">
@@ -233,7 +233,7 @@
                 </div>
                 
                 <div class="item">
-                    <img src="../images/menu-item/drink/thai-tea.jpg" alt="Thai Tea">
+                    <img src="../images/menu-item/thai-tea.jpg" alt="Thai Tea">
                     <div class="description">
                         <p class="menu-title">Thai Tea</p>
                         <p class="price">$4.50</p>
