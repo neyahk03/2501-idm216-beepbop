@@ -25,6 +25,8 @@ html {
     /* font-size */
     --bottom-nav-font-size: 0.75rem;
     --bottom-nav-font-weight: 700;
+
+    scroll-behavior: smooth;
 }
 
 body {
@@ -40,7 +42,7 @@ body {
 
 .screen-container {
     width: 27.5rem;
-    height: 59.75rem;
+    min-height: 59.75rem;
     margin: auto;
     /* border-radius: 1.5rem; */
 

@@ -22,23 +22,32 @@
 
         <div class="filter-bar">
             <div class="filter">
-                <a href="#" class="heading-4">
+                <a href="#sandwiches" class="heading-4">
                     Sandwiches
                 </a>
             </div>
+
             <div class="filter">
-                <a href="#" class="heading-4">
+                <a href="#cheese-steak" class="heading-4">
                     Cheese Steaks
                 </a>
             </div>
+
             <div class="filter">
-                <h4>Salads</h4>
+            <a href="#salads" class="heading-4">
+                    Salads
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#pastries" class="heading-4">
+                    Pastries
+                </a>
             </div>
             <div class="filter">
-                <h4>Snacks</h4>
-            </div>
-            <div class="filter">
-                <h4>Drinks</h4>
+            <a href="#drinks" class="heading-4">
+                    Drinks
+                </a>
             </div>
         </div>
 
@@ -72,7 +81,10 @@
         ?>
 
     </div>
+
+    <script src="js/scripts.js"></script>
     
 </body>
+
 </html>
 
