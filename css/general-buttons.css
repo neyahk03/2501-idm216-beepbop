@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.login-button {
+    width: 376px;
+    height: 56px;
+    background-color: #470D01;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; 
+}
+
+.login-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.signup-button {
+    width: 376px;
+    height: 56px;
+    background-color: transparent; 
+    color: #470D01; 
+    border: 3px solid #470D01; 
+    border-radius: 8px; 
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, background-color 0.2s ease, color 0.2s ease; 
+}
+
+.signup-button:active {
+    transform: scale(0.95); 
+    background-color: #470D01; 
+    color: #FFFFFF; 
+}

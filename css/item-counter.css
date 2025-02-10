@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.product-count {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    height: 30px;
+    border: 3px solid #C73715;
+    border-radius: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 5px;
+    
+}
+
+.button-count {
+    width: 30px;
+    height: 30px;
+    color: #C73715;
+    font-size: 24px;
+    padding-right: 30px;
+    padding-left: 30px;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.number-product {
+    color: #C73715;
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+:disabled {
+    cursor: not-allowed;
+}
