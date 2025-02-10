@@ -1,0 +1,58 @@
+
+/* general button style */
+button {
+    margin: 0 auto;
+}
+
+button + button {
+    margin-top: 0.5rem;
+}
+
+/* filled button style */
+.filled-button {
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: var(--brown);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.filled-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* no fill button style */
+.nofill-button {
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: transparent; 
+    color: var(--brown); 
+    border: 3px solid var(--brown);
+    border-radius: 0.5rem; 
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, background-color 0.2s ease, color 0.2s ease; /* Smooth interaction effect */
+}
+
+.nofill-button:active {
+    transform: scale(0.95);
+
+}

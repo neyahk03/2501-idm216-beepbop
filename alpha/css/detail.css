@@ -95,18 +95,20 @@ br {
     padding: 0.5rem;
 }
 
+button {
+    cursor: pointer;
+
+    a {
+        cursor: pointer;
+    }
+}
+
 .add-to-bag {
     height: 3.5rem;
     background-color: var(--brown);
     border-radius: 0.5rem;
     border: none;
 
-    
-
-}
-
-h4 {
-    color: white;
-    font-family: var(--main-font);
+    cursor: pointer;
 
 }

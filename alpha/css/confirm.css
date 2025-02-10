@@ -1,0 +1,45 @@
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+
+    z-index: 50;
+}
+
+.nav-background {
+    position: absolute;
+    top: 0;
+}
+
+h1, p {
+    text-align: center;
+}
+
+.content {
+    transform: translateY(5rem);
+    z-index: 40;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.animation {
+    width: 27.5rem;
+    display: flex;
+    flex-direction: column;
+
+    
+    .thankyou-gif {
+        height: 110px;
+
+        img {
+            object-fit: cover;
+            object-position: 50% 0;
+        }
+    }
+}
