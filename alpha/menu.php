@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pete's Lunch Box</title>
     <link rel="icon" type="image/gif" href="../images/logo.png" />
+    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/menu-item.css">
 </head>
@@ -14,17 +15,21 @@
 
         <nav>
             <h1>Menu</h1>
-            <div>
+            <a href="#">
                 <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
-            </div>
+            </a>
         </nav>
 
         <div class="filter-bar">
             <div class="filter">
-                <h4>Sandwiches</h4>
+                <a href="#" class="heading-4">
+                    Sandwiches
+                </a>
             </div>
             <div class="filter">
-                <h4>Cheese Steaks</h4>
+                <a href="#" class="heading-4">
+                    Cheese Steaks
+                </a>
             </div>
             <div class="filter">
                 <h4>Salads</h4>

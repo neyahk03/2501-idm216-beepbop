@@ -8,18 +8,17 @@
             </div>
 
             <div class="category">
-
-
-                <div class="item">
-                    <img src="../images/menu-item/sandwiches/egg-and-cheese.jpg" alt="egg and cheese image">
+                
+                <a href="detail.html" class="item">
+                <img src="../images/menu-item/egg-and-cheese.jpg" alt="egg and cheese">
                     <div class="description">
                         <p class="menu-title">Egg & Cheese</p>
                         <p class="price">$4.50</p>
                     </div>
-                </div>
+                </a>
     
                 <div class="item">
-                    <img src="../images/menu-item/sandwiches/grilled-cheese.jpg" alt="egg and cheese image">
+                    <img src="../images/menu-item/grilled-cheese.jpg" alt="Grilled Cheese">
                     <div class="description">
                         <p class="menu-title">Grilled Cheese</p>
                         <p class="price">$4.50</p>
@@ -27,7 +26,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="../images/menu-item/sandwiches/bacon-lettuce-tomato.jpg" alt="egg and cheese image">
+                    <img src="../images/menu-item/bacon-lettuce-tomato.jpg" alt="BLT Sandwich">
                     <div class="description">
                         <p class="menu-title">BLT Sandwich</p>
                         <p class="price">$4.50</p>
@@ -45,16 +44,17 @@
 
             <div class="category">
 
-                <div class="item">
-                    <img src="../images/menu-item/steak/cheese-steak.jpg " alt="egg and cheese image">
+                <a href="detail.html" class="item">
+                <img src="../images/menu-item/cheese-steak.jpg " alt="Cheese Steak">
                     <div class="description">
                         <p class="menu-title">Cheese Steak</p>
                         <p class="price">$4.50</p>
                     </div>
-                </div>
+                </a>
+
 
                 <div class="item">
-                    <img src="../images/menu-item/steak/buffalo-chicken-cheese-steak.jpg " alt="egg and cheese image">
+                    <img src="../images/menu-item/buffalo-chicken-cheese-steak.jpg " alt="Buffalo Chicken Steak">
                     <div class="description">
                         <p class="menu-title">Buffalo Chicken Steak</p>
                         <p class="price">$4.50</p>
@@ -63,7 +63,7 @@
     
                 
                 <div class="item">
-                    <img src="../images/menu-item/steak/mushroom-cheese-steak.jpg" alt="egg and cheese image">
+                    <img src="../images/menu-item/mushroom-cheese-steak.jpg" alt="Mushroom Cheese Steak">
                     <div class="description">
                         <p class="menu-title">Mushroom Chese Steak</p>
                         <p class="price">$4.50</p>
@@ -71,7 +71,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/steak/pepperoni-cheese-steak.jpg" alt="egg and cheese image">
+                    <img src="../images/menu-item/pepperoni-cheese-steak.jpg" alt="Pepperoni Cheese Steak">
                     <div class="description">
                         <p class="menu-title">Pepperoni Cheese Steak</p>
                         <p class="price">$4.50</p>
@@ -79,7 +79,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/steak/pizza-steak.jpg" alt="egg and cheese image">
+                    <img src="../images/menu-item/pizza-steak.jpg" alt="Pizza Steak">
                     <div class="description">
                         <p class="menu-title">Pizza Steak</p>
                         <p class="price">$4.50</p>
@@ -96,7 +96,7 @@
             <div class="category">
 
                 <div class="item">
-                    <img src="../images/menu-item/salad/garden-salad.jpg" alt="garden salad">
+                    <img src="../images/menu-item/garden-salad.jpg" alt="garden salad">
                     <div class="description">
                         <p class="menu-title">Garden Salad</p>
                         <p class="price">$4.50</p>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="../images/menu-item/salad/chef-salad.jpg" alt="Chef Salad image">
+                    <img src="../images/menu-item/chef-salad.jpg" alt="Chef Salad image">
                     <div class="description">
                         <p class="menu-title">Chef Salad</p>
                         <p class="price">$4.50</p>
@@ -113,7 +113,7 @@
     
                 
                 <div class="item">
-                    <img src="../images/menu-item/salad/chicken-salad.jpg" alt="Chicken Salad image">
+                    <img src="../images/menu-item/chicken-salad.jpg" alt="Chicken Salad image">
                     <div class="description">
                         <p class="menu-title">Chicken Salad</p>
                         <p class="price">$4.50</p>
@@ -121,7 +121,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/salad/grilled-chicken-salad.jpg" alt="Grilled Chickedn Salad image">
+                    <img src="../images/menu-item/grilled-chicken-salad.jpg" alt="Grilled Chickedn Salad image">
                     <div class="description">
                         <p class="menu-title">Grilled Chickedn Salad</p>
                         <p class="price">$4.50</p>
@@ -129,7 +129,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/salad/tuna-salad.jpg" alt="Tuna Salad image">
+                    <img src="../images/menu-item/tuna-salad.jpg" alt="Tuna Salad image">
                     <div class="description">
                         <p class="menu-title">Tuna Salad</p>
                         <p class="price">$4.50</p>
@@ -148,7 +148,7 @@
             <div class="category">
 
                 <div class="item">
-                    <img src="../images/menu-item/pastry/bagel-and-cream-cheese.jpg" alt="Bagel w/ Cream Cheese">
+                    <img src="../images/menu-item/bagel-and-cream-cheese.jpg" alt="Bagel w/ Cream Cheese">
                     <div class="description">
                         <p class="menu-title">Bagel w/ Cream Cheese</p>
                         <p class="price">$4.50</p>
@@ -156,7 +156,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="../images/menu-item/pastry/muffin.jpg" alt="Muffin">
+                    <img src="../images/menu-item/muffin.jpg" alt="Muffin">
                     <div class="description">
                         <p class="menu-title">Muffin</p>
                         <p class="price">$4.50</p>
@@ -165,7 +165,7 @@
     
                 
                 <div class="item">
-                    <img src="../images/menu-item/pastry/chips.jpg" alt="Chips">
+                    <img src="../images/menu-item/chips.jpg" alt="Chips">
                     <div class="description">
                         <p class="menu-title">Chips</p>
                         <p class="price">$4.50</p>
@@ -173,7 +173,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/pastry/hashbrown.png" alt="Hashbrown">
+                    <img src="../images/menu-item/hashbrown.png" alt="Hashbrown">
                     <div class="description">
                         <p class="menu-title">Hashbrown</p>
                         <p class="price">$4.50</p>
@@ -192,7 +192,7 @@
             <div class="category">
 
                 <div class="item">
-                    <img src="../images/menu-item/drink/hot-coffee.jpg" alt="Hot Coffee">
+                    <img src="../images/menu-item/hot-coffee.jpg" alt="Hot Coffee">
                     <div class="description">
                         <p class="menu-title">Hot Coffee</p>
                         <p class="price">$4.50</p>
@@ -200,7 +200,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="../images/menu-item/drink/hot-tea.jpg" alt="Hot Tea">
+                    <img src="../images/menu-item/hot-tea.jpg" alt="Hot Tea">
                     <div class="description">
                         <p class="menu-title">Hot Tea</p>
                         <p class="price">$4.50</p>
@@ -209,7 +209,7 @@
     
                 
                 <div class="item">
-                    <img src="../images/menu-item/drink/hot-chocolate.jpg" alt="Hot Chocolate">
+                    <img src="../images/menu-item/hot-chocolate.jpg" alt="Hot Chocolate">
                     <div class="description">
                         <p class="menu-title">Hot Chocolate</p>
                         <p class="price">$4.50</p>
@@ -217,7 +217,7 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/drink/soda.png" alt="Soda">
+                    <img src="../images/menu-item/soda.png" alt="Soda">
                     <div class="description">
                         <p class="menu-title">Soda</p>
                         <p class="price">$4.50</p>
@@ -225,7 +225,7 @@
                 </div>
 
                 <div class="item">
-                    <img src="../images/menu-item/drink/water.jpg" alt="Water">
+                    <img src="../images/menu-item/water.jpg" alt="Water">
                     <div class="description">
                         <p class="menu-title">Water</p>
                         <p class="price">$4.50</p>
