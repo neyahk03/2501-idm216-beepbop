@@ -57,19 +57,19 @@
         
         <div class="bottom-nav">
             
-            <a href="#" class="icon-container">
+            <a href="home.html" class="icon-container">
                 <img src="../images/icons/home.svg" alt="home icon">
                 <p class="label">Home</p>
             </a>
 
             
 
-            <a href="menu.html" class="icon-container">
+            <a href="menu.php" class="icon-container">
                 <img src="../images/icons/menu.svg" alt="menu icon">
                 <p class="label">Menu</p>
             </a>
 
-            <a href="#" class="icon-container">
+            <a href="profile.html" class="icon-container">
                 <img src="../images/icons/profile.svg" alt="contact icon">
                 <p class="label">Profile</p>
             </a>

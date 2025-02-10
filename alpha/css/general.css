@@ -53,6 +53,9 @@ body {
 
     overflow-y: auto;
 
+    display: flex;
+    flex-direction: column;
+
 }
 
 
@@ -78,6 +81,8 @@ nav {
     }
 
 }
+
+
 
 /* bottom-nav */
 .bottom-nav {
@@ -129,6 +134,23 @@ nav {
 
 }
 
-p, h3, h4 {
+p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--main-font);
+}
+
+h4, .heading-4{
+    color: white;
+    text-decoration: none;
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+
+h4:visited, .heading-4:visited {
+    color: white;
 }

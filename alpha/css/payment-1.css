@@ -1,0 +1,146 @@
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+
+    z-index: 50;
+}
+
+.nav-background {
+    position: absolute;
+    top: 0;
+}
+
+.content {
+    transform: translateY(5rem);
+    z-index: 40;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* padding-top: 7rem; */
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    flex: 1;
+}
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    color: black;
+    margin-bottom: 0.5rem;
+}
+
+.payment-container {
+    text-align: center;
+
+
+    .warning {
+        margin-top: 0.5rem;
+    }
+}
+
+.choose-payment {
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 23.5rem;
+    height: 5.875rem;
+    padding: 1.5rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 0.5rem;
+    gap: 1rem;
+
+    cursor: pointer;
+
+}
+
+.point {
+    width: 12.5rem;
+    height: 4.875rem;
+
+    margin: 0 auto;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+        font-weight: 700;
+    }
+
+    p:nth-child(1){
+        font-size: 0.75rem;
+    }
+
+}
+
+.pickup-time, .add-tips {
+    padding: 0 2rem;
+    h4 {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+.pickup-selection, .tips{
+    display: flex;
+    text-wrap: nowrap;
+    gap: 0.5rem;
+
+    overflow-x: scroll;
+
+    p {
+        
+        padding: 0.5rem 0.75rem;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+    }
+}
+
+.total-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+.total {
+    width: 11.5rem;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+button {
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: var(--brown);
+    border: none;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+
+}
+
+.disabled {
+    opacity: 0.5;
+    /* pointer-events: none; */
+    cursor:no-drop;
+}
