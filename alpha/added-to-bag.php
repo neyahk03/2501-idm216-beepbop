@@ -71,7 +71,7 @@
                 <p class="label">Menu</p>
             </a>
 
-            <a href="profile.html" class="icon-container">
+            <a href="#" class="icon-container">
                 <img src="../images/icons/profile.svg" alt="contact icon">
                 <p class="label">Profile</p>
             </a>
