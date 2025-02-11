@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Added to Bag</title>
+    <title>Adding to Bag Animation</title>
     <style>
         #gif-container {
             display: none; 
@@ -13,13 +13,17 @@
 <body>
 
     <div id="gif-container">
-        <img src="../images/add-to-bag.gif" alt="Add to Bag GIF">
+        <img src="/images/add-to-bag.gif" alt="Add to Bag GIF" id="gif">
     </div>
 
     <script>
         setTimeout(() => {
             document.getElementById('gif-container').style.display = 'block';
-        }, 3000); 
+
+            setTimeout(() => {
+                window.location.href = "added-to-bag.php";
+            }, 2000); 
+        }, 3000);
     </script>
 
 </body>
