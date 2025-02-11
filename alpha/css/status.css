@@ -7,13 +7,22 @@ nav {
 }
 
 .nav-background {
+    width: 100%;
+    max-width: 27.5rem;
     position: absolute;
     top: 0;
+
+    z-index: 1;
+    transform: translateY(-1rem);
+
+    svg {
+        width: 100%;
+        
+    }
 }
 
 
-.content-container {
-    /* flex: 1; */
+/* .content-container {
     display: flex;
     flex-direction: column;
     height: calc(59.75rem - 12rem);
@@ -21,19 +30,19 @@ nav {
     
     margin-top: 6rem;
     margin-bottom: 2rem;
-    /* transform: translateY(2rem); */
-    z-index: 40;
+    z-index: 50;
     
     overflow-y: auto;
     overflow-x: hidden;
     
     
-}
+} */
 
 .content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 4rem;
 }
 
 h1, p {

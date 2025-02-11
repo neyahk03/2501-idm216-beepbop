@@ -8,7 +8,8 @@ html {
 
 .filter-bar {
     scrollbar-width: none;
-    width: 27.5rem;
+    width: 100%;
+    max-width: 27.5rem;
     height: 3.5rem;
     background-color: var(--brown);
     padding: 0 2rem;
