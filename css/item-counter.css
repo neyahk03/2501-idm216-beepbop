@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .product-count {
-    position: absolute;
     top: 25%;
     left: 45%;
-    height: 30px;
+    height: 1.75rem;
+    width: 9rem;
     border: 3px solid #C73715;
     border-radius: 46px;
     display: flex;
@@ -17,11 +17,8 @@
 
 .button-count {
     width: 30px;
-    height: 30px;
     color: #C73715;
     font-size: 24px;
-    padding-right: 30px;
-    padding-left: 30px;
     text-align: center;
     border: none;
     outline: none;
