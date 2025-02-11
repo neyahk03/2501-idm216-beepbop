@@ -14,7 +14,7 @@
     <div class="screen-container">
 
         <nav>
-            <a href="#">
+            <a href="bag.php">
                 <img src="../images/icons/cancel.svg" alt="cancelicon">
             </a>
 
@@ -48,13 +48,13 @@
             <h1>LOG IN</h1>
 
             
-                <form class="login-container" action="#" method="POST">
+                <form class="login-container" action="payment-1.html" method="POST">
                     <div class="input-group">
-                        <input type="text" id="username" name="username" placeholder="Username" required>
+                        <input type="text" id="username" name="username" placeholder="Username" >
                     </div>
         
                     <div class="input-group">
-                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <input type="password" id="password" name="password" placeholder="Password">
                     </div>
         
                     <div class="remember-me">
@@ -62,7 +62,7 @@
                         <label for="remember">Remember Me</label>
                     </div>
         
-                    <button type="submit" class="filled-button">Log In</button>
+                    <button type="submit" class="filled-button" onclick="gotoPayment()">Log In</button>
 
                     <a href="#">Back</a>
                 </form>
@@ -74,6 +74,8 @@
 
 
     </div>
+
+    <script src="js/button.js"></script>
     
 </body>
 </html>

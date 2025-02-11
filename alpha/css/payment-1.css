@@ -11,7 +11,7 @@ nav {
     top: 0;
 }
 
-.content {
+.content-container {
     transform: translateY(5rem);
     z-index: 40;
 
@@ -21,9 +21,17 @@ nav {
 
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+    height: calc(100% - 8.5rem);
 
-    flex: 1;
+
+    /* flex: 1; */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 h1 {
@@ -146,6 +154,6 @@ button {
 
 .disabled {
     opacity: 0.5;
-    /* pointer-events: none; */
+    pointer-events: none;
     cursor:no-drop;
 }
