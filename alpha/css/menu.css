@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .filter-bar {
     scrollbar-width: none;
     width: 27.5rem;

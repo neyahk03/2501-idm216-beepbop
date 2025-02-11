@@ -27,33 +27,45 @@
                 </svg>
         </div>
 
-        <div class="content">
+        <div class="content-container">
 
             <h1>ORDER CONFIRMED!</h1>
 
-            <p>You earned <strong>772</strong> pts with your order</p>
-
-            <div class="animation">
-                <img class="heart-gif" src="../images/icons/heart.gif" alt="heart gif">
-
-                <div class="thankyou-gif">
-                    <img src="../images/icons/thankyou.gif" alt="thank you gif">
-
+    
+    
+                <p>You earned <strong>772</strong> pts with your order</p>
+    
+                <div class="animation">
+                    <img class="heart-gif" src="../images/icons/heart.gif" alt="heart gif">
+    
+                    <div class="thankyou-gif">
+                        <img src="../images/icons/thankyou.gif" alt="thank you gif">
+    
+                    </div>
+    
                 </div>
-
+    
+                <div class="time-container">
+                    <p>Estimated pick up time:</p>
+                    <p class="time">9:30 AM</p>
+                </div>
             </div>
+
 
 
             <div class="btn-container">
-
-                <button class="nofill-button">view order status</button>
-    
-                <button class="filled-button">home</button>
+        
+                <button class="nofill-button" onclick="goToOrderStatus()">view order status</button>
+        
+                <button class="filled-button" onclick="gotoHome2()">home</button>
             </div>
-
-
+            
+            
         </div>
+        
     </div>
+
+    <script src="js/button.js"></script>
 </body>
 
 </html>

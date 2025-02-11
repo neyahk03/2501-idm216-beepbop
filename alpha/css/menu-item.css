@@ -1,53 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-
-    --red: #C73715;
-    --grey: #414141;
-    --black: #000;
-    --brown: #470D01;
-    --bag-red: #FF5858;
-    --mustard-yellow: #FFBB00;
-    --light-yellow: #FFEEDC;
-    --bg-yellow: #FFD598;
-
-    --background-color: #A63B33;
-
-    --main-font: 'gomepixel-regular';
-
-    /* font-size */
-    --bottom-nav-font-size: 0.75rem;
-    --bottom-nav-font-weight: 700;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    background-color: var(--background-color);
-
-
-}
-
-/* .screen-container {
-    width: 27.5rem;
-    height: 956px;
-    margin: auto;
-    overflow: hidden;
-
-    --main-font: 'Montserrat', sans-serif;
-    --menu-font: 'Inter', sans-serif;
-
-    background-color: white;
-
-    overflow: auto;
-
-
-} */
 
 .menu-container {
     width: 27.5rem;
@@ -65,7 +16,9 @@ body {
     padding-bottom: 8rem;
 
     height: calc(100vh-14rem);
-    overflow: auto;
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
 
     h2 {
         text-align: center;

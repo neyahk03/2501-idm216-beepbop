@@ -61,6 +61,29 @@
 
     h4 {
         margin-bottom: 0.25rem;
+        color: black;
     }
     
+}
+
+/* order profress bar */
+.order-status {
+    cursor: pointer;
+    transform: translateY(4.5rem);
+    background-color: var(--brown);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0.8rem 2rem;
+    
+    h4 {
+        text-decoration: underline;
+    }
+
+    img {
+        width: 1.5rem;
+        height: 2rem;
+    }
+
 }

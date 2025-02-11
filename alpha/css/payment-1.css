@@ -11,7 +11,7 @@ nav {
     top: 0;
 }
 
-.content {
+.content-container {
     transform: translateY(5rem);
     z-index: 40;
 
@@ -21,9 +21,17 @@ nav {
 
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+    height: calc(100% - 8.5rem);
 
-    flex: 1;
+
+    /* flex: 1; */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 h1 {
@@ -63,7 +71,7 @@ h4 {
 
 .point {
     width: 12.5rem;
-    height: 4.875rem;
+    min-height: 4.875rem;
 
     margin: 0 auto;
     border: 3px solid black;
@@ -115,7 +123,12 @@ h4 {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
+
+    background-color: white;
+
+    z-index: 100;
 
 }
 
@@ -141,6 +154,6 @@ button {
 
 .disabled {
     opacity: 0.5;
-    /* pointer-events: none; */
+    pointer-events: none;
     cursor:no-drop;
 }
