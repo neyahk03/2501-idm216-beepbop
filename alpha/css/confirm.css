@@ -11,35 +11,66 @@ nav {
     top: 0;
 }
 
-h1, p {
-    text-align: center;
-}
 
-.content {
-    transform: translateY(5rem);
-    z-index: 40;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
+.content-container {
+    /* flex: 1; */
     display: flex;
     flex-direction: column;
     gap: 2rem;
-
+    height: calc(59.75rem - 8rem);
+    justify-content: space-between;
+    
+    margin-top: 6rem;
+    /* transform: translateY(5rem); */
+    z-index: 40;
+    margin-bottom: 2rem;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    
 }
 
-.animation {
-    width: 27.5rem;
+h1, p {
+    text-align: center;
+}
+.content div:first-child {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+}
+
+
+.animation {
+    width: 14.5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 
     
     .thankyou-gif {
-        height: 110px;
+        /* border: 1px solid black; */
+        
+        height: 4rem;
+        overflow: hidden;
+
+        transform: translateY(-2rem);
 
         img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: 50% 0;
-        }
+            object-position: center; 
+                    }
     }
 }
+
+.time {
+    font-size: 2.75rem;
+    font-weight: 500;
+}
+
+/* .btn-container {
+    margin-bottom: 2rem;
+} */
+

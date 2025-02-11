@@ -20,7 +20,7 @@
             </a>
         </nav>
 
-        <div class="filter-bar">
+        <!-- <div class="filter-bar">
             <div class="filter">
                 <a href="#sandwiches" class="heading-4">
                     Sandwiches
@@ -49,7 +49,7 @@
                     Drinks
                 </a>
             </div>
-        </div>
+        </div> -->
 
         
 
@@ -82,7 +82,7 @@
 
     </div>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/scroll.js"></script>
     
 </body>
 
