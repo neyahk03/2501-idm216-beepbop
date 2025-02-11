@@ -18,6 +18,8 @@
     height: calc(100vh-14rem);
     overflow-y: auto;
 
+    scroll-behavior: smooth;
+
     h2 {
         text-align: center;
     }
