@@ -9,7 +9,7 @@
     margin: 0;
 }
 
-body {
+/* body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f9f9f9;
-}
+} */
 
 /* 3. Improve media defaults */
 img, picture, video, canvas, svg {
@@ -50,17 +50,64 @@ h1, h2, h3, h4, h5, h6 {
     isolation: isolate;
 }
 
-h1 {
+/* h1 {
     text-align: center;
     margin-bottom: 2rem !important;
 }
 
 h4 {
     margin: 0.5rem 2rem !important;
+} */
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    color: black;
+}
+
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+
+    z-index: 50;
+}
+
+.nav-background {
+    position: absolute;
+    top: 0;
+}
+
+
+.content-container {
+    transform: translateY(5rem);
+    z-index: 40;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* padding-top: 7rem; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 26.9rem);
+
+}
+
+.total-container {
+    /* background-color: pink; */
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .content {
-    padding-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .food-card {
@@ -85,7 +132,7 @@ h4 {
 
 .food-pic {
     height: 6rem;
-    border-radius: ;
+    /* border-radius: ; */
 }
 
 .food-details {
@@ -160,7 +207,6 @@ h4 {
 .popular-items {
     display: flex;
     gap: 1rem;
-    margin: 0 2rem;
     overflow-x: auto; 
     padding-bottom: 1rem; 
 }
@@ -227,7 +273,7 @@ h4 {
 }
 
 /* Proceed Button */
-.proceed-button {
+/* .proceed-button {
     position: fixed;
     bottom: 3rem;
     width: 23.5rem;
@@ -246,16 +292,15 @@ h4 {
     align-items: center;
     justify-content: center;
     transition: transform 0.1s ease, box-shadow 0.2s ease; 
-}
+} */
 
-.proceed-button:active {
+/* .proceed-button:active {
     transform: scale(0.95); 
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
-}
+} */
 
 /* Subtotal Section */
 .subtotal {
     display: flex;
     justify-content: space-between;
-    margin: 0.5rem 2rem;
 }
