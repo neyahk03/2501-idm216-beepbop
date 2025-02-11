@@ -105,7 +105,7 @@
             <h2>Subtotal:</h2> 
             <h2>$6.00</h2>
         </div>
-        <button class="proceed-button">PROCEED TO CHECKOUT</button>
+        <button class="proceed-button">LOG IN TO CONTINUE</button>
 
     </div>  
     
