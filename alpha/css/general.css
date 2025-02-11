@@ -8,6 +8,8 @@
 
 html {
 
+    margin: 0;
+
     --red: #C73715;
     --grey: #414141;
     --black: #000;
@@ -38,10 +40,13 @@ body {
     font-family: var(--main-font);
 
 
+
 }
 
 .screen-container {
     width: 27.5rem;
+    height: 100vh;
+
     min-height: 59.75rem;
     margin: auto;
     /* border-radius: 1.5rem; */
@@ -53,8 +58,8 @@ body {
 
     overflow-y: auto;
 
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 
 }
 

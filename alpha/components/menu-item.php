@@ -1,13 +1,44 @@
 
+<div class="filter-bar">
+            <div class="filter">
+                <a href="#sandwiches" class="heading-4">
+                    Sandwiches
+                </a>
+            </div>
+
+            <div class="filter">
+                <a href="#cheese-steak" class="heading-4">
+                    Cheese Steaks
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#salads" class="heading-4">
+                    Salads
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#pastries" class="heading-4">
+                    Pastries
+                </a>
+            </div>
+            <div class="filter">
+            <a href="#drinks" class="heading-4">
+                    Drinks
+                </a>
+            </div>
+        </div>
+
         <div class="menu-container">
 
             <div class="title">
                 <div class="line"></div>
-                <h2>Sandwiches</h2>
+                <h2 id="sandwiches">Sandwiches</h2>
                 <div class="line"></div>
             </div>
 
-            <div class="category" id="sandwiches">
+            <div class="category" >
                 
                 <a href="detail.html" class="item">
                 <img src="../images/menu-item/egg-and-cheese.jpg" alt="egg and cheese">
@@ -37,12 +68,12 @@
 
             <div class="title">
                 <div class="line"></div>
-                <h2>Cheese Steaks</h2>
+                <h2 id="cheese-steak">Cheese Steaks</h2>
                 <div class="line"></div>
             </div>
 
 
-            <div class="category" id="cheese-steak">
+            <div class="category" >
 
                 <a href="detail.html" class="item">
                 <img src="../images/menu-item/cheese-steak.jpg " alt="Cheese Steak">
@@ -88,12 +119,12 @@
             </div>
 
             <div class="title">
-                <div class="line"></div>
+                <div id="salads" class="line"></div>
                 <h2>Salads</h2>
                 <div class="line"></div>
             </div>
 
-            <div class="category" id="salads">
+            <div class="category" >
 
                 <div class="item">
                     <img src="../images/menu-item/garden-salad.jpg" alt="garden salad">
@@ -140,12 +171,12 @@
 
             <div class="title">
                 <div class="line"></div>
-                <h2>Pastries</h2>
+                <h2 id="pastries">Pastries</h2>
                 <div class="line"></div>
             </div>
 
 
-            <div class="category" id="pastries">
+            <div class="category" >
 
                 <div class="item">
                     <img src="../images/menu-item/bagel-and-cream-cheese.jpg" alt="Bagel w/ Cream Cheese">
@@ -184,12 +215,12 @@
 
             <div class="title">
                 <div class="line"></div>
-                <h2>Drinks</h2>
+                <h2 id="drinks">Drinks</h2>
                 <div class="line"></div>
             </div>
 
 
-            <div class="category" id="drinks">
+            <div class="category" >
 
                 <div class="item">
                     <img src="../images/menu-item/hot-coffee.jpg" alt="Hot Coffee">
