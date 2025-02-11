@@ -8,7 +8,6 @@
 
 .content {
     width: 27.5rem;
-    height: 100%;
     background-color: white;
     padding: 2.5rem 2rem;
 
@@ -17,9 +16,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 6rem;
     gap: 2rem;
 
-    transform: translateY(4.5rem);
+    /* transform: translateY(5rem); */
 
 }
 
@@ -112,3 +112,4 @@ button {
     cursor: pointer;
 
 }
+
