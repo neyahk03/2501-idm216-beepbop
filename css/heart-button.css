@@ -1,3 +1,11 @@
+.heart {
+    text-align: center;
+}
+
+.heart:hover ion-icon {
+    cursor: pointer;
+}
+
 .large-font{
     font-size:xxx-large;
 }
