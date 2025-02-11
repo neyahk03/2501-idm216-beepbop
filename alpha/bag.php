@@ -15,7 +15,7 @@
 
         <nav>
             <a href="menu.php">
-                <img class="back-button" src="../images/icons/cancel.svg" alt="back icon">
+                <img class="back-button" src="../images/icons/back.svg" alt="back icon">
             </a>
         </nav>
 
