@@ -8,6 +8,7 @@ nav {
 
 .nav-background {
     position: absolute;
+    z-index: 1;
     top: 0;
 }
 
@@ -17,12 +18,13 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    height: calc(59.75rem - 8rem);
+    height: calc(59.75rem - 12rem);
     justify-content: space-between;
     
     margin-top: 6rem;
     /* transform: translateY(5rem); */
-    z-index: 40;
+    position: relative;
+    z-index: 100;
     margin-bottom: 2rem;
     
     overflow-y: auto;

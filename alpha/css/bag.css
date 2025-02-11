@@ -132,7 +132,7 @@ nav {
 
 .food-pic {
     height: 6rem;
-    /* border-radius: ; */
+    border-radius: 0.5rem;
 }
 
 .food-details {
