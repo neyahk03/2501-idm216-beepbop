@@ -96,7 +96,7 @@
                 <div class="item">
                     <img src="../images/menu-item/mushroom-cheese-steak.jpg" alt="Mushroom Cheese Steak">
                     <div class="description">
-                        <p class="menu-title">Mushroom Chese Steak</p>
+                        <p class="menu-title">Mushroom Cheese Steak</p>
                         <p class="price">$4.50</p>
                     </div>
                 </div>
@@ -152,9 +152,9 @@
                 </div>
     
                 <div class="item">
-                    <img src="../images/menu-item/grilled-chicken-salad.jpg" alt="Grilled Chickedn Salad image">
+                    <img src="../images/menu-item/grilled-chicken-salad.jpg" alt="Grilled Chicken Salad image">
                     <div class="description">
-                        <p class="menu-title">Grilled Chickedn Salad</p>
+                        <p class="menu-title">Grilled Chicken Salad</p>
                         <p class="price">$4.50</p>
                     </div>
                 </div>
