@@ -132,7 +132,7 @@ nav {
 
 .food-pic {
     height: 6rem;
-    /* border-radius: ; */
+    border-radius: 0.5rem;
 }
 
 .food-details {
@@ -303,4 +303,14 @@ nav {
 .subtotal {
     display: flex;
     justify-content: space-between;
+}
+
+.empty-bag {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    width: 100%;
+    margin-top: 5.87rem;
 }
