@@ -7,9 +7,19 @@ nav {
 }
 
 .nav-background {
+    width: 100%;
+    max-width: 27.5rem;
     position: absolute;
     z-index: 1;
     top: 0;
+
+    z-index: 1;
+    transform: translateY(-1rem);
+
+    svg {
+        width: 100%;
+        
+    }
 }
 
 
@@ -18,10 +28,12 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
     height: calc(59.75rem - 12rem);
+
     justify-content: space-between;
     
-    margin-top: 6rem;
+    margin-top: 8rem;
     /* transform: translateY(5rem); */
     position: relative;
     z-index: 100;

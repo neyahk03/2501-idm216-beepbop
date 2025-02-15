@@ -12,8 +12,18 @@ nav {
 }
 
 .nav-background {
+    width: 100%;
+    max-width: 27.5rem;
     position: absolute;
     top: 0;
+
+    z-index: 1;
+    transform: translateY(-1rem);
+
+    svg {
+        width: 100%;
+        
+    }
 }
 
 
@@ -31,7 +41,8 @@ h1 {
 label {
     border: 1px solid black;
     padding: 2rem;
-    width: 23.5rem;
+    width: 100%;
+    max-width: 23.5rem;
     margin: 0 auto;
     border-radius: 0.5rem;
     background-color: white;
@@ -43,24 +54,16 @@ label {
 }
 
 input {
+    max-width: 23.5rem;
     margin-right: 1rem;
     accent-color: var(--red);
 }
 
 .form-container {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-button {
-    width: 23.5rem;
-    margin: 0 auto;
-    background-color: var(--brown);
-    border: none;
-    text-transform: uppercase;
-    border-radius: 0.5rem;
-    padding: 1rem 0;
-
-    
-}
