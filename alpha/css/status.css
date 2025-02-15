@@ -30,7 +30,11 @@ nav {
     
     margin-top: 6rem;
     margin-bottom: 2rem;
+
     z-index: 50;
+
+    /* transform: translateY(2rem); */
+
     
     overflow-y: auto;
     overflow-x: hidden;
