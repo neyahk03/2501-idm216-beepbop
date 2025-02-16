@@ -21,32 +21,15 @@ nav {
     }
 }
 
-
-/* .content-container {
-    display: flex;
-    flex-direction: column;
-    height: calc(59.75rem - 12rem);
-    justify-content: space-between;
-    
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-
-    z-index: 50;
-
-    /* transform: translateY(2rem); */
-
-    
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    
-} */
-
 .content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     margin-top: 4rem;
+
+    flex-grow: 1;
+
+
 }
 
 h1, p {
@@ -86,12 +69,12 @@ h2, h4 {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 1rem;
-    /* margin-bottom: 2rem; */
+    margin-top: 3rem;
 
     background-color: white;
 
     z-index: 100;
+
 
 
 }
