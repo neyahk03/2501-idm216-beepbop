@@ -54,11 +54,16 @@ h2,p {
     color: white;
     border-radius: 1rem;
     padding: 1rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+        text-transform: capitalize;
+    }
 }
 
-.option + .option {
-    margin-top: 0.5rem;
-}
 
 form {
     display: flex;
@@ -79,17 +84,21 @@ br {
     font-family: var(--main-font);
 }
 
-/* input[type="radio"] {
-    font: inherit;
-    color: currentColor;
-    width: 1.15rem;
-    height: 1.15rem;
-    border: 2px solid white;
-} */
-/* 
-label + label {
-    margin-top: 0.5rem;
-} */
+
+.protein-option {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.protein {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+input[checkbox] {
+    appearance: none;
+}
 
 br {
     height: 0.5rem;
