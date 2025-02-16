@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bag.css">
     <link rel="stylesheet" href="css/item-counter.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/foodcard.css">
 </head>
 <body>
 
