@@ -93,12 +93,12 @@ br {
 }
 
 
-.protein-option {
+.protein-option, .option-label {
     display: flex;
     gap: 0.5rem;
 }
 
-.protein {
+label, .protein {
     display: flex;
     justify-content: space-between;
     width: 100%;

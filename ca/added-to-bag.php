@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | Pete's Lunch Box</title>
+    <title>Home | Pete's Lunch Box</title>
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/menu-item.css">
+    <link rel="stylesheet" href="css/added.css">
 </head>
 <body>
 
@@ -15,9 +16,10 @@
 
         <nav>
             <h1>Menu</h1>
-            <a href="empty-bag.html">
+            <a href="bag.php">
                 <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
             </a>
+            <p class="quanity">1</p>
         </nav>
 
         <div class="filter-bar">
@@ -28,7 +30,7 @@
             </div>
 
             <div class="filter">
-                <a href="#cheesesteaks" class="heading-4">
+                <a href="#cheese-steak" class="heading-4">
                     Cheese Steaks
                 </a>
             </div>
@@ -82,7 +84,7 @@
 
     </div>
 
-    <script src="js/scroll.js"></script>
+    <script src="js/scripts.js"></script>
     
 </body>
 
