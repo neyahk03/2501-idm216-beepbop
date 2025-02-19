@@ -1,0 +1,89 @@
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+
+    z-index: 50;
+}
+
+.nav-background {
+    width: 100%;
+    max-width: 27.5rem;
+    position: absolute;
+    top: 0;
+
+    z-index: 1;
+    transform: translateY(-1rem);
+
+    svg {
+        width: 100%;
+        
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+
+    flex-grow: 1;
+
+
+}
+
+h1, p {
+    text-align: center;
+}
+
+.order-number {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+h2, h4 {
+    text-align: center;
+
+    color: black;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+
+    div {
+        width: 6rem;
+        height: 0.5rem;
+        background-color: var(--brown);
+    }
+
+    div:last-child {
+        background-color: var(--light-yellow);
+    }
+}
+
+.total-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    background-color: white;
+
+    z-index: 100;
+
+
+
+}
+
+.total {
+    width: 11.5rem;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+}

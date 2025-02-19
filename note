@@ -56,3 +56,7 @@ foreach ($results as $table => $rows):
 <?php 
     endif;
 endforeach; 
+
+
+// detail page php
+

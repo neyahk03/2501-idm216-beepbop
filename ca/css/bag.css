@@ -1,0 +1,260 @@
+/*bag.css*/
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+    margin: 0;
+}
+
+/* body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+} */
+
+/* 3. Improve media defaults */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 4. Inherit fonts for form controls */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* 5. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* 6. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+/* 7. Create a root stacking context */
+#root, #__next {
+    isolation: isolate;
+}
+
+/* h1 {
+    text-align: center;
+    margin-bottom: 2rem !important;
+}
+
+h4 {
+    margin: 0.5rem 2rem !important;
+} */
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    color: black;
+}
+
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+
+    z-index: 50;
+}
+
+.nav-background {
+    width: 100%;
+    max-width: 27.5rem;
+    position: absolute;
+    top: 0;
+
+    z-index: 1;
+    transform: translateY(-1rem);
+
+    svg {
+        width: 100%;
+        
+    }
+}
+
+
+.content-container {
+    transform: translateY(5rem);
+    z-index: 40;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* padding-top: 7rem; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 29.9rem);
+
+}
+
+.total-container {
+    /* background-color: pink; */
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+/* Popular Items Section */
+.popular-items {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto; 
+    padding-bottom: 1rem; 
+}
+
+
+
+.pop-items-container {
+    width: 9.1875rem;
+    height: 12.875rem;
+
+    flex: 0 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    background-color: var(--light-yellow);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.pop-items-container img {
+    height: 8.1875;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    font-family: var(--menu-font);
+
+    /* font-size: 0.9rem;
+    color: #555;
+    width: 100%; 
+    padding: 0 0.5rem;  */
+}
+
+.add-button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+
+    height: 1.35rem;
+}
+
+.add-button:hover {
+    background-color:var(--red); 
+    color: #fff; 
+    border-radius: 50%;
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+/* 
+
+
+
+.add-button {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: #FFEEDC; 
+    border: 1px solid black; 
+    border-radius: 50%; 
+    width: 1.3125rem; 
+    height: 1.3125rem; 
+    font-size: 0.9rem; 
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.1875rem 0.3125rem rgba(0, 0, 0, 0.15); 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+    background-color: #FF7F50; 
+    color: #fff; 
+    transform: scale(1.1); 
+} */
+
+
+
+/* Proceed Button */
+/* .proceed-button {
+    position: fixed;
+    bottom: 3rem;
+    width: 23.5rem;
+    height: 3.5rem;
+    margin: 0.5rem 2rem 2rem 2rem;
+    background-color: #470D01;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; 
+} */
+
+/* .proceed-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
+} */
+
+/* Subtotal Section */
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.empty-bag {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    width: 100%;
+    margin-top: 5.87rem;
+}
