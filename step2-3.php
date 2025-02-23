@@ -117,7 +117,7 @@ if (isset($customization_tables_map[$table_to_display])) {
                 
                 <form action="step3.php" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
-                    <input type="hidden" name="table" value="<?= $table_to_display ?>">
+                    <!-- <input type="hidden" name="table" value="<?= $table_to_display ?>"> -->
                     <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
                     <input type="hidden" name="item_price" value="<?= $price?>">
                     <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
@@ -170,8 +170,11 @@ if (isset($customization_tables_map[$table_to_display])) {
 
                     <textarea class="note" id="note" name="note" placeholder="Add a note"></textarea>
 
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                    <div class="product-count">
+                        <button class="button-count decrement" disabled>-</button>
+                        <input type="text" readonly class="number-product" value="1">
+                        <button class="button-count increment">+</button>
+                    </div>
 
                     <h2>Total: $<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>"><?= number_format($price, 2) ?></span></h2>
 
@@ -185,29 +188,8 @@ if (isset($customization_tables_map[$table_to_display])) {
         </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    let basePrice = parseFloat(document.getElementById("subtotal").dataset.basePrice);
-    let subtotalElement = document.getElementById("subtotal");
-    let subtotalInput = document.getElementById("subtotal_input");
 
-    function updateSubtotal() {
-        let total = basePrice;
-        document.querySelectorAll("input[type='checkbox']:checked, input[type='radio']:checked").forEach(input => {
-            let optionPrice = parseFloat(input.getAttribute("data-price")) || 0;
-            total += optionPrice;
-        });
-
-        subtotalElement.textContent = total.toFixed(2);
-        subtotalInput.value = total.toFixed(2);  // Store updated subtotal in the hidden input
-    }
-
-    document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach(input => {
-        input.addEventListener("change", updateSubtotal);
-    });
-});
-
-    </script>
+    <script src="js/step.js"></script>
 
 </body>
 </html>
