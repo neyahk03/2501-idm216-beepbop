@@ -2,31 +2,52 @@
 session_start();
 include 'includes/database.php';
 
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = session_id();
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login.php"); 
+    exit();
 }
 
-echo $_SESSION['user_id'] . "<br>";
+echo "ID: ". $_SESSION['guest_id'] . "<br>";
 
-// 1. Get Data from URL
+
+// data from the url
 $id = $_GET['id'] ?? null;
 $table_to_display = $_GET['table'] ?? null;
-$menu_item = $_GET['menu_item'] ?? null;
-$price = $_GET['price'] ?? null;
-$image_link = $GET['image_link'] ?? null;
-
 
 if (!$id || !$table_to_display) {
     echo "No item ID or table provided.";
     exit;
 }
 
-// Debug: Check received GET data
-echo "<pre>GET Data:\n";
-print_r($_GET);
-echo "</pre>";
+$item_table = $table_to_display;
 
-// 2. Customization Table Mapping
+$query = "SELECT menu_item, price, image_link FROM $item_table WHERE id = ?";
+$statement = $connection->prepare($query);
+$statement->bind_param('i', $id);
+$statement->execute();
+$item_result = $statement->get_result();
+$item = $item_result->fetch_assoc();
+$statement->close();
+
+// data gonna get from the database of this item
+$menu_item = $item['menu_item'] ?? 'Unknown Item';
+$price = $item['price'] ?? 0.00;
+$image_link = $item['image_link'] ?? 'default-image.jpg';
+
+echo "<p>Table: " . htmlspecialchars($item_table) . "</p>";
+echo "<p>Item Name: " . htmlspecialchars($menu_item) . "</p>";
+echo "<p>Item Price: $" . htmlspecialchars(number_format($price, 2)) . "</p>";
+echo "<p>Image Link: " . htmlspecialchars($image_link) . "</p>";
+
+
+// echo "<pre>GET Data:\n";
+// print_r($_GET);
+// echo "</pre>";
+
+$item_name = $_GET['item_name'] ?? '%';
+$item_price = $_GET['item_price'] ?? '%';
+
+//  Define the main tables and their corresponding customization tables
 $customization_tables_map = [
     'sandwiches' => ['bread', 'protein', 'condiments'],
     'cheesesteaks' => ['cheesesteak_bread'],
@@ -35,35 +56,31 @@ $customization_tables_map = [
     'drinks' => ['drink_option']
 ];
 
-// 3. Fetch Customization Options from Mapped Tables
 $customizations = [];
+
 
 if (isset($customization_tables_map[$table_to_display])) {
     foreach ($customization_tables_map[$table_to_display] as $custom_table) {
-        
-        // Ensure we are querying a valid table
-        echo "Querying customization table: " . htmlspecialchars($custom_table) . "<br>";
-
-        // Query customization options
-        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name = ? OR item_price = ?";
+        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name LIKE ? OR item_price LIKE ?";
         $statement = $connection->prepare($query);
-        
-        // Ensure proper data types: id (integer), menu_item (string), price (double)
-        $statement->bind_param('isd', $id, $menu_item, $item_price);
+        $statement->bind_param('isd', $id, $item_name, $item_price);
         $statement->execute();
         $result = $statement->get_result();
 
         if ($result->num_rows > 0) {
             $customizations[$custom_table] = $result->fetch_all(MYSQLI_ASSOC);
         }
+
         $statement->close();
     }
 }
 
+
+
 // Debug: Print Retrieved Customization Data
-echo "<pre>Customization Data:\n";
-print_r($customizations);
-echo "</pre>";
+// echo "<pre>Customization Data:\n";
+// print_r($customizations);
+// echo "</pre>";
 
 ?>
 
@@ -88,11 +105,11 @@ echo "</pre>";
         </nav>
 
         <div class="content">
-            <img class="hero-image" src="images/menu-item/<?= $item['image_link']?>" alt="<?= $menu_item?>">
+            <img class="hero-image" src="images/menu-item/<?= $image_link?>" alt="<?= $menu_item?>">
             <div class="description-container">
                 <div class="description">
                     <h2><?= $menu_item ?? 'No name available'?></h2>
-                    <h2> $<?= $item['price'] ?? '0.00' ?></h2>
+                    <h2> $<?= $price ?? '0.00' ?></h2>
                 </div>
             </div>
             
@@ -103,8 +120,8 @@ echo "</pre>";
                     <input type="hidden" name="table" value="<?= $table_to_display ?>">
                     <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
                     <input type="hidden" name="item_price" value="<?= $price?>">
+                    <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
 
-                   
 
                     <?php if (!empty($customizations)): ?>
                         <?php foreach ($customizations as $custom_table => $options): ?>
@@ -114,18 +131,22 @@ echo "</pre>";
                                 <?php foreach ($options as $option): ?>
                                     <?php 
                                     $option_name = $option['item_name'];
-                                    $option_price = $option['price'] ?? 0;
+                                    $option_price = $option['item_price'] ?? 0;
+
                                     ?>
                                     
                                     <?php if ($custom_table === 'protein' || $custom_table === 'condiments'): ?>
                                         <!-- Checkbox  -->
                                         <div class="option-label">
                                             <input type="checkbox" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
-                                                name="<?= $custom_table ?>[]" value="<?= $option_name ?>">
-                                            <input type="hidden" name="<?= $custom_table ?>_price[<?= $option_name ?>]" value="<?= $option_price ?>">
-                                            <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+                                                name="<?= $custom_table ?>[]" value="<?= $option_name ?>"
+                                                data-price="<?= $option_price ?>">
+                                                <input type="hidden" name="<?= $custom_table ?>_price[<?= $option_name ?>]" value="<?= $option_price ?>">
+                                                <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
                                                 <p><?= $option_name ?></p>
                                                 <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
+
+                                                
                                             </label>
                                         </div>
 
@@ -133,9 +154,10 @@ echo "</pre>";
                                         <!-- Radio Button -->
                                         <div class="option-label">
                                             <input type="radio" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
-                                                name="<?= $custom_table ?>" value="<?= $option_name ?>">
-                                            <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
-                                            <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+                                                name="<?= $custom_table ?>" value="<?= $option_name ?>"
+                                                data-price="<?= $option_price ?>">
+                                                <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
+                                                <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
                                                 <p><?= $option_name ?></p>
                                                 <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
                                             </label>
@@ -148,12 +170,44 @@ echo "</pre>";
 
                     <textarea class="note" id="note" name="note" placeholder="Add a note"></textarea>
 
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+
+                    <h2>Total: $<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>"><?= number_format($price, 2) ?></span></h2>
+
+
                     <button class="filled-button" type="submit">
                         <h4>ADD TO BAG</h4>
                     </button>
+
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let basePrice = parseFloat(document.getElementById("subtotal").dataset.basePrice);
+    let subtotalElement = document.getElementById("subtotal");
+    let subtotalInput = document.getElementById("subtotal_input");
+
+    function updateSubtotal() {
+        let total = basePrice;
+        document.querySelectorAll("input[type='checkbox']:checked, input[type='radio']:checked").forEach(input => {
+            let optionPrice = parseFloat(input.getAttribute("data-price")) || 0;
+            total += optionPrice;
+        });
+
+        subtotalElement.textContent = total.toFixed(2);
+        subtotalInput.value = total.toFixed(2);  // Store updated subtotal in the hidden input
+    }
+
+    document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach(input => {
+        input.addEventListener("change", updateSubtotal);
+    });
+});
+
+    </script>
+
 </body>
 </html>

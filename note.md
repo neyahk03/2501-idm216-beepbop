@@ -149,3 +149,38 @@ if (isset($customization_tables_map[$table_to_display])) {
 
 </body>
 </html>
+
+
+
+
+<!-- step 1 old form -->
+
+<form action="" method="post">
+    <?php 
+    $tables_to_display = ['sandwiches', 'cheesesteaks', 'salads', 'pastries', 'drinks'];
+    foreach ($results as $table => $rows): 
+        if (in_array($table, $tables_to_display)):
+    ?>
+    
+        <h2><?php echo ucfirst(str_replace('_', ' ', $table)); ?></h2>
+        
+        <?php if (!empty($rows)): ?>
+            <?php foreach ($rows as $row): ?>
+                <label>
+                    <input type="checkbox" name="items[]" value="<?php echo htmlspecialchars($row['item_name']); ?>">
+                    <strong><?php echo htmlspecialchars($row['item_name']); ?></strong> - $<?php echo htmlspecialchars($row['price']); ?>
+                </label>
+                <br>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No records found.</p>
+        <?php endif; ?>
+        
+    <?php 
+        endif;
+    endforeach; 
+    ?>
+    
+    <br>
+    <input type="submit" value="Submit">
+</form>

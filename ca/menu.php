@@ -76,7 +76,7 @@
         </div>
 
         <?php
-        include 'components/menu-item.php'
+        include 'components/menu-item-beta.php'
 
         ?>
 

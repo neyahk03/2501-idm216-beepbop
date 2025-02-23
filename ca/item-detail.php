@@ -54,6 +54,9 @@ if (isset($customization_tables_map[$table_to_display])) {
         $statement->close();
     }
 }
+
+$customizations as $custom_table => $options
+
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +69,9 @@ if (isset($customization_tables_map[$table_to_display])) {
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/detail-2.css">
+    <link rel="stylesheet" href="css/item-counter.css">
+
+    
     
     
 </head>
@@ -112,7 +118,7 @@ if (isset($customization_tables_map[$table_to_display])) {
                                     $option_name = $option['item_name'];  
                                     ?>
         
-                                    <?php if ($custom_table === 'protein' || $custom_table === 'pastry_option'): ?>
+                                    <?php if ($custom_table === 'protein' || $custom_table === 'pastry_option' || $custom_table === 'drink_option' || $custom_table === 'dressing'): ?>
         
                                         <!-- radio -->
                                         <div class="option-label">
@@ -166,6 +172,8 @@ if (isset($customization_tables_map[$table_to_display])) {
                             <p>1</p>
                             <p>+</p>
                         </div>
+
+                        <?php include 'components/item-counter.php' ?>
 
                         <div class="heart-btn">
                             <img src="../images/icons/heart.svg" alt="heart btn">
