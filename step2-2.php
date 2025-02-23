@@ -6,27 +6,45 @@ if (!isset($_SESSION['user_id'])) {
     $_SESSION['user_id'] = session_id();
 }
 
-echo $_SESSION['user_id'] . "<br>";
 
-// 1. Get Data from URL
-$id = $_GET['id'] ?? null;
-$table_to_display = $_GET['table'] ?? null;
-$menu_item = $_GET['menu_item'] ?? null;
-$price = $_GET['price'] ?? null;
-$image_link = $GET['image_link'] ?? null;
+echo  $_SESSION['user_id'];
 
-
-if (!$id || !$table_to_display) {
+if (!isset($_GET['id']) || !isset($_GET['table'])) {
     echo "No item ID or table provided.";
     exit;
 }
 
-// Debug: Check received GET data
-echo "<pre>GET Data:\n";
+// $id = $_GET['id'];
+// $table_to_display = $_GET['table'];
+
+// $menu_item = $_GET['menu_item'] ?? '%';
+// $price = $_GET['price'] ?? '%';
+
+$id = $_GET['id'] ?? null;
+$table_to_display = $_GET['table'] ?? null;
+$menu_item = $_GET['menu_item'] ?? null;
+$price = $_GET['price'] ?? null;
+
+$item_name = $_GET['item_name'];
+$item_price = $_GET['item_price'];
+
+echo "<pre>";
 print_r($_GET);
 echo "</pre>";
 
-// 2. Customization Table Mapping
+$item_query = "SELECT * FROM $table_to_display WHERE id = ?";
+$statement = $connection->prepare($item_query);
+$statement->bind_param('i', $id);
+$statement->execute();
+$item_result = $statement->get_result();
+$item = $item_result->fetch_assoc();
+$statement->close();
+
+if (!$item) {
+    echo "Item not found.";
+    exit;
+}
+
 $customization_tables_map = [
     'sandwiches' => ['bread', 'protein', 'condiments'],
     'cheesesteaks' => ['cheesesteak_bread'],
@@ -35,21 +53,13 @@ $customization_tables_map = [
     'drinks' => ['drink_option']
 ];
 
-// 3. Fetch Customization Options from Mapped Tables
 $customizations = [];
 
 if (isset($customization_tables_map[$table_to_display])) {
     foreach ($customization_tables_map[$table_to_display] as $custom_table) {
-        
-        // Ensure we are querying a valid table
-        echo "Querying customization table: " . htmlspecialchars($custom_table) . "<br>";
-
-        // Query customization options
-        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name = ? OR item_price = ?";
+        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name = ? OR item_price = ? ";
         $statement = $connection->prepare($query);
-        
-        // Ensure proper data types: id (integer), menu_item (string), price (double)
-        $statement->bind_param('isd', $id, $menu_item, $item_price);
+        $statement->bind_param('isd', $id, $item_name, $item_price);
         $statement->execute();
         $result = $statement->get_result();
 
@@ -60,13 +70,14 @@ if (isset($customization_tables_map[$table_to_display])) {
     }
 }
 
-// Debug: Print Retrieved Customization Data
-echo "<pre>Customization Data:\n";
-print_r($customizations);
+echo "<pre>";
+print_r($custom_table);
 echo "</pre>";
 
-?>
 
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -74,7 +85,7 @@ echo "</pre>";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $menu_item ?? 'Item Detail' ?></title>
+    <title><?= $item['menu_item'] ?? 'Item Detail' ?></title>
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/step2.css">
 </head>
@@ -88,10 +99,10 @@ echo "</pre>";
         </nav>
 
         <div class="content">
-            <img class="hero-image" src="images/menu-item/<?= $item['image_link']?>" alt="<?= $menu_item?>">
+            <img class="hero-image" src="images/menu-item/<?= $item['image_link']?>" alt="<?= $item['menu_item']?>">
             <div class="description-container">
                 <div class="description">
-                    <h2><?= $menu_item ?? 'No name available'?></h2>
+                    <h2><?= $item['menu_item'] ?? 'No name available'?></h2>
                     <h2> $<?= $item['price'] ?? '0.00' ?></h2>
                 </div>
             </div>
