@@ -15,7 +15,7 @@
     <div class="screen-container">
 
         <nav>
-            <h1>Menu</h1>
+            <h1>MENU</h1>
             <a href="bag.php">
                 <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
             </a>
@@ -25,30 +25,30 @@
         <div class="filter-bar">
             <div class="filter">
                 <a href="#sandwiches" class="heading-4">
-                    Sandwiches
+                    SANDWICHES
                 </a>
             </div>
 
             <div class="filter">
                 <a href="#cheese-steak" class="heading-4">
-                    Cheese Steaks
+                    CHEESE STEAKS
                 </a>
             </div>
 
             <div class="filter">
             <a href="#salads" class="heading-4">
-                    Salads
+                    SALADS
                 </a>
             </div>
 
             <div class="filter">
             <a href="#pastries" class="heading-4">
-                    Pastries
+                    PASTRIES
                 </a>
             </div>
             <div class="filter">
             <a href="#drinks" class="heading-4">
-                    Drinks
+                    DRINKS
                 </a>
             </div>
         </div>
