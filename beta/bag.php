@@ -186,9 +186,39 @@
     
         </div>  
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let decrementBtns = document.querySelectorAll(".button-count:first-of-type");
+            let incrementBtns = document.querySelectorAll(".button-count:last-of-type");
+            let quantityInputs = document.querySelectorAll(".number-product");
 
-    <script src="js/button.js"></script>
-    
+            function updateButtons(input, decrementBtn) {
+                decrementBtn.disabled = parseInt(input.value) <= 1;
+            }
+
+            incrementBtns.forEach((btn, index) => {
+                btn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    quantityInputs[index].value = parseInt(quantityInputs[index].value) + 1;
+                    updateButtons(quantityInputs[index], decrementBtns[index]);
+                });
+            });
+
+            decrementBtns.forEach((btn, index) => {
+                btn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    if (parseInt(quantityInputs[index].value) > 1) {
+                        quantityInputs[index].value = parseInt(quantityInputs[index].value) - 1;
+                    }
+                    updateButtons(quantityInputs[index], decrementBtns[index]);
+                });
+            });
+
+            // Initialize button states
+            quantityInputs.forEach((input, index) => updateButtons(input, decrementBtns[index]));
+        });
+    </script>  
+    <!-- <script src="js/button.js"></script> -->
     
 </body>
 </html>
