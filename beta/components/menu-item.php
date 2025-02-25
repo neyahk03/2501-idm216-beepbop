@@ -2,31 +2,31 @@
 <div class="filter-bar">
             <div class="filter">
                 <a href="#sandwiches" class="heading-4">
-                    Sandwiches
+                    SANDWICHES
                 </a>
             </div>
 
             <div class="filter">
                 <a href="#cheese-steak" class="heading-4">
-                    Cheese Steaks
+                    CHEESE STEAKS
                 </a>
             </div>
 
             <div class="filter">
             <a href="#salads" class="heading-4">
-                    Salads
+                    SALADS
                 </a>
             </div>
 
             <div class="filter">
             <a href="#pastries" class="heading-4">
-                    Pastries
+                    PASTRIES
                 </a>
             </div>
 
             <div class="filter">
             <a href="#drinks" class="heading-4">
-                    Drinks
+                    DRINKS
                 </a>
             </div>
 </div>
@@ -42,7 +42,7 @@
     
                 <div class="category" >
                     
-                    <a href="detail.html" class="item">
+                    <a href="detail.php" class="item">
                     <img src="../images/menu-item/egg-and-cheese.jpg" alt="egg and cheese">
                         <div class="description">
                             <p class="menu-title">Egg & Cheese</p>
