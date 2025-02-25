@@ -190,16 +190,16 @@
                         </div>
 
                         <div class="heart-btn">
-                            <img src="../images/icons/heart.svg" alt="heart btn">
+                            <img src="../images/icons/heart-empty.svg" alt="heart btn">
                         </div>
 
                         <!-- <div class="heart">
-    <div class='large-font text-center top-20'>
-        <ion-icon name="heart">
-        <div class='red-bg'></div>
-        </ion-icon>
-    </div>
-</div> -->
+                            <div class='large-font text-center top-20'>
+                                <ion-icon name="heart">
+                                <div class='red-bg'></div>
+                                </ion-icon>
+                            </div>
+                        </div> -->
                     </div>
 
                     <div class="subtotal">
@@ -231,39 +231,6 @@
 
     </div>
 
-    <script>
-        let decrementBtn = document.querySelector(".decrement");
-        let incrementBtn = document.querySelector(".increment");
-        let quantityInput = document.querySelector(".number-product"); // Define quantityInput
-
-        function updateButtons() {
-            decrementBtn.disabled = parseInt(quantityInput.value) <= 1;
-        }
-
-        // Increment button functionality
-        incrementBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-            updateButtons();
-        });
-
-        // Decrement button functionality
-        decrementBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            if (parseInt(quantityInput.value) > 1) {
-                quantityInput.value = parseInt(quantityInput.value) - 1;
-            }
-            updateButtons();
-        });
-
-        // Initialize button states
-        updateButtons();
-
-        /* Heart Button */
-        let icon = document.querySelector('ion-icon');
-        icon.onclick = function(){
-        icon.classList.toggle('active');
-        }
-    </script>  
+    <script src="js/button.js"></script>
 </body>
 </html>

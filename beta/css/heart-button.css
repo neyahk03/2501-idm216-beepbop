@@ -1,4 +1,4 @@
-.heart {
+/* .heart {
     text-align: center;
 }
 
@@ -9,10 +9,12 @@
 .large-font{
     font-size:xxx-large;
 }
+
 .top-20{
     position:relative;
     top:20vh;
 }
+
 ion-icon.active{
     animation:like 0.5s 1;
     fill:#C73715;
@@ -30,4 +32,15 @@ ion-icon{
     0%   { transform: scale(1); }
     90%   { transform: scale(1.2); }
     100% { transform: scale(1.1); }
+} */
+
+.heart-btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.heart-btn:active {
+    transform: scale(1.1);
 }
