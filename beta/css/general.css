@@ -134,6 +134,13 @@ nav {
 
 }
 
+.bottom-nav .icon-container.active img {
+    background-color: var(--brown);
+    border-radius: 50%; 
+    padding: 5px;
+}
+
+
 .label {
     margin: 0;
     font-family: var(--main-font);
