@@ -16,9 +16,11 @@ if (!isset($_SESSION['cart'])) {
 }
 
 
+
 // echo '<pre>';
 // print_r($_SESSION['cart']);
 // echo '</pre>';
+
 
 // Get the item index from URL
 $index = isset($_GET['index']) ? intval($_GET['index']) : -1;
@@ -26,6 +28,7 @@ $index = isset($_GET['index']) ? intval($_GET['index']) : -1;
 // Check if index exists in cart
 if ($index >= 0 && $index < count($_SESSION['cart'])) {
     $item = $_SESSION['cart'][$index];
+
 
     echo '<pre>';
     print_r($item); 
@@ -42,9 +45,12 @@ if ($index >= 0 && $index < count($_SESSION['cart'])) {
     
 
 
+
+
 } else {
     echo "Invalid item.";
 }
+
 
 $query = "SELECT menu_item, price, image_link FROM `$main_table` WHERE id = ?";
 $statement = $connection->prepare($query);
@@ -101,6 +107,7 @@ if (isset($customization_tables_map[$main_table])) {
 
 $connection->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -228,3 +235,4 @@ $connection->close();
 
 </body>
 </html>
+
