@@ -86,6 +86,13 @@ nav {
         width: 33px;
     }
 
+    button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin: 0;
+    }
+
 }
 
 
@@ -159,7 +166,5 @@ h4, .heading-4{
 }
 
 h4:visited, .heading-4:visited {
-    colo
-    
-    r: white;
+    color: white;
 }

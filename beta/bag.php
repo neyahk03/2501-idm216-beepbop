@@ -181,7 +181,7 @@
                     <h2>$6.00</h2>
                 </div>
         
-                <button class="filled-button" onclick="gotoLogIn()">LOG IN TO CONTINUE</button>
+                <button class="filled-button" onclick="gotoPayment()">PROCEED TO CHECK OUT</button>
     
     
         </div>  

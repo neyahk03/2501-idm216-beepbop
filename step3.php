@@ -49,7 +49,6 @@ foreach ($_POST as $key => $value) {
     }
 }
 
-echo "table of the item" . $selected_table . "<br>";
 
 
 // Check if the item already exists in the cart (same item, same customizations)
@@ -58,8 +57,19 @@ foreach ($_SESSION['cart'] as &$cart_item) {
     if (!isset($cart_item['id'])) continue; 
 
     if ($cart_item['id'] === $item_id && $cart_item['customizations'] == $customizations) {
-        $cart_item['quantity'] += $quantity;
-        $cart_item['subtotal'] = $cart_item['price'] * $cart_item['quantity'];;
+
+        // for edit item
+        if (isset($_POST['update']) && $_POST['update'] == 1) {
+            $cart_item['quantity'] = $quantity;
+            $cart_item['note'] = $note; // Ensure note updates
+        } else {
+            // for add new item
+            $cart_item['quantity'] += $quantity;
+        }
+
+        // Recalculate subtotal
+        $cart_item['subtotal'] = $cart_item['price'] * $cart_item['quantity'];
+
         $found = true;
         break;
     }
@@ -79,7 +89,10 @@ if (!$found && !empty($menu_item)) {
     ];
 }
 
+echo "<pre>";
 print_r($_SESSION['cart']);
+echo "</pre>";
+
 
 // Remove empty or invalid items from the cart
 $_SESSION['cart'] = array_filter($_SESSION['cart'], function ($item) {
@@ -149,12 +162,12 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
                     <td>
                         <!-- edit button -->
 
-                        <a href="edit-2.php?index=<?php echo $index; ?>">New edit button</a>
+                        <a href="edit-2.php?index=<?php echo $index; ?>">Edit</a>
 
-                        <form action="edit-2.php" method="GET">
+                        <!-- <form action="edit-2.php" method="GET">
                             <input type="hidden" name="index" value="<?= $index ?>">
-                           
-                            
+                                                
+
                             <?php foreach ($item['customizations'] as $category => $choices) : ?>
                                 <?php if (is_array($choices)) : ?>
                                     <?php foreach ($choices as $choice) : ?>
@@ -166,7 +179,8 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
                             <?php endforeach; ?>
 
                             <button type="submit">Edit</button>
-                        </form>
+
+                        </form> -->
 
 
 
