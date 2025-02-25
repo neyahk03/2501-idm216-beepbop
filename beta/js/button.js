@@ -22,6 +22,10 @@ function gotoLogIn() {
     window.location.href = "log-in.html"
 }
 
+function gotoMenu() {
+    window.location.href = "menu.php"
+}
+
 function gotoPayment() {
     window.location.href = "payment-1.html"
 }
