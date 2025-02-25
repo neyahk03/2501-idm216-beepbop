@@ -62,7 +62,7 @@ foreach ($_SESSION['cart'] as &$cart_item) {
             $cart_item['quantity'] = $quantity;
             $cart_item['note'] = $note; // Ensure note updates
         } else {
-            // for add new item
+            // Otherwise, just add to the existing quantity
             $cart_item['quantity'] += $quantity;
         }
 

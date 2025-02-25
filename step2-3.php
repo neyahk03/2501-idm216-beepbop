@@ -131,7 +131,7 @@ if (isset($customization_tables_map[$table_to_display])) {
                     <input type="hidden" name="id" value="<?= $item_id ?>">
                     <!-- <input type="hidden" name="image_link" value="<?= $image_link ?>"> -->
                     <input type="hidden" name="main_table" value="<?= $item_table ?>">
-                    <input type="hidden" name="update" value="1">
+                    
                     <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
                     <input type="hidden" name="item_price" value="<?= $price?>">
                     <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">

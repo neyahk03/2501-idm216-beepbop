@@ -141,8 +141,10 @@ $connection->close();
 
                 <form action="step3.php" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
-                    <input type="hidden" name="index" value="<?= $index ?>">
-                    <input type="hidden" name="main_table" value="<?= $item_table ?>">
+                    <input type="hidden" name="index" value="<?= $index; ?>"> 
+
+                    <input type="hidden" name="main_table" value="<?= $main_table ?>">
+                    <input type="hidden" name="update" value="1">
                     <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
                     <input type="hidden" name="item_price" value="<?= $price?>">
                     <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
@@ -219,25 +221,6 @@ $connection->close();
 
 
 </div>
-
-
-<form action="update_cart.php" method="post">
-    <input type="hidden" name="index" value="<?php echo $index; ?>">
-    
-    <label>Menu Item:</label>
-    <input type="text" name="menu_item" value="<?php echo htmlspecialchars($item['menu_item']); ?>"><br>
-
-    <label>Quantity:</label>
-    <input type="number" name="quantity" value="<?php echo $item['quantity']; ?>"><br>
-
-    <label>Note:</label>
-    <textarea name="note"><?php echo htmlspecialchars($item['note']); ?></textarea><br>
-
-    <label>Table:</label>
-    <input type="text" name="main_table" value="<?php echo htmlspecialchars($item['main_table']); ?>"><br>
-
-    <input type="submit" value="Update">
-</form>
 
 <script src="js/step.js"></script>
 
