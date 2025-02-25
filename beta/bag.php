@@ -48,7 +48,7 @@
                             </div>
                             
                             <p>Bagel, Bacon, Salt + Pepper...</p>
-                            <p><strong>Notes</strong>:no cheese</p>
+                            <p><strong>Notes</strong>: no cheese</p>
                         </div>
 
                         <div class="actions">
@@ -218,7 +218,8 @@
             quantityInputs.forEach((input, index) => updateButtons(input, decrementBtns[index]));
         });
     </script>  
-    <!-- <script src="js/button.js"></script> -->
+    <script src="js/button.js"></script>
+
     
 </body>
 </html>
