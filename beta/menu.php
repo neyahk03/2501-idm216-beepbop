@@ -20,37 +20,20 @@
             </a>
         </nav>
 
-        <div class="filter-bar">
-            <div class="filter">
-                <a href="#sandwiches" class="heading-4">
-                    SANDWICHES
-                </a>
-            </div>
+        <!-- <div class="filter-bar">
+        <a class="test heading-4 filter" href="#sandwiches">SANDWICHES</a>
 
-            <div class="filter">
-                <a href="#cheesesteaks" class="heading-4">
-                    CHEESE STEAKS
-                </a>
-            </div>
+        <a class="test heading-4 filter" href="#cheese-steak">CHEESESTEAKS</a>
 
-            <div class="filter">
-            <a href="#salads" class="heading-4">
-                    SALADS
-                </a>
-            </div>
+        <a class="test heading-4 filter" href="#salads">SALADS</a>
 
-            <div class="filter">
-            <a href="#pastries" class="heading-4">
-                    PASTRIES
-                </a>
-            </div>
-            <div class="filter">
-            <a href="#drinks" class="heading-4">
-                    DRINKS
-                </a>
-            </div>
-        </div>
 
+        <a class="test heading-4 filter" href="#pastries">PATRIES</a>
+
+        <a class="test heading-4 filter" href="#drinks">DRINKS</a>
+        </div> -->
+
+        
         
 
 
@@ -83,6 +66,7 @@
     </div>
 
     <script src="js/scroll.js"></script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const navItems = document.querySelectorAll(".bottom-nav .icon-container");

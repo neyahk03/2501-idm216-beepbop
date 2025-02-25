@@ -41,7 +41,7 @@ $customizations = [];
 
 if (isset($customization_tables_map[$table_to_display])) {
     foreach ($customization_tables_map[$table_to_display] as $custom_table) {
-        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name LIKE ? OR price LIKE ?";
+        $query = "SELECT * FROM $custom_table WHERE item_id = ? OR item_name LIKE ? OR item_price LIKE ?";
         $statement = $connection->prepare($query);
         $statement->bind_param('isd', $id, $item_name, $price);
         $statement->execute();
@@ -55,7 +55,6 @@ if (isset($customization_tables_map[$table_to_display])) {
     }
 }
 
-$customizations as $custom_table => $options
 
 ?>
 
@@ -88,7 +87,7 @@ $customizations as $custom_table => $options
 
         <div class="content">
 
-            <img class="hero-image" src="../images/menu-item/<?= $item['image_link']?>" alt="<?= $item['item_name']?>">
+            <img class="hero-image" src="../images/menu-item/<?= $item['image_link']?>" alt="<?= $item['menu_item']?>">
     
             <div class="description-container">
                 <div class="description">

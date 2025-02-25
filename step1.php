@@ -7,7 +7,6 @@ if (!isset($_SESSION['guest_id'])) {
     exit();
 }
 
-echo "ID: ". $_SESSION['guest_id'] . "<br>";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -49,6 +48,7 @@ foreach ($tables as $table) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step 1</title>
     <link rel="stylesheet" href="css/step1.css">
+    <link rel="stylesheet" href="css/filter-bar.css">
 </head>
 <body>
 
@@ -60,52 +60,95 @@ foreach ($tables as $table) {
 
 <div class="menu-container">
 
-    <a href="step3.php">View cart</a>
+    <nav>
 
-    <?php foreach ($results as $table => $rows): ?>
-        <?php if (in_array($table, $tables_to_display)): ?>
+        <a href="step3.php">View cart</a>
+    </nav>
 
-            <?php 
-                
-                $category_id = strtolower(str_replace(' ', '-', $table)); 
-            ?>
-
-
-            <div class="title">
-                <div class="line"></div>
-                <h2 id="<?= htmlspecialchars($category_id); ?>">
-                    <?= ucfirst(str_replace('_', ' ', $table)); ?>
-                </h2>
-                <div class="line"></div>
+    <div class="filter-bar">
+            <div class="filter">
+                <a href="#sandwiches" class="heading-4">
+                    SANDWICHES
+                </a>
             </div>
+
+            <div class="filter">
+                <a href="#cheesesteaks" class="heading-4">
+                    CHEESE STEAKS
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#salads" class="heading-4">
+                    SALADS
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#pastries" class="heading-4">
+                    PASTRIES
+                </a>
+            </div>
+
+            <div class="filter">
+            <a href="#drinks" class="heading-4">
+                    DRINKS
+                </a>
+            </div>
+    </div>
+
+    <div class="menu">
+
+        <?php foreach ($results as $table => $rows): ?>
+            <?php if (in_array($table, $tables_to_display)): ?>
+    
+                <?php 
                     
-            <?php if (!empty($rows)): ?>
-                
-                <div class="category">
-                    <?php foreach ($rows as $row): ?>
-
-                        
-                        <a href="step2-3.php?id=<?= $row['id']; ?>&table=<?= $table; ?>&menu_item=<?= urlencode($row['menu_item']); ?>" class="item">
-
-
-
-                                <!-- <img src="images/menu-item/<?= $row['image_link']?>" alt=""> -->
-
-                                <div class="description">
-                                    <p class="menu-title"><?= htmlspecialchars($row['menu_item']); ?></p>
-                                    <p class="price">$<?= number_format($row['price'] ?? 0, 2); ?></p>
-                                </div>
-                            
-                        </a>
-                    <?php endforeach; ?>
+                    $category_id = strtolower(str_replace(' ', '-', $table)); 
+                ?>
+    
+    
+                <div class="title">
+                    <div class="line"></div>
+                    <h2 id="<?= htmlspecialchars($category_id); ?>">
+                        <?= ucfirst(str_replace('_', ' ', $table)); ?>
+                    </h2>
+                    <div class="line"></div>
                 </div>
-            <?php else: ?>
-                <p>No records found.</p>
+                        
+                <?php if (!empty($rows)): ?>
+                    
+                    <div class="category">
+                        <?php foreach ($rows as $row): ?>
+    
+                            
+                            <a href="step2-3.php?id=<?= $row['id']; ?>&table=<?= $table; ?>&menu_item=<?= urlencode($row['menu_item']); ?>" class="item">
+    
+    
+    
+                                    <!-- <img src="images/menu-item/<?= $row['image_link']?>" alt=""> -->
+    
+                                    <div class="description">
+                                        <p class="menu-title"><?= htmlspecialchars($row['menu_item']); ?></p>
+                                        <p class="price">$<?= number_format($row['price'] ?? 0, 2); ?></p>
+                                    </div>
+                                
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <p>No records found.</p>
+                <?php endif; ?>
+            
             <?php endif; ?>
-        
-        <?php endif; ?>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+
+    </div>
+    
+
 </div>
+
+<?php echo "ID: ". $_SESSION['guest_id'] . "<br>"; ?>
 
 <script src="js/step.js"></script>
 

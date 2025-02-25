@@ -2,10 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-.filter-bar::-webkit-scrollbar {
-    display: none;
-  }
-
 .filter-bar {
     scrollbar-width: none;
     width: 100%;
@@ -22,13 +18,9 @@ html {
     gap: 3.5rem;
 
     position: fixed;
+    
     transform: translateY(4.5rem);
-
-    z-index: 90;
-}
-
-#drinks{
-    scroll-behavior: smooth;
+    z-index: 1000;
 }
 
 .filter a {
@@ -60,6 +52,14 @@ html {
 
 .menu-title { 
     font: var(--main);
+}
+
+.test {
+    z-index: 1200;
+}
+
+.menu-container {
+    padding-top: 10rem;
 }
 
 
