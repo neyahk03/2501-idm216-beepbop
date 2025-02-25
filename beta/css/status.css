@@ -47,6 +47,9 @@ h2, h4 {
     color: black;
 }
 
+.estimated-time {
+    margin-bottom: 2rem;
+}
 .progress-bar {
     display: flex;
     gap: 0.5rem;
@@ -62,6 +65,22 @@ h2, h4 {
         background-color: var(--light-yellow);
     }
 }
+
+.status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px; 
+}
+
+
+.status div {
+    width: 50px; /* Adjust as needed */
+    height: 10px; /* Ensure visibility */
+    background-color: lightgray; /* Just for visibility, remove if not needed */
+}
+
 
 .total-container {
     display: flex;

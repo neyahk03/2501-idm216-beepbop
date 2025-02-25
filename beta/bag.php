@@ -47,14 +47,14 @@
                                 <p class="price">$7.00</p>
                             </div>
                             
-                            <p>Bagel, Bacon, Salt + Pepper, 
-                            Ketchup</p>
+                            <p>Bagel, Bacon, Salt + Pepper...</p>
+                            <p><strong>Notes</strong>:no cheese</p>
                         </div>
 
                         <div class="actions">
 
                             <div class="button-container">
-                                <a href="#" class="edit-button">
+                                <a href="detail.html" class="edit-button">
                                     
                                     <img src="../images/icons/edit.svg" alt="edit icon">
                                 </a>

@@ -15,7 +15,7 @@
     margin: 0 auto;
     flex-wrap: nowrap;
 
-    font-family: var(--menu-font);
+    font-family: var(--main-font);
 
     p {
         text-align: left;
@@ -40,6 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: var(--main-font);
 
     h3 {
         font-weight: 700;
