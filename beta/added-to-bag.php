@@ -30,7 +30,7 @@
             </div>
 
             <div class="filter">
-                <a href="#cheese-steak" class="heading-4">
+                <a href="#cheesesteaks" class="heading-4">
                     CHEESE STEAKS
                 </a>
             </div>
@@ -84,7 +84,29 @@
 
     </div>
 
-    <script src="js/scripts.js"></script>
+    <script src="js/scroll.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navItems = document.querySelectorAll(".bottom-nav .icon-container");
+    
+            navItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    // Remove active class from all items
+                    navItems.forEach(nav => nav.classList.remove("active"));
+    
+                    // Add active class to the clicked item
+                    this.classList.add("active");
+                });
+            });
+    
+            // Optional: Maintain active state based on current URL
+            navItems.forEach(item => {
+                if (item.href === window.location.href) {
+                    item.classList.add("active");
+                }
+            });
+        });
+    </script>
     
 </body>
 
