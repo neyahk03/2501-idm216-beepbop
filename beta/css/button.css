@@ -61,6 +61,7 @@ button + button {
 
 /* no fill button style */
 .nofill-button {
+    margin-top: 5rem;
     width: 23.5rem;
     height: 3.5rem;
     background-color: white; 
