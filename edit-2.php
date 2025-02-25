@@ -146,7 +146,7 @@ $connection->close();
                 }
                 ?>
 
-                <form action="step3.php" method="POST">
+                <form action="update_cart.php" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <input type="hidden" name="index" value="<?= $index; ?>"> 
 
