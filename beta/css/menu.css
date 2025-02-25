@@ -19,7 +19,7 @@ html {
     align-items: center;
 
     display: flex;
-    gap: 2.5rem;
+    gap: 3.5rem;
 
     position: fixed;
     transform: translateY(4.5rem);
@@ -58,6 +58,9 @@ html {
     font-weight: bold;
 }
 
+.menu-title { 
+    font: var(--main-font);
+}
 
 
 

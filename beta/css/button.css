@@ -33,6 +33,31 @@ button + button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.signup-button {
+    width: 100%;
+    max-width: 23.5rem;
+    height: 3.5rem;
+    background-color: var(--yellow-bg);
+    color: var(--brown);
+    border: none;
+    border-radius: 0.5rem;
+    border: 3px solid var(--brown);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.signup-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 /* no fill button style */
 .nofill-button {

@@ -4,7 +4,6 @@
     margin-bottom: 12rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
     overflow-x: hidden;
 }
@@ -28,6 +27,7 @@
 .fav-container {
     display: flex;
     gap: 2rem;
+    margin-bottom: 2rem;
     
 
     overflow-x: scroll;
@@ -54,10 +54,11 @@
 }
 
 .location-container{
+    background-color: var(--light-yellow);
     padding: 0 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: .5rem;
 
     h4 {
         margin-bottom: 0.25rem;
@@ -90,8 +91,9 @@
 
 .CTA h1 {
     text-align: center;
+    font-size: 1.75;
     margin-top: 2rem;
-    margin-bottom: .38rem;
+    margin-bottom: 2rem;
 }
 
 .CTA img {
@@ -102,11 +104,11 @@
 }
 
 .login-button {
-    width: 376px;
-    height: 56px;
-    background-color: #470D01;
-    color: #FFFFFF;
-    border: none;
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: white;
+    color: var(--brown);
+    border: 3px solid var(--brown);
     border-radius: 8px;
     font-size: 1rem;
     font-family: "Montserrat", sans-serif;
@@ -133,5 +135,19 @@ a {
 }
 
 .map {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+
+h3 {
     margin-top: 2rem;
+    font-size: 1.25rem;
+}
+
+.help {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }

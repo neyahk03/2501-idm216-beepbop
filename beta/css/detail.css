@@ -46,23 +46,24 @@ h2,p {
 }
 
 .subtotal {
-    margin: 1rem 0;
+    margin: 0 0 .5rem 0;
 }
 
 .option {
     background-color: white;
     color: black;
     border-radius: 1rem;
-    border: solid 3px black;
-    padding: 1rem;
-    
+    border: solid 3px var(--bg-yellow);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
 
     label {
         text-transform: capitalize;
     }
+}
+
+.option-title { 
+    margin: 1rem;
 }
 
 .option h2 {
@@ -85,7 +86,7 @@ br {
 
 .note {
     margin-top: 0.5rem;
-    border: 1px solid var(--red);
+    border: 3px solid var(--red);
     border-radius: 1rem;
     height: 9rem;
     padding: 0.5rem 0.75rem;
@@ -113,8 +114,7 @@ br {
 }
 
 .fav-container {
-    /* height: 2.5rem; */
-    padding: 0.5rem;
+    margin: 2.5rem 0rem 0rem 0rem;
 
     display: flex;
     justify-content: space-between;
@@ -156,5 +156,20 @@ button {
 
 }
 
+.line {
+    margin: 0;
+}
+
+.bread-option {
+   margin: 1rem;
+}
+
+.protein-option {
+    margin: 1rem;
+}
+
+.condiment-option {
+    margin: 1rem;
+}
 
 

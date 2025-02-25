@@ -14,3 +14,4 @@ document.querySelectorAll('.filter a').forEach(link => {
         }
     });
 });
+
