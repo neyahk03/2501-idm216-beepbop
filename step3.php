@@ -18,7 +18,6 @@ if (!isset($_SESSION['cart'])) {
 // Retrieve form data from `step2.php`
 $item_id = $_POST['id'] ?? '';
 $main_table = $_POST['main_table'] ?? null;
-$image_link = $_POST['image_link'] ?? '';
 $menu_item = $_POST['menu_item'] ?? '';
 $price = floatval($_POST['item_price'] ?? 0.00);
 $subtotal = floatval($_POST['subtotal'] ?? $price);
@@ -52,28 +51,29 @@ foreach ($_POST as $key => $value) {
 
 
 // Check if the item already exists in the cart (same item, same customizations)
+
+ksort($customizations);
+
+
 $found = false;
 foreach ($_SESSION['cart'] as &$cart_item) {
-    if (!isset($cart_item['id'])) continue; 
+    if (!isset($cart_item['id'])) continue;
 
-    if ($cart_item['id'] === $item_id && $cart_item['customizations'] == $customizations) {
-
-        // for edit item
-        if (isset($_POST['update']) && $_POST['update'] == 1) {
-            $cart_item['quantity'] = $quantity;
-            $cart_item['note'] = $note; 
-        } else {
-            // Otherwise, just add to the existing quantity
-            $cart_item['quantity'] += $quantity;
-        }
-
-        // Recalculate subtotal
+    if (
+        $cart_item['id'] === $item_id &&
+        $cart_item['main_table'] === $main_table &&
+        $cart_item['menu_item'] === $menu_item &&
+        $cart_item['customizations'] === $customizations &&
+        $cart_item['note'] === $note
+    ) {
+        // If item exists, increase quantity
+        $cart_item['quantity'] += $quantity;
         $cart_item['subtotal'] = $cart_item['price'] * $cart_item['quantity'];
-
         $found = true;
         break;
     }
 }
+
 
 // If item is new, add it to the cart
 if (!$found && !empty($menu_item)) {
@@ -89,9 +89,9 @@ if (!$found && !empty($menu_item)) {
     ];
 }
 
-echo "<pre>";
-print_r($_SESSION['cart']);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_SESSION['cart']);
+// echo "</pre>";
 
 
 // Remove empty or invalid items from the cart
@@ -102,6 +102,10 @@ $_SESSION['cart'] = array_filter($_SESSION['cart'], function ($item) {
 // Calculate bag subtotal
 $bag_subtotal = array_reduce($_SESSION['cart'], fn($total, $item) => $total + floatval($item['subtotal']), 0);
 $_SESSION['bag_subtotal'] = $bag_subtotal;
+
+$tax = $bag_subtotal * 0.06;
+$total = $bag_subtotal + $tax;
+
 
 ?>
 
@@ -164,32 +168,12 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
 
                         <a href="edit-2.php?index=<?php echo $index; ?>">Edit</a>
 
-                        <!-- <form action="edit-2.php" method="GET">
-                            <input type="hidden" name="index" value="<?= $index ?>">
-                                                
-
-                            <?php foreach ($item['customizations'] as $category => $choices) : ?>
-                                <?php if (is_array($choices)) : ?>
-                                    <?php foreach ($choices as $choice) : ?>
-                                        <input type="hidden" name="<?= htmlspecialchars($category) ?>[]" value="<?= htmlspecialchars($choice) ?>">
-                                    <?php endforeach; ?>
-                                <?php else : ?>
-                                    <input type="hidden" name="<?= htmlspecialchars($category) ?>" value="<?= htmlspecialchars($choices) ?>">
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-
-                            <button type="submit">Edit</button>
-
-                        </form> -->
-
-
-
-
                         <!-- remove button -->
                         <form action="remove_item.php" method="POST">
                             <input type="hidden" name="index" value="<?= $index ?>">
                             <button type="submit">Remove</button>
                         </form>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -198,12 +182,18 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
 
     <?php if (!empty($_SESSION['cart'])) : ?>
         <h3>Subtotal: $<?= number_format($bag_subtotal, 2) ?></h3>
+        <p>Tax: $ <?= number_format($tax, 2) ?></p>
+        <h2>Total: $ <?= number_format($total, 2) ?></h2>
     <?php endif; ?>
 
     <br>
     <a href="step1.php">Add More Items</a>
     <br>
     <a href="clear_cart.php">Clear Cart</a>
+
+    <br>
+
+
 
 </body>
 </html>
