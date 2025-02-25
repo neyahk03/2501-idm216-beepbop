@@ -59,6 +59,9 @@ foreach ($tables as $table) {
 
 
 <div class="menu-container">
+
+    <a href="step3.php">View cart</a>
+
     <?php foreach ($results as $table => $rows): ?>
         <?php if (in_array($table, $tables_to_display)): ?>
 

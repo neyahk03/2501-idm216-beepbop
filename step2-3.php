@@ -10,6 +10,7 @@ if (!isset($_SESSION['guest_id'])) {
 echo "ID: ". $_SESSION['guest_id'] . "<br>";
 
 
+
 // data from the url
 $id = $_GET['id'] ?? null;
 $table_to_display = $_GET['table'] ?? null;
@@ -20,6 +21,7 @@ if (!$id || !$table_to_display) {
 }
 
 $item_table = $table_to_display;
+
 
 $query = "SELECT menu_item, price, image_link FROM $item_table WHERE id = ?";
 $statement = $connection->prepare($query);
@@ -34,7 +36,7 @@ $menu_item = $item['menu_item'] ?? 'Unknown Item';
 $price = $item['price'] ?? 0.00;
 $image_link = $item['image_link'] ?? 'default-image.jpg';
 
-echo "<p>Table: " . htmlspecialchars($item_table) . "</p>";
+echo "<p>Table: " . $item_table . "</p>";
 echo "<p>Item Name: " . htmlspecialchars($menu_item) . "</p>";
 echo "<p>Item Price: $" . htmlspecialchars(number_format($price, 2)) . "</p>";
 echo "<p>Image Link: " . htmlspecialchars($image_link) . "</p>";
@@ -44,8 +46,11 @@ echo "<p>Image Link: " . htmlspecialchars($image_link) . "</p>";
 // print_r($_GET);
 // echo "</pre>";
 
+$item_id = $_GET['id'] ?? '%';
 $item_name = $_GET['item_name'] ?? '%';
 $item_price = $_GET['item_price'] ?? '%';
+
+echo $item_id;
 
 //  Define the main tables and their corresponding customization tables
 $customization_tables_map = [
@@ -61,9 +66,9 @@ $customizations = [];
 
 if (isset($customization_tables_map[$table_to_display])) {
     foreach ($customization_tables_map[$table_to_display] as $custom_table) {
-        $query = "SELECT * FROM $custom_table WHERE id = ? OR item_name LIKE ? OR item_price LIKE ?";
+        $query = "SELECT * FROM $custom_table WHERE item_id = ? OR item_name LIKE ? OR item_price LIKE ?";
         $statement = $connection->prepare($query);
-        $statement->bind_param('isd', $id, $item_name, $item_price);
+        $statement->bind_param('isd', $item_id, $item_name, $item_price);
         $statement->execute();
         $result = $statement->get_result();
 
@@ -81,6 +86,8 @@ if (isset($customization_tables_map[$table_to_display])) {
 // echo "<pre>Customization Data:\n";
 // print_r($customizations);
 // echo "</pre>";
+
+
 
 ?>
 
@@ -114,10 +121,16 @@ if (isset($customization_tables_map[$table_to_display])) {
             </div>
             
             <div class="option-container">
-                
+            <?php
+                if (!isset($item_id)) {
+                    echo "Warning: \$item_id is not set!";
+                }
+                ?>
+
                 <form action="step3.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <input type="hidden" name="table" value="<?= $table_to_display ?>">
+                    <input type="hidden" name="id" value="<?= $item_id ?>">
+                    <!-- <input type="hidden" name="image_link" value="<?= $image_link ?>"> -->
+                    <input type="hidden" name="main_table" value="<?= $item_table ?>">
                     <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
                     <input type="hidden" name="item_price" value="<?= $price?>">
                     <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
@@ -170,8 +183,11 @@ if (isset($customization_tables_map[$table_to_display])) {
 
                     <textarea class="note" id="note" name="note" placeholder="Add a note"></textarea>
 
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                    <div class="product-count">
+                        <button class="button-count decrement" disabled>-</button>
+                        <input type="text" name="quantity" readonly class="number-product" value="1">
+                        <button class="button-count increment">+</button>
+                    </div>
 
                     <h2>Total: $<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>"><?= number_format($price, 2) ?></span></h2>
 
@@ -185,29 +201,8 @@ if (isset($customization_tables_map[$table_to_display])) {
         </div>
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    let basePrice = parseFloat(document.getElementById("subtotal").dataset.basePrice);
-    let subtotalElement = document.getElementById("subtotal");
-    let subtotalInput = document.getElementById("subtotal_input");
 
-    function updateSubtotal() {
-        let total = basePrice;
-        document.querySelectorAll("input[type='checkbox']:checked, input[type='radio']:checked").forEach(input => {
-            let optionPrice = parseFloat(input.getAttribute("data-price")) || 0;
-            total += optionPrice;
-        });
-
-        subtotalElement.textContent = total.toFixed(2);
-        subtotalInput.value = total.toFixed(2);  // Store updated subtotal in the hidden input
-    }
-
-    document.querySelectorAll("input[type='checkbox'], input[type='radio']").forEach(input => {
-        input.addEventListener("change", updateSubtotal);
-    });
-});
-
-    </script>
+    <script src="js/step.js"></script>
 
 </body>
 </html>

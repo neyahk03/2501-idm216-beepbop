@@ -6,71 +6,89 @@ if (!isset($_SESSION['guest_id'])) {
     exit();
 }
 
+echo "ID: ". $_SESSION['guest_id'] . "<br>";
+
+
 // Ensure the cart exists in session
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
+
 // Retrieve form data from `step2.php`
-$id = $_POST['id'] ?? '';
-$table = $_POST['table_to_display'] ?? null;
+$item_id = $_POST['id'] ?? '';
+$main_table = $_POST['main_table'] ?? null;
+$image_link = $_POST['image_link'] ?? '';
 $menu_item = $_POST['menu_item'] ?? '';
 $price = floatval($_POST['item_price'] ?? 0.00);
 $subtotal = floatval($_POST['subtotal'] ?? $price);
 $note = $_POST['note'] ?? '';
 $quantity = intval($_POST['quantity'] ?? 1);
 
-// Retrieve selected customizations
+
+
+$selected_table = null;
 $customizations = [];
+
 foreach ($_POST as $key => $value) {
+    if ($key === 'main_table') {
+        $selected_table = $value;
+        continue;
+    }
+
     if (is_array($value)) {
-        $customizations[$key] = $value; // Multiple selections (checkbox)
-    } elseif (!in_array($key, ['id', 'table_to_display', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity'])) {
-        $customizations[$key] = $value; // Single selection (radio)
+        // Checkbox selections (filter out numeric values)
+        $filtered_values = array_filter($value, fn($v) => !is_numeric($v));
+        if (!empty($filtered_values)) {
+            $customizations[$key] = array_values($filtered_values);
+        }
+    } elseif (!in_array($key, ['id','main_table', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity']) 
+              && strpos($key, '_price') === false && !is_numeric($value)) {
+        // Radio button or dropdown selections (excluding prices)
+        $customizations[$key] = $value;
     }
 }
+
+echo "table of the item" . $selected_table . "<br>";
+
 
 // Check if the item already exists in the cart (same item, same customizations)
 $found = false;
 foreach ($_SESSION['cart'] as &$cart_item) {
-    if ($cart_item['id'] === $id && $cart_item['customizations'] == $customizations) {
+    if (!isset($cart_item['id'])) continue; 
+
+    if ($cart_item['id'] === $item_id && $cart_item['customizations'] == $customizations) {
         $cart_item['quantity'] += $quantity;
-        $cart_item['subtotal'] += $subtotal * $quantity;
+        $cart_item['subtotal'] = $cart_item['price'] * $cart_item['quantity'];;
         $found = true;
         break;
     }
 }
 
 // If item is new, add it to the cart
-if (!empty($menu_item)) {
+if (!$found && !empty($menu_item)) {
     $_SESSION['cart'][] = [
-        'id' => $id ?: uniqid(),  // Ensure ID is never empty
-        'table' => $table ?: 'Unknown',
+        'id' => $item_id ?: uniqid(),
+        'main_table' => $selected_table ?: 'Unknown',
         'menu_item' => $menu_item,
-        'price' => $price ?: 0.00,
-        'quantity' => max($quantity, 1), // Ensure at least 1 quantity
-        'subtotal' => max($subtotal * $quantity, $price), // Ensure subtotal is valid
-        'note' => $note ?: '',
+        'price' => $price,
+        'quantity' => max($quantity, 1),
+        'subtotal' => max($subtotal, $price),
+        'note' => $note,
         'customizations' => !empty($customizations) ? $customizations : []
     ];
 }
 
+print_r($_SESSION['cart']);
 
-
+// Remove empty or invalid items from the cart
 $_SESSION['cart'] = array_filter($_SESSION['cart'], function ($item) {
     return !empty($item['menu_item']) && isset($item['quantity']) && $item['quantity'] > 0;
 });
 
-$bag_subtotal = 0;
-
-foreach ($_SESSION['cart'] as $item) {
-    if (isset($item['subtotal'])) {
-        $bag_subtotal += floatval($item['subtotal']);
-    }
-}
-
+// Calculate bag subtotal
+$bag_subtotal = array_reduce($_SESSION['cart'], fn($total, $item) => $total + floatval($item['subtotal']), 0);
 $_SESSION['bag_subtotal'] = $bag_subtotal;
-
 
 ?>
 
@@ -96,27 +114,64 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
                 <th>Customizations</th>
                 <th>Note</th>
                 <th>Subtotal</th>
-                <th>Remove</th>
+                <th>Actions</th>
             </tr>
 
             <?php foreach ($_SESSION['cart'] as $index => $item) : ?>
+
+                
                 <tr>
-                    <td><?= !empty($item['menu_item']) ? htmlspecialchars($item['menu_item']) : 'Unknown Item' ?></td>
+                    <td><?= htmlspecialchars($item['menu_item']) ?></td>
                     <td><?= htmlspecialchars($item['quantity']) ?></td>
                     <td>
-                        <?php if (!empty($item['customizations'])) : ?>
-                            <?php foreach ($item['customizations'] as $category => $choices) : ?>
-                                <strong><?= ucfirst(str_replace('_', ' ', $category)) ?>:</strong> 
-                                <?= is_array($choices) ? implode(', ', array_map('htmlspecialchars', $choices)) : htmlspecialchars($choices) ?>
-                                <br>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            No customizations
-                        <?php endif; ?>
+                    <?php 
+                        if (!empty($item['customizations']) && is_array($item['customizations'])) {
+                            $custom_choices = [];
+
+                            foreach ($item['customizations'] as $category => $choices) {
+                                
+
+                                if (is_array($choices)) {
+                                    $custom_choices = array_merge($custom_choices, array_values($choices));
+                                } else {
+                                    $custom_choices[] = $choices;
+                                }
+                            }
+
+                            echo !empty($custom_choices) ? implode(', ', array_map('htmlspecialchars', $custom_choices)) : 'No customizations';
+                        } else {
+                            echo 'No customizations';
+                        }
+                        ?>
                     </td>
                     <td><?= !empty($item['note']) ? htmlspecialchars($item['note']) : 'None' ?></td>
                     <td>$<?= number_format($item['subtotal'], 2) ?></td>
                     <td>
+                        <!-- edit button -->
+
+                        <a href="edit-2.php?index=<?php echo $index; ?>">New edit button</a>
+
+                        <form action="edit-2.php" method="GET">
+                            <input type="hidden" name="index" value="<?= $index ?>">
+                           
+                            
+                            <?php foreach ($item['customizations'] as $category => $choices) : ?>
+                                <?php if (is_array($choices)) : ?>
+                                    <?php foreach ($choices as $choice) : ?>
+                                        <input type="hidden" name="<?= htmlspecialchars($category) ?>[]" value="<?= htmlspecialchars($choice) ?>">
+                                    <?php endforeach; ?>
+                                <?php else : ?>
+                                    <input type="hidden" name="<?= htmlspecialchars($category) ?>" value="<?= htmlspecialchars($choices) ?>">
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+
+                            <button type="submit">Edit</button>
+                        </form>
+
+
+
+
+                        <!-- remove button -->
                         <form action="remove_item.php" method="POST">
                             <input type="hidden" name="index" value="<?= $index ?>">
                             <button type="submit">Remove</button>
@@ -130,9 +185,6 @@ $_SESSION['bag_subtotal'] = $bag_subtotal;
     <?php if (!empty($_SESSION['cart'])) : ?>
         <h3>Subtotal: $<?= number_format($bag_subtotal, 2) ?></h3>
     <?php endif; ?>
-
-
-
 
     <br>
     <a href="step1.php">Add More Items</a>
