@@ -30,9 +30,9 @@ if ($index >= 0 && $index < count($_SESSION['cart'])) {
     $item = $_SESSION['cart'][$index];
 
 
-    echo '<pre>';
-    print_r($item); 
-    echo '</pre';
+    // echo '<pre>';
+    // print_r($item); 
+    // echo '</pre';
 
     $id = $item['id'];
     $main_table = $item['main_table'];
@@ -221,6 +221,8 @@ $connection->close();
                     <button class="filled-button" type="submit">
                         <h4>Update Item</h4>
                     </button>
+
+                    <a href="step3.php">Cancel</a>
 
                 </form>
             </div>

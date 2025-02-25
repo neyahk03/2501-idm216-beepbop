@@ -36,10 +36,10 @@ $menu_item = $item['menu_item'] ?? 'Unknown Item';
 $price = $item['price'] ?? 0.00;
 $image_link = $item['image_link'] ?? 'default-image.jpg';
 
-echo "<p>Table: " . $item_table . "</p>";
-echo "<p>Item Name: " . htmlspecialchars($menu_item) . "</p>";
-echo "<p>Item Price: $" . htmlspecialchars(number_format($price, 2)) . "</p>";
-echo "<p>Image Link: " . htmlspecialchars($image_link) . "</p>";
+// echo "<p>Table: " . $item_table . "</p>";
+// echo "<p>Item Name: " . $menu_item . "</p>";
+// echo "<p>Item Price: $" . number_format($price, 2) . "</p>";
+// echo "<p>Image Link: " . $image_link . "</p>";
 
 
 // echo "<pre>GET Data:\n";
