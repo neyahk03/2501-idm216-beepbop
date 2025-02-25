@@ -44,8 +44,8 @@ foreach ($_POST as $key => $value) {
         }
     } elseif (!in_array($key, ['id','main_table', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity']) 
               && strpos($key, '_price') === false && !is_numeric($value)) {
-        // Radio button or dropdown selections (excluding prices)
-        $customizations[$key] = $value;
+
+                $customizations[$key] = $value;
     }
 }
 
@@ -61,7 +61,7 @@ foreach ($_SESSION['cart'] as &$cart_item) {
         // for edit item
         if (isset($_POST['update']) && $_POST['update'] == 1) {
             $cart_item['quantity'] = $quantity;
-            $cart_item['note'] = $note; // Ensure note updates
+            $cart_item['note'] = $note; 
         } else {
             // Otherwise, just add to the existing quantity
             $cart_item['quantity'] += $quantity;
