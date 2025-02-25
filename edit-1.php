@@ -66,8 +66,6 @@ if (!empty($customizations)) {
 }
 
 
-
-
 $customizations = [];
 
 // customization data
