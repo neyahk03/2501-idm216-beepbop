@@ -42,10 +42,6 @@ if ($index >= 0 && $index < count($_SESSION['cart'])) {
     $price = floatval($item['price']);
     $customizations = $item['customizations'] ?? [];
 
-    
-
-
-
 
 } else {
     echo "Invalid item.";
