@@ -32,7 +32,7 @@ $customization = [
 $results = [];
 
 foreach ($tables as $table) {
-    $query = "SELECT * FROM $table WHERE id LIKE ? OR item_name LIKE ? OR price LIKE ? OR image_link LIKE ?";
+    $query = "SELECT * FROM $table WHERE id LIKE ? OR menu_item LIKE ? OR price LIKE ? OR image_link LIKE ?";
     $statement = $connection->prepare($query);
     $statement->bind_param('isds', $id, $item_name, $price, $image);
     $statement->execute();
@@ -41,7 +41,7 @@ foreach ($tables as $table) {
 }
 
 foreach ($customization as $table) {
-    $query = "SELECT * FROM $table WHERE id LIKE ? OR item_name LIKE ? OR price LIKE ?";
+    $query = "SELECT * FROM $table WHERE item_id LIKE ? OR item_name LIKE ? OR item_price LIKE ?";
     $statement = $connection->prepare($query);
     $statement->bind_param('isd', $id, $item_name, $price);
     $statement->execute();
@@ -87,10 +87,10 @@ foreach ($customization as $table) {
                     
                             
                                 <img src="../images/menu-item/<?=$row['image_link']; ?>" 
-                                    alt="<?= htmlspecialchars($row['item_name']); ?>">
+                                    alt="<?= $row['menu_item']; ?>">
 
                                 <div class="description">
-                                    <p class="menu-title"><?= htmlspecialchars($row['item_name']); ?></p>
+                                    <p class="menu-title"><?= $row['menu_item']; ?></p>
                                     <p class="price">$<?= number_format($row['price'] ?? 0, 2); ?></p>
                                 </div>
                             

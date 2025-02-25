@@ -1,7 +1,12 @@
-.wrapper {
+html {
+    scroll-behavior: smooth;
+}
+
+/* .wrapper {
     scroll-behavior: smooth;
     transform: translateY(10rem);
-}
+} */
+
 .menu-container {
     width: 100%;
     max-width: 27.5rem;
@@ -95,5 +100,5 @@ h4 {
     font-family: var(--main-font);
     margin: 0;
 
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 10rem;
 }
