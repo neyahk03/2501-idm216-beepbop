@@ -62,39 +62,24 @@ foreach ($tables as $table) {
 
     <nav>
 
-        <a href="step3.php">View cart</a>
+        <a href="bag.php">View cart</a>
+        <span id="quantity">Quantity: <?= $_SESSION['quantity'] ?? 0; ?></span>
+
+
+        
     </nav>
 
     <div class="filter-bar">
-            <div class="filter">
-                <a href="#sandwiches" class="heading-4">
-                    SANDWICHES
-                </a>
-            </div>
+        <a class="heading-4 filter" href="#sandwiches">SANDWICHES</a>
 
-            <div class="filter">
-                <a href="#cheesesteaks" class="heading-4">
-                    CHEESE STEAKS
-                </a>
-            </div>
+        <a class="heading-4 filter" href="#cheesesteaks">CHEESESTEAKS</a>
 
-            <div class="filter">
-            <a href="#salads" class="heading-4">
-                    SALADS
-                </a>
-            </div>
+        <a class="heading-4 filter" href="#salads">SALADS</a>
 
-            <div class="filter">
-            <a href="#pastries" class="heading-4">
-                    PASTRIES
-                </a>
-            </div>
 
-            <div class="filter">
-            <a href="#drinks" class="heading-4">
-                    DRINKS
-                </a>
-            </div>
+        <a class="heading-4 filter" href="#pastries">PASTRIES</a>
+
+        <a class="heading-4 filter" href="#drinks">DRINKS</a>
     </div>
 
     <div class="menu">
@@ -151,6 +136,25 @@ foreach ($tables as $table) {
 <?php echo "ID: ". $_SESSION['guest_id'] . "<br>"; ?>
 
 <script src="js/step.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const filters = document.querySelectorAll(".filter-bar a");
+
+    filters.forEach(filter => {
+        filter.addEventListener("click", function (event) {
+            // Remove 'active' class from all links
+            filters.forEach(f => f.classList.remove("active"));
+
+            // Add 'active' class to the clicked link
+            this.classList.add("active");
+
+            // Allow smooth scrolling to work correctly
+        });
+    });
+});
+
+</script>
 
 
     
