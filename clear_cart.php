@@ -1,6 +1,6 @@
 <?php
 session_start();
 unset($_SESSION['cart']);
-header("Location: step3.php");
+header("Location: bag.php");
 exit();
 ?>

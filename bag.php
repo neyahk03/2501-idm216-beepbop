@@ -111,8 +111,6 @@ $_SESSION['quantity'] = $total_quantity;
 $tax = $bag_subtotal * 0.06;
 $total = $bag_subtotal + $tax;
 
-header("Location: step1.php");
-exit();
 
 
 ?>
@@ -127,7 +125,7 @@ exit();
 </head>
 <body>
 
-    <h2>Your Shopping Cart</h2>
+    <h2>Your lunchbox</h2>
 
     <?php if (empty($_SESSION['cart'])) : ?>
         <p>Your cart is empty.</p>

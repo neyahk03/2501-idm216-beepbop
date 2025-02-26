@@ -1,3 +1,9 @@
+
+/* move the menu down so it wont be covered by the nav and filter bar */
+/* .menu {
+    padding-top: 80px;
+} */
+
 .menu-container {
     display: flex;
     justify-content: center;
