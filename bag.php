@@ -145,7 +145,13 @@ $total = $bag_subtotal + $tax;
                 
                 <tr>
                     <td><?= htmlspecialchars($item['menu_item']) ?></td>
-                    <td><?= htmlspecialchars($item['quantity']) ?></td>
+                    <td>
+                        <div class="product-count" data-index="<?= $index ?>" data-price-per-item="<?= $item['subtotal'] / $item['quantity'] ?>">
+                            <button class="button-count minus-btn">-</button>
+                            <input type="text" readonly class="number-product" value="<?= $item['quantity'] ?>">
+                            <button class="button-count plus-btn">+</button>
+                        </div>
+                    </td>
                     <td>
                     <?php 
                         if (!empty($item['customizations']) && is_array($item['customizations'])) {
@@ -168,7 +174,8 @@ $total = $bag_subtotal + $tax;
                         ?>
                     </td>
                     <td><?= !empty($item['note']) ? htmlspecialchars($item['note']) : 'None' ?></td>
-                    <td>$<?= number_format($item['subtotal'], 2) ?></td>
+
+                    <td class="item-subtotal">$<?= number_format($item['subtotal'], 2) ?></td>
                     <td>
                         <!-- edit button -->
 
@@ -192,6 +199,8 @@ $total = $bag_subtotal + $tax;
             <?= $_SESSION['quantity'] ?>
         </p> -->
 
+        <h3>Subtotal: <span id="bag-subtotal">$<?= number_format($_SESSION['bag_subtotal'], 2) ?></span></h3>
+
         <h3>Subtotal: $<?= number_format($bag_subtotal, 2) ?></h3>
         <!-- <p>Tax: $ <?= number_format($tax, 2) ?></p>
         <h2>Total: $ <?= number_format($total, 2) ?></h2> -->
@@ -209,6 +218,54 @@ $total = $bag_subtotal + $tax;
     </h3>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".product-count").forEach(function (counter) {
+        let minusBtn = counter.querySelector(".minus-btn");
+        let plusBtn = counter.querySelector(".plus-btn");
+        let quantityInput = counter.querySelector(".number-product");
+        let index = counter.getAttribute("data-index");
+        let pricePerItem = parseFloat(counter.getAttribute("data-price-per-item"));
+        let subtotalElement = counter.closest("tr").querySelector(".item-subtotal");
+        let bagSubtotalElement = document.querySelector("#bag-subtotal");
+
+        function updateCart(newQuantity) {
+            fetch("change_quantity.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ index: index, quantity: newQuantity })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    quantityInput.value = newQuantity;
+                    subtotalElement.textContent = "$" + data.new_subtotal.toFixed(2);
+                    if (bagSubtotalElement) {
+                        bagSubtotalElement.textContent = "$" + data.bag_subtotal.toFixed(2);
+                    }
+                } else {
+                    alert("Error updating cart.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        minusBtn.addEventListener("click", function () {
+            let currentQuantity = parseInt(quantityInput.value);
+            if (currentQuantity > 1) {
+                updateCart(currentQuantity - 1);
+            }
+        });
+
+        plusBtn.addEventListener("click", function () {
+            let currentQuantity = parseInt(quantityInput.value);
+            updateCart(currentQuantity + 1);
+        });
+    });
+});
+
+
+</script>
 
 </body>
 </html>

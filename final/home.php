@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pete's Lunch Box</title>
-    <link rel="icon" type="image/gif" href="/images/logo.png" />
+    <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
@@ -13,8 +13,8 @@
     <div class="screen-container">
 
         <nav>
-            <h1>PETE'S <img src="../images/icons/truck-icon.svg" alt="truck logo"></h1>
-            <a href="empty-bag.html" >
+            <h1>PETE'S </h1>
+            <a href="bag.php" >
                 <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
             </a>
 
@@ -92,7 +92,7 @@
 
             <div class="help">
                 <h3>Want to Help Us?</h3>
-                <p>Pete’s is a small family business that would really appreciate your support by leaving a Google Review. Just snap a picture of your lunch and you’re good to go!</p>
+                <p>Pete's is a small family business that would really appreciate your support by leaving a Google Review. Just snap a picture of your lunch and you’re good to go!</p>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
         <div class="bottom-nav">
 
             
-            <a href="home.html" class="icon-container">
+            <a href="home.php" class="icon-container">
                 <img src="../images/icons/home.svg" alt="home icon">
                 <p class="label">Home</p>
             </a>

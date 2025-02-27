@@ -108,3 +108,12 @@ a:visited {
     color: black;
 }
 
+.guest {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    font-size: 1rem;
+    text-decoration: underline;
+    font-family: var(--main-font);
+}

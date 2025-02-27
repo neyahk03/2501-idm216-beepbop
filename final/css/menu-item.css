@@ -2,10 +2,9 @@ html {
     scroll-behavior: smooth;
 }
 
-/* .wrapper {
-    scroll-behavior: smooth;
-    transform: translateY(10rem);
-} */
+h4 {
+    color: black;
+}
 
 .menu-container {
     width: 100%;
@@ -19,6 +18,8 @@ html {
 
     display: flex;
     flex-direction: column;
+    
+    
     gap: 2rem;
 
     padding-bottom: 8rem;
@@ -33,10 +34,6 @@ html {
     }
     
     
-}
-
-h4 {
-    color: black;
 }
 
 .category {
@@ -77,15 +74,18 @@ h4 {
 .description {
     display: flex;
     justify-content: space-between;
-
-
-    
 }
+
+
+
 
 .title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    width: 27.5rem;
+    margin-bottom: 2rem;
     
     .line {
         width: 3rem;
@@ -102,3 +102,13 @@ h4 {
 
     scroll-margin-top: 10rem;
 }
+
+
+
+
+
+
+/* .menu-title { 
+    font: var(--main);
+} */
+

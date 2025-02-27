@@ -3,13 +3,6 @@ html {
 }
 
 nav {
-    border: 1px solid black;
-    background-color: white;
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-
     position: fixed;
     top: 0rem;
     z-index: 1000;
@@ -17,15 +10,17 @@ nav {
 
 /* Fixed Filter Bar */
 .filter-bar {
+    scrollbar-width: none;
+    background-color: var(--brown);
     width: 27.5rem;
     height: 3.5rem;
     overflow-x: auto;
     margin: 0 auto;
 
     position: fixed;
-    top: 3rem;
+    top: 4.5rem;
+
     padding: 0 2rem;
-    background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-wrap: nowrap;
 
@@ -44,6 +39,12 @@ nav {
     transition: color 0.3s ease;
 }
 
+/* .filter a {
+    position: relative;
+    text-decoration: none;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+} */
 
 .filter-bar a::after {
     content: '';
@@ -52,7 +53,7 @@ nav {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #000; 
+    background-color: white; 
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -62,15 +63,12 @@ nav {
 }
 
 .filter-bar a.active {
-    color: #000; 
+    color: white; 
     font-weight: bold;
 }
 
 
-.title h2 {
-    scroll-margin-top: 8rem;
-}
-
 .menu {
-    padding-top: 7rem;
+    padding-top: 9rem;
+    scroll-behavior: smooth;
 }

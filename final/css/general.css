@@ -80,7 +80,7 @@ nav {
     justify-content: space-between;
 
     position: fixed;
-    z-index: 100;
+    z-index: 2000;
 
     img {
         width: 33px;
@@ -175,4 +175,9 @@ h4, .heading-4{
 
 h4:visited, .heading-4:visited {
     color: white;
+}
+
+.bag-icon {
+    text-decoration: none;
+
 }
