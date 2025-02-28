@@ -12,7 +12,8 @@ nav {
 .filter-bar {
     scrollbar-width: none;
     background-color: var(--brown);
-    width: 27.5rem;
+    width: 100%;
+    max-width: 27.5rem;
     height: 3.5rem;
     overflow-x: auto;
     margin: 0 auto;
@@ -20,7 +21,7 @@ nav {
     position: fixed;
     top: 4.5rem;
 
-    padding: 0 2rem;
+    padding: 0 2rem 0 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-wrap: nowrap;
 
@@ -71,4 +72,7 @@ nav {
 .menu {
     padding-top: 9rem;
     scroll-behavior: smooth;
+
+    width: 100%;
+    max-width: 27.5rem;
 }

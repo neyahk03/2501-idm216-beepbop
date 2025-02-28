@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+// check if there is session guest id exist
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login.php"); 
+    exit();
+}
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once '../includes/database.php';
+
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['user_id'] = session_id();
+}
+
+if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
+    $_SESSION['cart'][$_SESSION['user_id']] = [];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +32,7 @@
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/quantity.css">
 </head>
 <body>
 
@@ -14,9 +40,28 @@
 
         <nav>
             <h1>PETE'S </h1>
-            <a href="bag.php" >
-                <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
-            </a>
+
+            <div class="lunchbox">
+
+                <a href="bag.php" >
+                    <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
+                </a>
+
+                <?php 
+                        if (!empty($_SESSION['cart'])) {
+                            $totalQuantity = array_sum(array_column($_SESSION['cart'], 'quantity'));
+                            if ($totalQuantity > 0) { ?>
+                                <div class="quantity">
+                                    <p>
+                                        <?php echo '<span id="quantity">' . $totalQuantity . '</span>'; ?> 
+                                    </p>
+
+                                </div>
+                            <?php }
+                            }
+                    ?>
+
+            </div>
 
             
         </nav>

@@ -1,13 +1,13 @@
 <?php
 session_start();
-include 'includes/database.php';
+include '../includes/database.php';
 
 if (!isset($_SESSION['guest_id'])) {
     header("Location: login.php"); 
     exit();
 }
 
-echo "ID: ". $_SESSION['guest_id'] . "<br>";
+// echo "ID: ". $_SESSION['guest_id'] . "<br>";
 
 
 
@@ -80,6 +80,12 @@ if (isset($customization_tables_map[$table_to_display])) {
     }
 }
 
+$category_icons = [
+    'bread' => 'bread.svg',
+    'protein' => 'meat.svg',
+    'condiments' => 'salt.svg',
+];
+
 
 
 // Debug: Print Retrieved Customization Data
@@ -100,19 +106,29 @@ if (isset($customization_tables_map[$table_to_display])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $menu_item ?? 'Item Detail' ?></title>
     <link rel="icon" type="image/gif" href="../images/logo.png" />
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/item-counter.css">
+    <link rel="stylesheet" href="css/heart-button.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
     <link rel="stylesheet" href="css/step2.css">
 </head>
 <body>
     <div class="screen-container">
         <!-- nav bar -->
+        
+
         <nav>
-            <a href="step1.php">
-                <img class="cancel-button" src="images/icons/cancel.svg" alt="cancel icon">
+            <a href="menu.php">
+                <img class="cancel-button" src="../images/icons/cancel.svg" alt="cancel icon">
             </a>
         </nav>
 
         <div class="content">
-            <img class="hero-image" src="images/menu-item/<?= $image_link?>" alt="<?= $menu_item?>">
+            <img class="hero-image" src="../images/menu-item/<?= $image_link?>" alt="<?= $menu_item?>">
+
             <div class="description-container">
                 <div class="description">
                     <h2><?= $menu_item ?? 'No name available'?></h2>
@@ -127,7 +143,7 @@ if (isset($customization_tables_map[$table_to_display])) {
                 }
                 ?>
 
-                <form action="step3.php" method="POST">
+                <form action="adding.php" method="POST">
                     <input type="hidden" name="id" value="<?= $item_id ?>">
                     <input type="hidden" name="image_link" value="<?= $image_link ?>">
                     <input type="hidden" name="main_table" value="<?= $item_table ?>">
@@ -141,8 +157,25 @@ if (isset($customization_tables_map[$table_to_display])) {
                     <?php if (!empty($customizations)): ?>
                         <?php foreach ($customizations as $custom_table => $options): ?>
                             <div class="option">
-                                <h2><?= ucfirst(str_replace('_', ' ', $custom_table)) ?></h2>
+
+                                <div class="option-title">
+                                    <h2>
+                                        <?= ucfirst(str_replace('_', ' ', $custom_table)) ?>
+                                    
+                                        <?php 
+                                            if (isset($category_icons[$custom_table])) {
+                                                echo '<img src="../images/icons/' . $category_icons[$custom_table] . '" alt="info icon" class="icon">';
+                                            }
+                                        ?>
+                                    </h2>
+
+                                </div>
+
+                                <div class ="line">
+                                    <hr style="border: 2px solid var(--bg-yellow); width: 100%; margin: 0;">
+                                </div>
                                 
+                        
                                 <?php foreach ($options as $option): ?>
                                     <?php 
                                     $option_name = $option['item_name'];
@@ -150,14 +183,18 @@ if (isset($customization_tables_map[$table_to_display])) {
 
                                     ?>
                                     
+                                    
                                     <?php if ($custom_table === 'protein' || $custom_table === 'condiments'): ?>
                                         <!-- Checkbox  -->
+                                        
                                         <div class="option-label">
                                             <input type="checkbox" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
                                                 name="<?= $custom_table ?>[]" value="<?= $option_name ?>"
                                                 data-price="<?= $option_price ?>">
                                                 <input type="hidden" name="<?= $custom_table ?>_price[<?= $option_name ?>]" value="<?= $option_price ?>">
-                                                <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+                                            
+                                            <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+
                                                 <p><?= $option_name ?></p>
                                                 <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
 
@@ -171,7 +208,7 @@ if (isset($customization_tables_map[$table_to_display])) {
                                             <input type="radio" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
                                                 name="<?= $custom_table ?>" value="<?= $option_name ?>"
                                                 data-price="<?= $option_price ?>">
-                                                <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
+                                                <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>" required>
                                                 <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
                                                 <p><?= $option_name ?></p>
                                                 <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
@@ -185,13 +222,28 @@ if (isset($customization_tables_map[$table_to_display])) {
 
                     <textarea class="note" id="note" name="note" placeholder="Add a note"></textarea>
 
-                    <div class="product-count">
-                        <button class="button-count decrement" disabled>-</button>
-                        <input type="text" name="quantity" readonly class="number-product" value="1">
-                        <button class="button-count increment">+</button>
+                    <div class="fav-container">
+                        <div class="product-count">
+                            <button class="button-count decrement" disabled>
+                                <img src="../images/icons/minus-red.svg" alt="minus button">
+                            </button>
+                            <input type="text" name="quantity" readonly class="number-product" value="1">
+                            <button class="button-count increment">
+                                <img src="../images/icons/plus-red.svg" alt="plus button">
+                            </button>
+                        </div>
+
+                        <div class="heart-btn">
+                            <img src="../images/icons/heart-empty.svg" alt="heart btn">
+                        </div>
+
                     </div>
 
-                    <h2>Total: $<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>"><?= number_format($price, 2) ?></span></h2>
+                    <div class="subtotal">
+                        <h2>Subtotal:</h2>
+                        
+                        <h2>$<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>"><?= number_format($price, 2) ?></span></h2>
+                    </div>
 
 
                     <button class="filled-button" type="submit">
@@ -204,7 +256,9 @@ if (isset($customization_tables_map[$table_to_display])) {
     </div>
 
 
-    <script src="js/step.js"></script>
+    <script src="js/calculate-subtotal.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/heart-button.js"></script>
 
 </body>
 </html>

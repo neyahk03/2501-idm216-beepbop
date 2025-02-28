@@ -52,6 +52,7 @@ foreach ($tables as $table) {
     <link rel="stylesheet" href="css/menu-item.css">
     <link rel="stylesheet" href="css/step1.css">
     <link rel="stylesheet" href="css/filter-bar.css">
+    <link rel="stylesheet" href="css/quantity.css">
 </head>
 <body>
 
@@ -74,9 +75,23 @@ foreach ($tables as $table) {
                     <a class="bag-icon" href="bag.php">
                         <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
                     </a>
-    
                     
-                    <span id="quantity"><?= $_SESSION['quantity'] ?? 0; ?></span>
+                    
+
+                    <?php 
+                        if (!empty($_SESSION['cart'])) {
+                            $totalQuantity = array_sum(array_column($_SESSION['cart'], 'quantity'));
+                            if ($totalQuantity > 0) { ?>
+                                <div class="quantity">
+                                    <p>
+                                        <?php echo '<span id="quantity">' . $totalQuantity . '</span>'; ?> 
+                                    </p>
+
+                                </div>
+                            <?php }
+                            }
+                    ?>
+
                 </div>
     
     
@@ -120,7 +135,7 @@ foreach ($tables as $table) {
                             <?php foreach ($rows as $row): ?>
         
                                 
-                                <a href="step2-3.php?id=<?= $row['id']; ?>&table=<?= $table; ?>&menu_item=<?= urlencode($row['menu_item']); ?>" class="item">
+                                <a href="detail.php?id=<?= $row['id']; ?>&table=<?= $table; ?>&menu_item=<?= urlencode($row['menu_item']); ?>" class="item">
         
         
         
@@ -170,25 +185,8 @@ foreach ($tables as $table) {
     <!-- <?php echo "ID: ". $_SESSION['guest_id'] . "<br>"; ?> -->
     
     <script src="js/step.js"></script>
+    <script src="js/filter-bar.js"></script>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        const filters = document.querySelectorAll(".filter-bar a");
-
-        filters.forEach(filter => {
-            filter.addEventListener("click", function (event) {
-                // Remove 'active' class from all links
-                filters.forEach(f => f.classList.remove("active"));
-
-                // Add 'active' class to the clicked link
-                this.classList.add("active");
-
-                // Allow smooth scrolling to work correctly
-            });
-        });
-    });
-
-    </script>
 </div>
 
 

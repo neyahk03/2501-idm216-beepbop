@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (newQuantity < 1) {
                 // If quantity is 0, remove the item from the cart
-                fetch("remove_item.php", {
+                fetch("../functions/remove_item.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: `index=${itemIndex}`
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateTotalSubtotal();
 
             // Send updated quantity to the server
-            fetch("change_quantity.php", {
+            fetch("../functions/change_quantity.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: `index=${itemIndex}&quantity=${newQuantity}`

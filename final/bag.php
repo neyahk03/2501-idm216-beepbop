@@ -134,7 +134,7 @@ $total = $bag_subtotal + $tax;
 
     <div class="screen-container">
         <nav>
-            <button onclick="history.back()">
+            <button onclick="gotoMenu()">
                 <img class="back-button" src="../images/icons/back.svg" alt="back icon">
             </button>
         </nav>
@@ -210,11 +210,11 @@ $total = $bag_subtotal + $tax;
                         <div class="actions">
 
                             <div class="button-container">
-                                <a href="edit-2.php?index=<?= $index ?>" class="edit-button">
+                                <a href="edit.php?index=<?= $index ?>" class="edit-button">
                                     <img src="../images/icons/edit.svg" alt="edit icon">
                                 </a>
                                 
-                                <form action="remove_item.php" method="POST">
+                                <form action="functions/remove_item.php" method="POST">
                                     <input type="hidden" name="index" value="<?= $index ?>">
                                     <button type="submit" class="delete-button">
                                         <img src="../images/icons/trash-can.svg" alt="delete icon">
@@ -243,7 +243,7 @@ $total = $bag_subtotal + $tax;
                 
                 <?php endforeach; ?>
 
-                <a class="clear-bag" href="clear_cart.php">Clear Bag</a>
+                <a class="clear-bag" href="functions/clear_cart.php">Clear Bag</a>
 
             <?php endif; ?>
 
@@ -358,5 +358,6 @@ $total = $bag_subtotal + $tax;
     <script src="js/button.js"></script>
     <script src="js/item-counter.js"></script>
     <script src="js/change-quantity.js"></script>
+    
 </body>
 </html>

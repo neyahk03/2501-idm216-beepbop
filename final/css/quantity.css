@@ -1,0 +1,19 @@
+.quantity {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    position: absolute;
+    background-color: red;
+    padding: 0.5rem;
+    top: 1rem;
+    right: 1.25rem;
+    border-radius: 50%;
+    
+    p {
+        position: absolute;
+        font-size: 0.75rem;
+        font-family: var(--main-font);
+        transform: translateY(-0.35rem);
+    
+    }
+}

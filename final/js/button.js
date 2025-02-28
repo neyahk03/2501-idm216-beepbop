@@ -14,10 +14,6 @@ function gotoConfirmOrder() {
     window.location.href = "confirm.html"
 }
 
-function gotoHome2() {
-    window.location.href = "home2.html"
-}
-
 function gotoLogIn() {
     window.location.href = "log-in.html"
 }
@@ -33,3 +29,4 @@ function gotoPayment() {
 function gotoCheckout() {
     window.location.href = "checkout.php"
 }
+

@@ -9,7 +9,7 @@ if (isset($_POST['index'])) {
     }
 }
 
-header("Location: bag.php");
+header("Location: ../bag.php");
 exit();
 
 

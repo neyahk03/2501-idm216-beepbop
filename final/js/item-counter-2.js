@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let foodCard = container.closest(".food-card"); // To remove item from DOM
 
         function updateQuantity(newQuantity) {
-            fetch("update_cart.php", {
+            fetch("../functions/update_cart.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: `index=${index}&quantity=${newQuantity}`
