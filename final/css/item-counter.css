@@ -3,8 +3,8 @@
 .product-count {
     top: 25%;
     left: 45%;
-    height: 1.75rem;
-    width: 9rem;
+    height: 2.5rem;
+    width: 11.25rem;
     border: 3px solid #C73715;
     border-radius: 46px;
     display: flex;
@@ -15,28 +15,34 @@
     
 }
 
+input {
+    font-size: 1.25rem;
+}
+
 .button-count {
     width: 30px;
-    color: #C73715;
-    font-size: 24px;
     text-align: center;
     border: none;
     outline: none;
     cursor: pointer;
     background: transparent;
+
+    display: flex;
+    align-items: center;
 }
 
 .number-product {
     color: #C73715;
     width: 40px;
     height: 30px;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-family: "Montserrat", sans-serif;
     text-align: center;
     border: none;
     outline: none;
     box-shadow: none;
     background: transparent;
+
 }
 
 :disabled {

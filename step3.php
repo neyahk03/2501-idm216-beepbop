@@ -18,6 +18,7 @@ if (!isset($_SESSION['cart'])) {
 // Retrieve form data from `step2.php`
 $item_id = $_POST['id'] ?? '';
 $main_table = $_POST['main_table'] ?? null;
+$image_link = $_POST['image_link'] ?? '';
 $menu_item = $_POST['menu_item'] ?? '';
 $price = floatval($_POST['item_price'] ?? 0.00);
 $subtotal = floatval($_POST['subtotal'] ?? $price);
@@ -41,7 +42,7 @@ foreach ($_POST as $key => $value) {
         if (!empty($filtered_values)) {
             $customizations[$key] = array_values($filtered_values);
         }
-    } elseif (!in_array($key, ['id','main_table', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity']) 
+    } elseif (!in_array($key, ['id','main_table','image_link', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity']) 
               && strpos($key, '_price') === false && !is_numeric($value)) {
 
                 $customizations[$key] = $value;
@@ -80,6 +81,7 @@ if (!$found && !empty($menu_item)) {
     $_SESSION['cart'][] = [
         'id' => $item_id ?: uniqid(),
         'main_table' => $selected_table ?: 'Unknown',
+        'image_link' => $image_link,
         'menu_item' => $menu_item,
         'price' => $price,
         'quantity' => max($quantity, 1),
@@ -147,7 +149,18 @@ exit();
                 
                 <tr>
                     <td><?= htmlspecialchars($item['menu_item']) ?></td>
-                    <td><?= htmlspecialchars($item['quantity']) ?></td>
+                    <td>
+                        <?= htmlspecialchars($item['quantity']) ?>
+                        <div class="product-count" data-index="<?= $index ?>" data-price="<?= $item['subtotal'] ?>">
+                                <button class="button-count minus-btn">
+                                    <img src="../images/icons/minus-black.svg" alt="minus button">
+                                </button>
+                                <input type="text" readonly class="number-product" value="<?= $item['quantity'] ?>">
+                                <button class="button-count plus-btn">
+                                    <img src="../images/icons/plus-black.svg" alt="plus icon">
+                                </button>
+                            </div>
+                    </td>
                     <td>
                     <?php 
                         if (!empty($item['customizations']) && is_array($item['customizations'])) {

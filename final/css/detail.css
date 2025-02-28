@@ -64,6 +64,9 @@ h2,p {
 
 .option-title { 
     margin: 1rem;
+
+    display: flex;
+    align-items: flex-end;
 }
 
 .option h2 {
@@ -71,7 +74,8 @@ h2,p {
 }
 
 .option img {
-    margin-left: .75rem;
+    margin-left: .5rem;
+    height: 100%;
 }
 
 form {
@@ -85,7 +89,7 @@ br {
 }
 
 .note {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     border: 3px solid var(--red);
     border-radius: 1rem;
     height: 9rem;
@@ -114,14 +118,14 @@ br {
 }
 
 .fav-container {
-    margin: 2.5rem 0rem 0rem 0rem;
+    margin-top: 4.5rem;
 
     display: flex;
     justify-content: space-between;
 
     object-fit: contain;
 
-    .counter {
+    /* .counter {
         display: flex;
         gap: 2rem;
         padding:0 1rem;
@@ -130,46 +134,30 @@ br {
         overflow: visible;
         align-items: center;
 
+        height: 2.5rem;
+
         p {
             font-size: 1.25rem;
             color: var(--red);
             font-weight: 400;
         }
-    }
+    } */
 }
 
-button {
-    cursor: pointer;
-
-    a {
-        cursor: pointer;
-    }
-}
-
-.add-to-bag {
-    height: 3.5rem;
-    background-color: var(--brown);
-    border-radius: 0.5rem;
-    border: none;
-
-    cursor: pointer;
-
-}
 
 .line {
     margin: 0;
 }
 
-.bread-option {
-   margin: 1rem;
-}
-
-.protein-option {
+.option-label {
     margin: 1rem;
-}
+    display: flex;
+    gap: 0.5rem;
 
-.condiment-option {
-    margin: 1rem;
+    label {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 }
-
 

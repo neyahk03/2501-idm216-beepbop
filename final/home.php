@@ -1,22 +1,67 @@
+<?php
+session_start();
+
+// check if there is session guest id exist
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login.php"); 
+    exit();
+}
+
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once '../includes/database.php';
+
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['user_id'] = session_id();
+}
+
+if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
+    $_SESSION['cart'][$_SESSION['user_id']] = [];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Pete's Lunch Box</title>
-    <link rel="icon" type="image/gif" href="/images/logo.png" />
+    <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/quantity.css">
 </head>
 <body>
 
     <div class="screen-container">
 
         <nav>
-            <h1>PETE'S <img src="../images/icons/truck-icon.svg" alt="truck logo"></h1>
-            <a href="empty-bag.html" >
-                <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
-            </a>
+            <h1>PETE'S </h1>
+
+            <div class="lunchbox">
+
+                <a href="bag.php" >
+                    <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
+                </a>
+
+                <?php 
+                        if (!empty($_SESSION['cart'])) {
+                            $totalQuantity = array_sum(array_column($_SESSION['cart'], 'quantity'));
+                            if ($totalQuantity > 0) { ?>
+                                <div class="quantity">
+                                    <p>
+                                        <?php echo '<span id="quantity">' . $totalQuantity . '</span>'; ?> 
+                                    </p>
+
+                                </div>
+                            <?php }
+                            }
+                    ?>
+
+            </div>
 
             
         </nav>
@@ -92,7 +137,7 @@
 
             <div class="help">
                 <h3>Want to Help Us?</h3>
-                <p>Pete’s is a small family business that would really appreciate your support by leaving a Google Review. Just snap a picture of your lunch and you’re good to go!</p>
+                <p>Pete's is a small family business that would really appreciate your support by leaving a Google Review. Just snap a picture of your lunch and you’re good to go!</p>
             </div>
         </div>
 
@@ -101,7 +146,7 @@
         <div class="bottom-nav">
 
             
-            <a href="home.html" class="icon-container">
+            <a href="home.php" class="icon-container">
                 <img src="../images/icons/home.svg" alt="home icon">
                 <p class="label">Home</p>
             </a>
