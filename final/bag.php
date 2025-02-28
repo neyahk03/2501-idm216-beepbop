@@ -225,15 +225,16 @@ $total = $bag_subtotal + $tax;
 
 
                             <div class="product-count" data-index="<?= $index ?>" data-price-per-item="<?= $item['subtotal'] / $item['quantity'] ?>">
-                            <button class="button-count minus-btn">
-                                <img src="../images/icons/minus-black.svg" alt="minus button">
-                            </button>
-                            <input type="text" readonly class="number-product" value="<?= $item['quantity'] ?>">
-                            
-                            <button class="button-count plus-btn">
-                                <img src="../images/icons/plus-black.svg" alt="plus icon">
-                            </button>
-                        </div>
+                                <button class="button-count minus-btn">
+                                    <img class="minus-btn" src="../images/icons/minus-black.svg" alt="minus button">
+                                </button>
+
+                                <input type="text" readonly class="number-product" value="<?= $item['quantity'] ?>">
+                                
+                                <button class="button-count plus-btn">
+                                    <img class="plus-btn" src="../images/icons/plus-black.svg" alt="plus icon">
+                                </button>
+                            </div>
 
                         </div>
                     </div>
@@ -253,7 +254,7 @@ $total = $bag_subtotal + $tax;
     
                 
                 <div class="fav-section">
-                <h4>Popular items to add to your order:</h4>
+                    <h4>Popular items to add to your order:</h4>
 
     
                 
@@ -334,6 +335,9 @@ $total = $bag_subtotal + $tax;
 
                 <h2><span class="total-subtotal">$<?= number_format(array_sum(array_column($_SESSION['cart'], 'subtotal')), 2) ?></span></h2>
 
+                
+
+
             </div>
             
             <?php if (empty($_SESSION['cart'])) : ?>
@@ -358,6 +362,8 @@ $total = $bag_subtotal + $tax;
     <script src="js/button.js"></script>
     <script src="js/item-counter.js"></script>
     <script src="js/change-quantity.js"></script>
+
+ 
     
 </body>
 </html>

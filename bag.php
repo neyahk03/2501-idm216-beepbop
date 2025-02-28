@@ -201,7 +201,7 @@ $total = $bag_subtotal + $tax;
 
         <h3>Subtotal: <span id="bag-subtotal">$<?= number_format($_SESSION['bag_subtotal'], 2) ?></span></h3>
 
-        <h3>Subtotal: $<?= number_format($bag_subtotal, 2) ?></h3>
+        <!-- <h3>Subtotal: $<?= number_format($bag_subtotal, 2) ?></h3> -->
         <!-- <p>Tax: $ <?= number_format($tax, 2) ?></p>
         <h2>Total: $ <?= number_format($total, 2) ?></h2> -->
     <?php endif; ?>
@@ -243,6 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (bagSubtotalElement) {
                         bagSubtotalElement.textContent = "$" + data.bag_subtotal.toFixed(2);
                     }
+
+                    updateMenuQuantity(data.quantity);
                 } else {
                     alert("Error updating cart.");
                 }
@@ -250,7 +252,26 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error:", error));
         }
 
+        function updateMenuQuantity(newQuantity) {
+            fetch("update_menu_quantity.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ quantity: newQuantity })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    let quantityElement = document.querySelector("#quantity");
+                    if (quantityElement) {
+                        quantityElement.textContent = "Quantity: " + data.quantity;
+                    }
+                }
+            })
+            .catch(error => console.error("Error updating menu:", error));
+        }
+
         minusBtn.addEventListener("click", function () {
+            
             let currentQuantity = parseInt(quantityInput.value);
             if (currentQuantity > 1) {
                 updateCart(currentQuantity - 1);
@@ -258,6 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         plusBtn.addEventListener("click", function () {
+            console.log ('plus button is clicked');
             let currentQuantity = parseInt(quantityInput.value);
             updateCart(currentQuantity + 1);
         });
