@@ -84,7 +84,7 @@ foreach ($tables as $table) {
                             if ($totalQuantity > 0) { ?>
                                 <div class="quantity">
                                     <p>
-                                        <?php echo '<span id="quantity">' . $totalQuantity . '</span>'; ?> 
+                                    <span id="quantity"><?= $_SESSION['quantity'] ?? 0; ?></span>
                                     </p>
 
                                 </div>
@@ -186,6 +186,30 @@ foreach ($tables as $table) {
     
     <script src="js/step.js"></script>
     <script src="js/filter-bar.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navItems = document.querySelectorAll(".bottom-nav .icon-container");
+    
+            navItems.forEach(item => {
+                item.addEventListener("click", function () {
+                    // Remove active class from all items
+                    navItems.forEach(nav => nav.classList.remove("active"));
+    
+                    // Add active class to the clicked item
+                    this.classList.add("active");
+                });
+            });
+    
+            // Optional: Maintain active state based on current URL
+            navItems.forEach(item => {
+                if (item.href === window.location.href) {
+                    item.classList.add("active");
+                }
+            });
+        });
+
+    </script>
     
 </div>
 
