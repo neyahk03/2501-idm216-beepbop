@@ -1,3 +1,74 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const totalSubtotalElement = document.querySelector(".total-subtotal");
+
+    document.querySelectorAll(".product-count").forEach((container) => {
+        const minusBtn = container.querySelector(".minus-btn");
+        const plusBtn = container.querySelector(".plus-btn");
+        const quantityInput = container.querySelector(".number-product");
+        const itemSubtotal = container.closest(".food-details").querySelector(".item-subtotal");
+        const itemCard = container.closest(".food-card"); // The entire item container
+        const itemIndex = container.dataset.index;
+        const pricePerItem = parseFloat(container.dataset.pricePerItem);
+
+        function updateQuantity(change) {
+            let currentQuantity = parseInt(quantityInput.value);
+            let newQuantity = currentQuantity + change;
+
+            if (newQuantity < 1) {
+                // If quantity is 0, remove the item from the cart
+                fetch("functions/remove_item.php", {
+
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: `index=${itemIndex}`
+                }).then(response => response.json())
+                  .then(data => {
+                      if (data.success) {
+                          itemCard.remove(); // Remove the item from the UI
+                          updateTotalSubtotal();
+                        //   update menu quanitty
+                          updateCartQuantity(); 
+                      }
+                  });
+                return;
+            }
+
+            // Update quantity and subtotal
+            quantityInput.value = newQuantity;
+            let newSubtotal = (newQuantity * pricePerItem).toFixed(2);
+            itemSubtotal.textContent = `$${newSubtotal}`;
+
+            // Update total subtotal
+            updateTotalSubtotal();
+
+            // Send updated quantity to the server
+            fetch("functions/change_quantity.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `index=${itemIndex}&quantity=${newQuantity}`
+            });
+        }
+
+        minusBtn.addEventListener("click", () => updateQuantity(-1));
+        plusBtn.addEventListener("click", () => updateQuantity(1));
+    });
+
+    function updateCartQuantity(quantity) {
+        const quantityElement = document.getElementById("quantity");
+        if (quantityElement) {
+            quantityElement.textContent = quantity;
+        }
+    }
+
+    function updateTotalSubtotal() {
+        let totalSubtotal = 0;
+        document.querySelectorAll(".item-subtotal").forEach((subtotalElement) => {
+            totalSubtotal += parseFloat(subtotalElement.textContent.replace("$", ""));
+        });
+
+        totalSubtotalElement.textContent = `$${totalSubtotal.toFixed(2)}`;
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".product-count").forEach(function (counter) {
@@ -23,13 +94,17 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 if (data.success) {
                     quantityInput.value = newQuantity;
-                    subtotalElement.textContent = "$" + (newQuantity * pricePerItem).toFixed(2); // Update item subtotal
+                    subtotalElement.textContent = "$" + (newQuantity * pricePerItem).toFixed(2);
+                    
                     if (bagSubtotalElement) {
                         bagSubtotalElement.textContent = "$" + data.bag_subtotal.toFixed(2);
                     }
                     if (totalSubtotalElement) {
                         totalSubtotalElement.textContent = "$" + data.bag_subtotal.toFixed(2);
                     }
+
+                    // Disable the minus button if quantity is 1
+                    minusBtn.disabled = newQuantity === 1;
                 } else {
                     alert("Error updating cart.");
                 }
@@ -37,9 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.error("Error:", error));
         }
 
+        // Initialize the minus button state
+        minusBtn.disabled = parseInt(quantityInput.value) === 1;
+
         minusBtn.addEventListener("click", function () {
             let currentQuantity = parseInt(quantityInput.value);
-            if (currentQuantity > 1) {
+            if (currentQuantity > 1) { 
                 updateCart(currentQuantity - 1);
             }
         });
@@ -54,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     const totalSubtotalElement = document.querySelector(".total-subtotal");
+//     const cartQuantityElement = document.getElementById("cart-quantity"); // Assuming you have an element for total quantity
 
 //     document.querySelectorAll(".product-count").forEach((container) => {
 //         const minusBtn = container.querySelector(".minus-btn");
@@ -70,20 +149,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //             if (newQuantity < 1) {
 //                 // If quantity is 0, remove the item from the cart
-//                 fetch("functions/remove_item.php", {
-
+//                 fetch("functions/remove.php", {
 //                     method: "POST",
 //                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
 //                     body: `index=${itemIndex}`
-//                 }).then(response => response.json())
-//                   .then(data => {
-//                       if (data.success) {
-//                           itemCard.remove(); // Remove the item from the UI
-//                           updateTotalSubtotal();
-//                         //   update menu quanitty
-//                           updateCartQuantity(); 
-//                       }
-//                   });
+//                 })
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     if (data.success) {
+//                         itemCard.remove(); // Remove the item from the UI
+//                         updateTotalSubtotal(data.bag_subtotal);
+//                         updateCartQuantity(data.total_quantity); 
+//                     }
+//                 })
+//                 .catch(error => console.error("Error removing item:", error));
+
 //                 return;
 //             }
 
@@ -108,18 +188,22 @@ document.addEventListener("DOMContentLoaded", function () {
 //     });
 
 //     function updateCartQuantity(quantity) {
-//         const quantityElement = document.getElementById("quantity");
-//         if (quantityElement) {
-//             quantityElement.textContent = quantity;
+//         if (cartQuantityElement) {
+//             cartQuantityElement.textContent = quantity;
 //         }
 //     }
 
-//     function updateTotalSubtotal() {
-//         let totalSubtotal = 0;
+//     function updateTotalSubtotal(totalSubtotal = null) {
+//         if (totalSubtotal !== null) {
+//             totalSubtotalElement.textContent = `$${totalSubtotal.toFixed(2)}`;
+//             return;
+//         }
+
+//         let calculatedTotal = 0;
 //         document.querySelectorAll(".item-subtotal").forEach((subtotalElement) => {
-//             totalSubtotal += parseFloat(subtotalElement.textContent.replace("$", ""));
+//             calculatedTotal += parseFloat(subtotalElement.textContent.replace("$", ""));
 //         });
 
-//         totalSubtotalElement.textContent = `$${totalSubtotal.toFixed(2)}`;
+//         totalSubtotalElement.textContent = `$${calculatedTotal.toFixed(2)}`;
 //     }
 // });
