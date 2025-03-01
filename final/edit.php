@@ -102,6 +102,13 @@ if (isset($customization_tables_map[$main_table])) {
 
 
 $connection->close();
+
+$category_icons = [
+    'bread' => 'bread.svg',
+    'protein' => 'meat.svg',
+    'condiments' => 'salt.svg',
+];
+
 ?>
 
 
@@ -139,101 +146,145 @@ $connection->close();
                     <h2> $<?= number_format($price, 2) ?? '0.00' ?></h2>
                 </div>
             </div>
+
+            <div class="option-container">
+                    <?php
+                        if (!isset($id)) {
+                            echo "Warning: \$item_id is not set!";
+                        }
+                        ?>
+        
+                        <form action="functions/update_cart.php" method="POST">
+                            <input type="hidden" name="id" value="<?= $id ?>">
+                            <input type="hidden" name="index" value="<?= $index; ?>"> 
+        
+                            <input type="hidden" name="main_table" value="<?= $main_table ?>">
+                            <input type="hidden" name="update" value="1">
+                            <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
+                            <input type="hidden" name="item_price" value="<?= $price?>">
+                            <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
+        
+        
+                            <?php if (!empty($default_customizations_options)): ?>
+                                <?php foreach ($default_customizations_options as $custom_table => $options): ?>
+                                    <div class="option">
+        
+                                    <div class="option-title">
+                                        <h2>
+                                            <?= ucfirst(str_replace('_', ' ', $custom_table)) ?>
+        
+                                            <?php 
+                                                    if (isset($category_icons[$custom_table])) {
+                                                        echo '<img src="../images/icons/' . $category_icons[$custom_table] . '" alt="info icon" class="icon">';
+                                                    }
+                                                ?>
+                                        </h2>
+                                    </div>
+        
+                                    <div class ="line">
+                                        <hr style="border: 2px solid var(--bg-yellow); width: 100%; margin: 0;">
+                                    </div>
+        
+                                        <?php foreach ($options as $option): ?>
+                                            <?php 
+                                            $option_name = $option['item_name'];
+                                            $option_price = $option['item_price'] ?? 0;
+                                            $is_checked = isset($customizations[$custom_table]) && in_array($option_name, (array) $customizations[$custom_table]);
+                                            ?>
+        
+                                            <?php if ($custom_table === 'protein' || $custom_table === 'condiments'): ?>
+                                                <!-- Checkbox -->
+                                                <div class="option-label">
+                                                    <input type="checkbox" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
+                                                        name="<?= $custom_table ?>[]" value="<?= $option_name ?>"
+                                                        data-price="<?= $option_price ?>"
+                                                        <?= $is_checked ? 'checked' : '' ?>>
+                                                    <input type="hidden" name="<?= $custom_table ?>_price[<?= $option_name ?>]" value="<?= $option_price ?>">
+                                                    <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+                                                        <p><?= $option_name ?></p>
+                                                        <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
+                                                    </label>
+                                                </div>
+                                            <?php else: ?>
+                                                <!-- Radio Button -->
+                                                <div class="option-label">
+                                                    <input type="radio" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
+                                                        name="<?= $custom_table ?>" value="<?= $option_name ?>"
+                                                        data-price="<?= $option_price ?>"
+                                                        <?= ($customizations[$custom_table] ?? '') === $option_name ? 'checked' : '' ?>>
+                                                    <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
+                                                    <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
+                                                        <p><?= $option_name ?></p>
+                                                        <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
+                                                    </label>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+        
+                            <!-- Prefill Note -->
+                            <textarea class="note" id="note" name="note" placeholder="Add a note"><?= htmlspecialchars($note ?? '') ?></textarea>
+        
+                            <div class="fav-container">
+
+                                <!-- Prefill Quantity -->
+                                <div class="product-count">
+                                    <button class="button-count decrement" <?= ($quantity <= 1) ? 'disabled' : '' ?>>
+                                        <img src="../images/icons/minus-red.svg" alt="minus button">
+                                    </button>
+
+                                    <input type="text" name="quantity" readonly class="number-product" value="<?= $quantity ?>">
+
+                                    <button class="button-count increment">
+                                        <img src="../images/icons/plus-red.svg" alt="plus button">
+                                    </button>
+                                </div>
+
+                                <div class="heart-btn">
+                                    <img src="../images/icons/heart-empty.svg" alt="heart btn">
+                                </div>
+            
+                            </div>
+
+                            <div class="subtotal">
+                                <h2>Subtotal: </h2>
+
+
+                                <h2>$<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>">
+                                    <?= number_format($price * $quantity, 2) ?>
+                                </span></h2>
+                            </div>
+                            <!-- Prefill Subtotal -->
+        
+        
+                            <div class="button-container">
+
+                                <button class="filled-button" type="submit">
+                                    <h4>Update Item</h4>
+                                </button>
+    
+                                <button class="nofill-button">
+                                    <h4>Cancel</h4>
+                                </button>
+                            </div>                 
+        
+                            <a class="cancel-update" href="bag.php">Cancel</a>
+        
+                        </form>
+                    </div>
+                </div>
+        
+        
+            </div>
     </div>
 
-    <div class="option-container">
-            <?php
-                if (!isset($id)) {
-                    echo "Warning: \$item_id is not set!";
-                }
-                ?>
 
-                <form action="functions/update_cart.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $id ?>">
-                    <input type="hidden" name="index" value="<?= $index; ?>"> 
-
-                    <input type="hidden" name="main_table" value="<?= $main_table ?>">
-                    <input type="hidden" name="update" value="1">
-                    <input type="hidden" name="menu_item" value="<?= $menu_item ?>">
-                    <input type="hidden" name="item_price" value="<?= $price?>">
-                    <input type="hidden" id="subtotal_input" name="subtotal" value="<?= number_format($price, 2) ?>">
-
-
-                    <?php if (!empty($default_customizations_options)): ?>
-                        <?php foreach ($default_customizations_options as $custom_table => $options): ?>
-                            <div class="option">
-                                <h2><?= ucfirst(str_replace('_', ' ', $custom_table)) ?></h2>
-
-                                <?php foreach ($options as $option): ?>
-                                    <?php 
-                                    $option_name = $option['item_name'];
-                                    $option_price = $option['item_price'] ?? 0;
-                                    $is_checked = isset($customizations[$custom_table]) && in_array($option_name, (array) $customizations[$custom_table]);
-                                    ?>
-
-                                    <?php if ($custom_table === 'protein' || $custom_table === 'condiments'): ?>
-                                        <!-- Checkbox -->
-                                        <div class="option-label">
-                                            <input type="checkbox" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
-                                                name="<?= $custom_table ?>[]" value="<?= $option_name ?>"
-                                                data-price="<?= $option_price ?>"
-                                                <?= $is_checked ? 'checked' : '' ?>>
-                                            <input type="hidden" name="<?= $custom_table ?>_price[<?= $option_name ?>]" value="<?= $option_price ?>">
-                                            <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
-                                                <p><?= $option_name ?></p>
-                                                <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
-                                            </label>
-                                        </div>
-                                    <?php else: ?>
-                                        <!-- Radio Button -->
-                                        <div class="option-label">
-                                            <input type="radio" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
-                                                name="<?= $custom_table ?>" value="<?= $option_name ?>"
-                                                data-price="<?= $option_price ?>"
-                                                <?= ($customizations[$custom_table] ?? '') === $option_name ? 'checked' : '' ?>>
-                                            <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
-                                            <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
-                                                <p><?= $option_name ?></p>
-                                                <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>
-                                            </label>
-                                        </div>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-
-                    <!-- Prefill Note -->
-                    <textarea class="note" id="note" name="note" placeholder="Add a note"><?= htmlspecialchars($note ?? '') ?></textarea>
-
-                    <!-- Prefill Quantity -->
-                    <div class="product-count">
-                        <button class="button-count decrement" <?= ($quantity <= 1) ? 'disabled' : '' ?>>-</button>
-                        <input type="text" name="quantity" readonly class="number-product" value="<?= $quantity ?>">
-                        <button class="button-count increment">+</button>
-                    </div>
-
-                    <!-- Prefill Subtotal -->
-                    <h2>Total: $<span id="subtotal" data-base-price="<?= number_format($price, 2) ?>">
-                        <?= number_format($price * $quantity, 2) ?>
-                    </span></h2>
-
-
-
-                    <button class="filled-button" type="submit">
-                        <h4>Update Item</h4>
-                    </button>
-
-                    <a href="bag.php">Cancel</a>
-
-                </form>
-            </div>
-        </div>
-
-
-</div>
-
-<script src="js/step.js"></script>
+        <script src="js/step.js"></script>
+        <script src="js/calculate-subtotal.js"></script>
+        <script src="js/button.js"></script>
+        <script src="js/heart-button.js"></script>
 
 
 

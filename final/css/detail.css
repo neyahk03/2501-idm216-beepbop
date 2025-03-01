@@ -161,3 +161,12 @@ br {
     }
 }
 
+.cancel-update {
+    color: var(--brown);
+    text-align: center;
+}
+
+.cancel-button:visited {
+    color: var(--brown);
+}
+
