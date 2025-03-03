@@ -7,9 +7,8 @@ if (isset($_POST['guest'])) {
 
     // empty cart
     $_SESSION['cart'] = []; 
+    $_SESSION['order'] = [];
 
-    // when click on continue as guest, redirect to step 1 (menu screen)
-    // header("Location: step1.php");
     header("Location: home.php");
     exit();
 }

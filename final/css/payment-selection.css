@@ -43,6 +43,7 @@ label {
     padding: 2rem;
     width: 100%;
     max-width: 23.5rem;
+    height: 6rem;
     margin: 0 auto;
     border-radius: 0.5rem;
     background-color: white;
@@ -51,6 +52,10 @@ label {
     align-items: center;
 
     cursor: pointer;
+
+    img {
+        height: 2.5rem;
+    }
 }
 
 input {
