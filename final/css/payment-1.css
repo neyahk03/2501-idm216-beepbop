@@ -89,6 +89,10 @@ h4 {
 
     cursor: pointer;
 
+    img {
+        height: 2.5rem;
+    }
+
 }
 
 .point {
@@ -143,6 +147,7 @@ h4 {
 
 .pickup-time, .add-tips {
     padding: 0 2rem;
+
     h4 {
         margin-bottom: 0.5rem;
     }
@@ -150,59 +155,41 @@ h4 {
 
 
 
-.pickup-selection, .tips-selection{
+.pickup-selection, .tips-selection {
     display: flex;
     text-wrap: nowrap;
     gap: 0.5rem;
-
     overflow-x: scroll;
 
-    p {
-        
-        padding: 0.5rem 0.75rem;
-        border: 1px solid black;
-        border-radius: 0.5rem;
-    }
 }
 
-.total-container {
+.tips-selection {
+    width: 100%;
+    max-width: 23.5rem;
+    align-items: stretch;
+}
+
+.pickup-selection label, .tips-selection label {
+    width: 23.5rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--brown);
+    border-radius: 0.5rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-
-    background-color: white;
-
-    z-index: 100;
-
-}
-
-.total {
-    width: 11.5rem;
-
-    div {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-}
-
-button {
-    width: 23.5rem;
-    height: 3.5rem;
-    background-color: var(--brown);
-    border: none;
-    border-radius: 0.5rem;
-
     cursor: pointer;
-
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-.pickup-selection p, .tips-selection p, .pickup-selection button, .tips-selection button {
-    cursor: pointer !important;
+.pickup-selection label.selected, .tips-selection label.selected {
+    background-color: var(--brown); 
+    color: white;
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 .disabled {
@@ -211,28 +198,40 @@ button {
     cursor:no-drop;
 }
 
-/* .two-columns {
+.total-container {
+    width: 100%;
+    max-width: 27.5rem;
+
     display: flex;
-    justify-content: space-between; 
-    width: 100%; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+
+    position: absolute;
+    bottom: 0;
+
+    z-index: 2000;
+
 }
 
-.column {
-    width: 50%;
-    margin-top: 5rem;
-    margin-bottom: .5rem;
-}
+.total {
+    width: 100%;
+    max-width: 23.5rem;
 
-.left-column {
-    text-align: left; 
-    margin-left: 2rem;
-}
 
-.right-column {
-    text-align: right; 
-    margin-right: 2rem;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 
-.two-columns h4 {
-    margin-bottom: 0rem;
-} */
+    h4 {
+        margin-bottom: 0;
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

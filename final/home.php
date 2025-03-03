@@ -21,6 +21,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
     $_SESSION['cart'][$_SESSION['user_id']] = [];
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +69,17 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
         </nav>
 
         <div class="content">
+
+            <?php 
+                if (isset($_SESSION['order']['items']) && !empty($_SESSION['order']['items'])) {
+                    echo '<a href="order-status.php" class="order-status">
+                        <h4>View your order in progress</h4>
+                        <img src="../images/icons/next.svg" alt="next icon">
+                    </a>';
+                }
+            ?>
+
+
 
             <div class="CTA">
                 <h1>HI THERE, I'M PETE!</h1>

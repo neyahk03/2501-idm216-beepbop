@@ -85,7 +85,6 @@ a:visited {
 /* order profress bar */
 .order-status {
     cursor: pointer;
-    transform: translateY(4.5rem);
     background-color: var(--brown);
 
     display: flex;

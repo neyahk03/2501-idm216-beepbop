@@ -9,8 +9,6 @@ if (!isset($_SESSION['guest_id'])) {
 
 // echo "ID: ". $_SESSION['guest_id'] . "<br>";
 
-
-// Ensure the cart exists in session
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
@@ -20,25 +18,14 @@ if (!isset($_SESSION['bag_subtotal'])) {
 }
 
 
-// bag subtotal
-$bag_subtotal = array_reduce($_SESSION['cart'], fn($total, $item) => $total + floatval($item['subtotal']), 0);
-$_SESSION['bag_subtotal'] = $bag_subtotal;
+$bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
 
-// total quantity and store in session
-$total_quantity = array_reduce($_SESSION['cart'], fn($sum, $item) => $sum + $item['quantity'], 0);
-$_SESSION['quantity'] = $total_quantity;
 
-// tax and total
+$bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
+$selected_tip = $_SESSION['selected_tip'] ?? 0.00;
 $tax = $bag_subtotal * 0.06;
-$total = $bag_subtotal + $tax;
-
-
-echo "<pre>";
-// print_r($_SESSION['cart']);
-
-print_r($_SESSION['bag_subtotal']);
-
-echo "</pre>";
+$new_total = $bag_subtotal + $tax + $selected_tip;
+$pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
 
 ?>
 
@@ -52,8 +39,8 @@ echo "</pre>";
     <title>Payment</title>
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/payment-1.css">
     <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/payment-1.css">
 
 </head>
 
@@ -92,85 +79,88 @@ echo "</pre>";
 
             </div>
             
-            <!-- <div class="point">
-                <p>Use your point</p>
-                <p>1200 pts = $1.20</p>
-            </div> -->
 
             <div class="point">
                 <p>SIGN UP / LOG IN</p>
                 <p>TO EARN POINTS</p>
             </div>
 
-            <div class="pickup-time">
-                <h4>Pick Up Time</h4>
-                <div class="pickup-selection">
-                    <p>ASAP</p>
-                    <p>11:20 AM</p>
-                    <p>11:50 AM</p>
-                    <p>12:20 PM</p>
-                    <p>12:50 PM</p>
-                    <p>13:20 PM</p>
-                    <p>13:20 PM</p>
-                    <p>13:50 PM</p>
+            <form action="confirm.php" method="post">
+
+                <input type="hidden" name="new_total" value="<?php echo $new_total; ?>">
+                <input type="hidden" name="selected_tip" value="<?php echo $selected_tip; ?>">
+                <input type="hidden" name="bag_subtotal" value="<?php echo $bag_subtotal ?>">
+                <input type="hidden" name="tax" value="<?php echo $tax ?>">
+
+                <div class="pickup-time">
+                    <h4>Pick Up Time</h4>
+                
+                    <div class="pickup-selection">
+                        <?php
+                        $times = ["ASAP", "11:20 AM", "11:50 AM", "12:20 PM", "12:50 PM", "1:20 PM", "1:50 PM"];
+                        foreach ($times as $time) {
+                            $selected = ($pickup_time === $time) ? "selected" : "";
+                            echo "<label class='$selected' data-value='$time'>$time
+                                <input type='radio' name='pickup_time' value='$time' " . ($pickup_time === $time ? "checked" : "") . ">
+                            </label>";
+                        }
+                        ?>
+                    </div>
+
                 </div>
+
+                <div class="add-tips">
+                    <h4>Add Tips: </h4>
+
+                    <div class="tips-selection">
+                        <?php
+                        $tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
+                        foreach ($tips as $value => $label) {
+                            $selected = ($selected_tip == $value) ? "selected" : "";
+                            echo "<label class='$selected' data-value='$value'>$label
+                                <input type='radio' name='selected_tip' value='$value' " . ($selected_tip == $value ? "checked" : "") . ">
+                            </label>";
+                        }
+                        ?>
+                    </div>
+                </div>
+
+
+
             </div>
-
-            <div class="add-tips">
-                <h4>Add Tips:</h4>
-                <div class="tips-selection">
-                    <p>Custom Tip</p>
-                    <p>$1.00</p>
-                    <p>$2.00</p>
-                    <p>$3.00</p>
+    
+            <div class="total-container">
+    
+                <div class="total">
+                    <div class="bag-subtotal">
+                        <h4>Subtotal</h4>
+                        <h4>$<?php echo number_format($bag_subtotal, 2); ?></h4>
+                    </div>
+    
+                    <div class="tips">
+                        <p>Tips</p>
+                        <p>$0.00</p>
+                    </div>
+    
+                    <div class="tax">
+                        <p>Tax</p>
+                        <p>$<?php echo number_format($tax, 2) ?></p>
+                    </div>
+    
+                    <div class="bag-total">
+                        <h2>Total</h2>
+                        <h2>$<?php echo number_format($new_total, 2) ?></h2>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="total-container">
-
-            <div class="total">
-                <div class="bag-subtotal">
-                    <h4>Subtotal</h4>
-                    <h4><?php number_format($_SESSION['bag_subtotal'], 2) ?><h4>
-                </div>
-
-                <div class="tips">
-                    <p>Tips</p>
-                    <p>$1.00</p>
-                </div>
-
-                <div class="tax">
-                    <p>Tax</p>
-                    <p>$0.72</p>
-                </div>
-
-                <div class="bag-total">
-                    <h2>Total</h2>
-                    <h2>$6.72</h2>
-                </div>
-            </div>
-
+    
         
-            <!-- <div class="two-columns">
-                <div class="column left-column">
-                    <h4>Subtotal</h4>
-                    <p>Tips</p>
-                    <p>Tax</p>
-                    <h2>Total</h2>
-                </div>
-                <div class="column right-column">
-                    <h4>$6.00</h4>
-                    <p>$1.00</p>
-                    <p>$0.72</p>
-                    <h2>$6.72</h2>
-                </div>
-            </div> -->
-            
-            <button id="place-order-button" class="filled-button disabled" onclick="gotoConfirmOrder()" >
-                PLACE ORDER
-            </button>
-        </div>
+                
+                <button id="place-order-button" class="filled-button disabled" type="submit" >
+                    PLACE ORDER
+                </button>
+            </div>
+            </form>
+
 
 
     </div>

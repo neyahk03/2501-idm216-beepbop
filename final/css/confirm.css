@@ -1,7 +1,6 @@
 nav {
-    position: relative;
     background-color: transparent;
-    overflow: visible;
+
 
     z-index: 50;
 }
@@ -25,9 +24,8 @@ nav {
 .content-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
-    height: calc(59.75rem - 12rem); /* Keep the height the same */
-    margin-top: 8rem;
+    justify-content: flex-start;
+    margin: 12rem 0;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -35,6 +33,12 @@ nav {
 h1, p {
     text-align: center;
 }
+
+.content {
+    position: relative;
+    z-index: 1000;
+}
+
 .content div:first-child {
     display: flex;
     flex-direction: column;
@@ -69,7 +73,9 @@ h1, p {
 .time {
     font-size: 2.75rem;
     font-weight: 500;
+    margin-top: 1rem;
 }
+
 
 
 .stars-container {
@@ -78,6 +84,13 @@ h1, p {
     align-items: center;
 }
 
-.stars {
-    /* Add any additional styles for the image */
+.btn-container {
+    width: 100%;
+    max-width: 27.5rem;
+    padding: 2rem 0;
+    background-color: white;
+    position: absolute;
+    bottom: 0rem;
+    z-index: 2000;
 }
+

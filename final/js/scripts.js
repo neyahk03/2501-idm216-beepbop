@@ -52,7 +52,7 @@ function confirmPayment() {
         const selectedIcon = selectedPayment.getAttribute("data-icon"); 
         localStorage.setItem("paymentMethod", selectedPayment.value);
         localStorage.setItem("paymentIcon", selectedIcon);
-        window.location.href = "payment-1.html"; 
+        window.location.href = "checkout.php"; 
     } else {
         alert("Please select a payment method.");
     }
