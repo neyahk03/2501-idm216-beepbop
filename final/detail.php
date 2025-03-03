@@ -57,8 +57,8 @@ $customization_tables_map = [
     'sandwiches' => ['bread', 'protein', 'condiments'],
     'cheesesteaks' => ['cheesesteak_bread'],
     'salads' => ['dressing'],
-    'pastries' => ['pastry_option'],
-    'drinks' => ['drink_option']
+    'pastries' => ['preparation_option'],
+    'drinks' => ['drink_option', 'soda_type', 'drink_size']
 ];
 
 $customizations = [];
@@ -81,9 +81,14 @@ if (isset($customization_tables_map[$table_to_display])) {
 }
 
 $category_icons = [
-    'bread' => 'bread.svg',
+    'bread', 'cheesesteak_bread' => 'bread.svg',
     'protein' => 'meat.svg',
     'condiments' => 'salt.svg',
+    'dressing' => 'dressing.svg',
+    'preparation_option' => 'toast.svg',
+    'drink_size' => 'cup.svg',
+    'drink_option' => 'can.svg',
+    'soda_type' => 'soda_type.svg'
 ];
 
 
@@ -121,9 +126,14 @@ $category_icons = [
         
 
         <nav>
-            <a href="menu.php">
+            <!-- <a href="menu.php">
                 <img class="cancel-button" src="../images/icons/cancel.svg" alt="cancel icon">
-            </a>
+            </a> -->
+
+            <button onclick="history.back()">
+                <img class="cancel-button" src="../images/icons/cancel.svg" alt="cancel icon">
+
+            </button>
         </nav>
 
         <div class="content">
@@ -156,6 +166,23 @@ $category_icons = [
 
                     <?php if (!empty($customizations)): ?>
                         <?php foreach ($customizations as $custom_table => $options): ?>
+                            
+                            <?php  
+                            if ($table_to_display === 'drinks') {
+                                if ($menu_item === 'Water') {
+                                    continue; 
+                                } elseif ($menu_item === 'Soda') {
+                                    if ($custom_table !== 'soda_type' && $custom_table !== 'drink_option') {
+                                        continue; 
+                                    }
+                                } else {
+                                    if ($custom_table !== 'drink_size') {
+                                        continue; 
+                                    }
+                                }
+                            }
+                            ?>
+                            
                             <div class="option">
 
                                 <div class="option-title">
@@ -207,8 +234,8 @@ $category_icons = [
                                         <div class="option-label">
                                             <input type="radio" id="<?= str_replace(' ', '_', strtolower($option_name)) ?>"
                                                 name="<?= $custom_table ?>" value="<?= $option_name ?>"
-                                                data-price="<?= $option_price ?>">
-                                                <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>" required>
+                                                data-price="<?= $option_price ?>" required>
+                                                <input type="hidden" name="<?= $custom_table ?>_price" value="<?= $option_price ?>">
                                                 <label for="<?= str_replace(' ', '_', strtolower($option_name)) ?>">
                                                 <p><?= $option_name ?></p>
                                                 <p><?php if ($option_price > 0) echo "+$" . number_format($option_price, 2); ?></p>

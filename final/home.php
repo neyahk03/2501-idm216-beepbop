@@ -32,6 +32,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="css/quantity.css">
 </head>
 <body>
@@ -71,7 +72,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
             <div class="CTA">
                 <h1>HI THERE, I'M PETE!</h1>
                 <img class="mascot" src="../images/homepage-featured-img.svg" alt="mascot">
-                <a href="menu.php"><button class="login-button">ORDER NOW</button></a>
+                <a href="menu.php"><button class="nofill-button">ORDER NOW</button></a>
             </div> 
 
             <div class="petes-fav">
@@ -80,35 +81,46 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
                 <div class="fav-container">
 
                     <div class="fav">
-                        <img src="../images/menu-item/thai-tea.jpg " alt="Thai Tea">
-                        <div class="description">
-                            <p>Thai Tea</p>
-                            <p>$3.00</p>
-                        </div>
+                        <a class="fav-link" href="detail.php?id=6&table=drinks&menu_item=Thai+Tea">
+
+                            <img src="../images/menu-item/thai-tea.jpg " alt="Thai Tea">
+                            <div class="description">
+                                <p>Thai Tea</p>
+                                <p>$3.00</p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="fav">
-                        <img src="../images/menu-item/bacon-lettuce-tomato.jpg" alt="BLT Sandwich">
-                        <div class="description">
-                            <p>BLT Sandwich</p>
-                            <p>$6.00</p>
-                        </div>
+                        <a class="fav-link" href="detail.php?id=3&table=sandwiches&menu_item=B.L.T">
+
+                            <img src="../images/menu-item/bacon-lettuce-tomato.jpg" alt="BLT Sandwich">
+                            <div class="description">
+                                <p>B.L.T Sandwich</p>
+                                <p>$6.00</p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="fav">
-                        <img src="../images/menu-item/egg-and-cheese.jpg " alt="Egg & Cheese">
-                        <div class="description">
-                            <p>Egg &amp; Cheese</p>
-                            <p>$4.50</p>
-                        </div>
+                        <a href="detail.php?id=1&table=sandwiches&menu_item=Egg+%26+Cheese">
+                            <img src="../images/menu-item/egg-and-cheese.jpg " alt="Egg & Cheese">
+                            <div class="description">
+                                <p>Egg &amp; Cheese</p>
+                                <p>$4.50</p>
+                            </div>
+                        </a>
                     </div>
 
                     <div class="fav">
-                        <img src="../images/menu-item/bagel-and-cream-cheese.jpg " alt="Bagel">
-                        <div class="description">
-                            <p>Bagel</p>
-                            <p>$4.50</p>
-                        </div>
+                        <a href="detail.php?id=1&table=pastries&menu_item=Bagel+with+Cream+Cheese" class="fav-link">
+
+                            <img src="../images/menu-item/bagel-and-cream-cheese.jpg " alt="Bagel">
+                            <div class="description">
+                                <p>Bagel</p>
+                                <p>$4.50</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

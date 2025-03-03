@@ -150,7 +150,7 @@ h4 {
 
 
 
-.pickup-selection, .tips{
+.pickup-selection, .tips-selection{
     display: flex;
     text-wrap: nowrap;
     gap: 0.5rem;
@@ -165,7 +165,7 @@ h4 {
     }
 }
 
-/* .total-container {
+.total-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,7 +188,7 @@ h4 {
         justify-content: space-between;
         width: 100%;
     }
-} */
+}
 
 button {
     width: 23.5rem;
@@ -201,7 +201,7 @@ button {
 
 }
 
-.pickup-selection p, .tips p, .pickup-selection button, .tips button {
+.pickup-selection p, .tips-selection p, .pickup-selection button, .tips-selection button {
     cursor: pointer !important;
 }
 
@@ -211,11 +211,10 @@ button {
     cursor:no-drop;
 }
 
-.two-columns {
+/* .two-columns {
     display: flex;
     justify-content: space-between; 
     width: 100%; 
-    /* margin: 7.37rem 2rem .5rem 2rem; */
 }
 
 .column {
@@ -236,4 +235,4 @@ button {
 
 .two-columns h4 {
     margin-bottom: 0rem;
-}
+} */

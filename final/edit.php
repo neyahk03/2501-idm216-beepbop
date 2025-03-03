@@ -77,8 +77,8 @@ $customization_tables_map = [
     'sandwiches' => ['bread', 'protein', 'condiments'],
     'cheesesteaks' => ['cheesesteak_bread'],
     'salads' => ['dressing'],
-    'pastries' => ['pastry_option'],
-    'drinks' => ['drink_option']
+    'pastries' => ['preparation_option'],
+    'drinks' => ['drink_option', 'drink_size', 'soda_type']
 ];
 
 $default_customizations_options = [];
@@ -103,10 +103,16 @@ if (isset($customization_tables_map[$main_table])) {
 
 $connection->close();
 
+
 $category_icons = [
-    'bread' => 'bread.svg',
+    'bread', 'cheesesteak_bread' => 'bread.svg',
     'protein' => 'meat.svg',
     'condiments' => 'salt.svg',
+    'dressing' => 'dressing.svg',
+    'preparation_option' => 'toast.svg',
+    'drink_size' => 'cup.svg',
+    'drink_option' => 'can.svg',
+    'soda_type' => 'soda_type.svg'
 ];
 
 ?>
@@ -167,6 +173,23 @@ $category_icons = [
         
                             <?php if (!empty($default_customizations_options)): ?>
                                 <?php foreach ($default_customizations_options as $custom_table => $options): ?>
+
+                                    <?php  
+                                        if ($main_table === 'drinks') {
+                                            if ($menu_item === 'Water') {
+                                                continue; 
+                                            } elseif ($menu_item === 'Soda') {
+                                                if ($custom_table !== 'soda_type' && $custom_table !== 'drink_option') {
+                                                    continue; 
+                                                }
+                                            } else {
+                                                if ($custom_table !== 'drink_size') {
+                                                    continue; 
+                                                }
+                                            }
+                                        }
+                                    ?>
+
                                     <div class="option">
         
                                     <div class="option-title">
@@ -256,21 +279,16 @@ $category_icons = [
                                     <?= number_format($price * $quantity, 2) ?>
                                 </span></h2>
                             </div>
-                            <!-- Prefill Subtotal -->
+                            
         
-        
-                            <div class="button-container">
-
                                 <button class="filled-button" type="submit">
                                     <h4>Update Item</h4>
                                 </button>
     
-                                <button class="nofill-button">
-                                    <h4>Cancel</h4>
-                                </button>
-                            </div>                 
+                                
+
         
-                            <a class="cancel-update" href="bag.php">Cancel</a>
+                            <a class="cancel-update nofill-button" href="bag.php">Cancel</a>
         
                         </form>
                     </div>
