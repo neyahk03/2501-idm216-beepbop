@@ -64,9 +64,12 @@ h2,p {
 
 .option-title { 
     margin: 1rem;
-
     display: flex;
     align-items: flex-end;
+
+    h2 {
+        text-transform: capitalize;
+    }
 }
 
 .option h2 {
@@ -164,6 +167,10 @@ br {
 .cancel-update {
     color: var(--brown);
     text-align: center;
+    text-decoration: none;
+
+    padding: 1rem;
+    border: 1px solid var(--brown);
 }
 
 .cancel-button:visited {
