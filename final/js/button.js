@@ -1,17 +1,17 @@
-function goToOrderStatus() {
-    window.location.href = "order-status.html";
-}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script loaded");
 });
 
-function viewOrderStatus() {
-    window.location.href = "order-status.html"
+function viewStatus() {
+    window.location.href = "order-status.php"
 }
 
+
+
 function gotoConfirmOrder() {
-    window.location.href = "confirm.html"
+    window.location.href = "confirm.php"
 }
 
 function gotoLogIn() {
@@ -30,3 +30,6 @@ function gotoCheckout() {
     window.location.href = "checkout.php"
 }
 
+function goHome() {
+    window.location.href = "home.php"
+}

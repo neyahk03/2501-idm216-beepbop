@@ -244,7 +244,7 @@ $total = $bag_subtotal + $tax;
                 
                 <?php endforeach; ?>
 
-                <a class="clear-bag" href="functions/clear_cart.php">Clear Bag</a>
+                <a class="clear-bag" href="functions/clear_cart.php">Empty Lunchbox</a>
 
             <?php endif; ?>
 
@@ -256,65 +256,92 @@ $total = $bag_subtotal + $tax;
                 <div class="fav-section">
                     <h4>Popular items to add to your order:</h4>
 
-    
-                
-
                     <div class="popular-items">
 
-
                         <div class="pop-items-container">
                             
-                                    <img src="../images/menu-item/thai-tea.jpg" alt="Thai Tea">
+                            <a href="detail.php?id=6&table=drinks&menu_item=Thai+Tea">
 
-                                    <div class="description">
-                                        <div>
+                                <img src="../images/menu-item/thai-tea.jpg" alt="Thai Tea">
 
-                                            <p>Thai Tea</p>
-                                            <p>$3.00</p>
-                                        </div>
+                                <div class="description">
+                                    <div>
 
-                                        <button class="add-button">
-                                            <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                        </button>
+                                        <p>Thai Tea</p>
+                                        <p>$3.00</p>
                                     </div>
+
+                                    <button class="add-button">
+                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
+                                    </button>
+                                </div>
+                            </a>
                                     
                             
                         </div>
 
                         <div class="pop-items-container">
                             
-                                    <img src="../images/menu-item/hashbrown.png " alt="Hashbrown">
+                            <a href="detail.php?id=4&table=pastries&menu_item=Hashbrown">
 
-                                    <div class="description">
-                                        <div>
+                                <img src="../images/menu-item/hashbrown.png " alt="Hashbrown">
 
-                                            <p>Hashbrown</p>
-                                            <p>$1.50</p>
-                                        </div>
+                                <div class="description">
+                                    <div>
 
-                                        <button class="add-button">
-                                            <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                        </button>
+                                        <p>Hashbrown</p>
+                                        <p>$1.50</p>
                                     </div>
+
+                                    <button class="add-button">
+                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
+                                    </button>
+                                </div>
+                                
+                            </a>
+                            
+                        </div>
+
+                        <div class="pop-items-container">
+                            
+                            <a href="detail.php?id=2&table=pastries&menu_item=Muffin">
+
+                                <img src="../images/menu-item/muffin.jpg " alt="Muffin">
+
+                                <div class="description">
+                                    <div>
+
+                                        <p>Muffin</p>
+                                        <p>$2.50</p>
+                                    </div>
+
+                                    <button class="add-button">
+                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
+                                    </button>
+                                </div>
+                            </a>
                                     
                             
                         </div>
 
                         <div class="pop-items-container">
                             
-                                    <img src="../images/menu-item/muffin.jpg " alt="Muffin">
+                            <a href="detail.php?id=2&table=sandwiches&menu_item=Grilled+Cheese">
 
-                                    <div class="description">
-                                        <div>
+                                <img src="../images/menu-item/grilled-cheese.jpg " alt="Grilled Cheese">
 
-                                            <p>Muffin</p>
-                                            <p>$2.50</p>
-                                        </div>
+                                <div class="description">
+                                    <div>
 
-                                        <button class="add-button">
-                                            <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                        </button>
+                                        <p>Grilled Cheese</p>
+                                        <p>$3.50</p>
                                     </div>
+
+                                    <button class="add-button">
+                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
+                                    </button>
+                                </div>
+                            </a>
                                     
                             
                         </div>

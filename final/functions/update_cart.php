@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST as $key => $value) {
         if (is_array($value) && strpos($key, '_price') === false) {
             $customizations[$key] = $value;
-        } elseif (!is_array($value) && !in_array($key, ['index', 'drink_option_price', 'pastry_option_price','dressing_price', 'bread_price','cheesesteak_bread_price', 'menu_item', 'main_table', 'quantity', 'note', 'subtotal', 'id', 'update', 'item_price'])) {
+        } elseif (!is_array($value) && !in_array($key, ['index', 'drink_option_price', 'preparation_option_price', 'drink_size_price', 'soda_type_price', 'pastry_option_price','dressing_price', 'bread_price','cheesesteak_bread_price', 'menu_item', 'main_table', 'quantity', 'note', 'subtotal', 'id', 'update', 'item_price'])) {
             $customizations[$key] = $value;
         }
     }
