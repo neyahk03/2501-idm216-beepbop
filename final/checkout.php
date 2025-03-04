@@ -21,10 +21,11 @@ if (!isset($_SESSION['bag_subtotal'])) {
 $selected_tip = $_POST['selected_tip'] ?? 0;
 $tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
 
-$bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
-
 
 $bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
+
+// print_r($bag_subtotal);
+
 $selected_tip = $_SESSION['selected_tip'] ?? 0.00;
 $tax = $bag_subtotal * 0.06;
 $new_total = $bag_subtotal + $tax + $selected_tip;

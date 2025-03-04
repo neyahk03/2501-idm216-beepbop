@@ -135,7 +135,7 @@ include "functions/status.php";
                     <div class="total">
                         <div class="bag-subtotal">
                             <h4>Subtotal</h4>
-                            <h4>$<?php echo number_format($subtotal, 2) ?></h4>
+                            <h4>$<?php echo number_format($bag_subtotal, 2) ?></h4>
                         </div>
     
                         <div class="tips">

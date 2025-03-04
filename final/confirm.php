@@ -30,12 +30,14 @@ $order_number = str_pad($_SESSION['order_number'], 3, '0', STR_PAD_LEFT);
 $_SESSION['order'] = [
     'order_number' => $order_number,
     'items' => $_SESSION['cart'],
-    'subtotal' => $_POST['bag_subtotal'],
+    'subtotal' => $_SESSION['bag_subtotal'],
     'total' => $_POST['new_total'] ?? 0.00,
     'tip' => $_POST['selected_tip'] ?? 0.00,
     'tax' => $_POST['tax'],
     'pickup_time' => $_POST['pickup_time'] ?? "ASAP"
 ];
+
+// print_r($_SESSION['bag_subtotal']);
 
 // Reset cart after placing order
 $_SESSION['cart'] = [];
