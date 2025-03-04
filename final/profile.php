@@ -1,22 +1,67 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login.php"); 
+    exit();
+}
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once '../includes/database.php';
+
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['user_id'] = session_id();
+}
+
+if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
+    $_SESSION['cart'][$_SESSION['user_id']] = [];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile | Pete's Lunch Box</title>
-    <link rel="icon" type="image/gif" href="/images/logo.png" />
-    <link rel="stylesheet" href="/beta/css/general.css">
-    <link rel="stylesheet" href="/beta/css/home.css">
+    <link rel="icon" type="image/gif" href="../images/logo.png" />
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
 
     <div class="screen-container">
 
-        <nav>
-            <h1>PROFILE</h1>
-            <a href="empty-bag.html" >
-                <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
-            </a>  
+    <nav>
+            <h1>PROFILE </h1>
+
+            <div class="lunchbox">
+
+                <a href="bag.php" >
+                    <img src="../images/icons/shopping-bag.svg" alt="shopping bag icon">
+                </a>
+
+                <?php 
+                        if (!empty($_SESSION['cart'])) {
+                            $totalQuantity = array_sum(array_column($_SESSION['cart'], 'quantity'));
+                            if ($totalQuantity > 0) { ?>
+                                <div class="quantity">
+                                    <p>
+                                        <?php echo '<span id="quantity">' . $totalQuantity . '</span>'; ?> 
+                                    </p>
+
+                                </div>
+                            <?php }
+                            }
+                    ?>
+
+            </div>
+
+            
         </nav>
 
         <div class="rewards-section">
