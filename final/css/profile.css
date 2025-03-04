@@ -171,7 +171,7 @@ h3 {
 
 .rules p::before {
     content: "";
-    background: url('/images/icons/yellow-star.svg') no-repeat center center;
+    background: url('../../images/icons/yellow-star.svg') no-repeat center center;
     background-size: contain;
     width: 25px;
     height: 25px;
