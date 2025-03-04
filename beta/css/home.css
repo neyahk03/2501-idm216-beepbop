@@ -151,3 +151,102 @@ h3 {
     flex-direction: column;
     gap: .5rem;
 }
+
+.rules p {
+    position: relative;
+    padding-left: 2.29rem;
+    padding-bottom: 1rem;
+}
+
+.rules {
+    /* margin: 2.29rem; */
+    margin: 2rem;
+}
+
+.rules h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+
+}
+
+.rules p::before {
+    content: "";
+    background: url('/images/icons/yellow-star.svg') no-repeat center center;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.rules p:last-child {
+    padding-bottom: 0;
+}
+
+.points { 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3.56rem;
+}
+
+.points h1 {
+    color: var(--red);
+    margin-bottom: .5rem;
+}
+
+.rewards-section { 
+    margin-top: 6rem;
+    margin-bottom: 3.56rem;
+}
+
+.reward-button {
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: white;
+    color: var(--brown);
+    border: 3px solid var(--brown);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .5rem;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; 
+    align-items: center;
+}
+
+.reward-button:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.reward2-button { 
+    width: 23.5rem;
+    height: 3.5rem;
+    background-color: var(--brown);
+    color: white;
+    /* border: 3px solid var(--brown); */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, box-shadow 0.2s ease; 
+    align-items: center;
+}
