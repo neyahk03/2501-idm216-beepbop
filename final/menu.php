@@ -173,7 +173,7 @@ foreach ($tables as $table) {
                     <p class="label">Menu</p>
                 </a>
     
-                <a href="#" class="icon-container">
+                <a href="profile.php" class="icon-container">
                     <img src="../images/icons/profile.svg" alt="contact icon">
                     <p class="label">Profile</p>
                 </a>

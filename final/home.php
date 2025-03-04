@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// check if there is session guest id exist
 if (!isset($_SESSION['guest_id'])) {
     header("Location: login.php"); 
     exit();
 }
-
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -182,7 +180,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
                 <p class="label">Menu</p>
             </a>
 
-            <a href="#" class="icon-container">
+            <a href="profile.php" class="icon-container">
                 <img src="../images/icons/profile.svg" alt="contact icon">
                 <p class="label">Profile</p>
             </a>
