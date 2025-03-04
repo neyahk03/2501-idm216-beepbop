@@ -86,16 +86,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle Pickup Time Selection
     const pickupOptions = document.querySelectorAll(".pickup-selection label");
+    const pickupTimeInput = document.getElementById("selectedPickupTime");
 
     pickupOptions.forEach(option => {
         option.addEventListener("click", function () {
-            // Remove 'selected' class only within the pickup selection section
+            // Remove 'selected' class from all options
             pickupOptions.forEach(opt => opt.classList.remove("selected"));
 
-            // Add 'selected' class to clicked pickup time
+            // Add 'selected' class to the clicked pickup time
             this.classList.add("selected");
 
-            // Update the hidden radio button value
+            // Get selected value and update the hidden input field
+            let selectedTime = this.getAttribute("data-value");
+            pickupTimeInput.value = selectedTime;
+
+            // Update the hidden radio button as well (if needed)
             this.querySelector("input").checked = true;
         });
     });

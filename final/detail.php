@@ -3,7 +3,7 @@ session_start();
 include '../includes/database.php';
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php"); 
+    header("Location: login-signup.php"); 
     exit();
 }
 
@@ -81,7 +81,8 @@ if (isset($customization_tables_map[$table_to_display])) {
 }
 
 $category_icons = [
-    'bread', 'cheesesteak_bread' => 'bread.svg',
+    'bread' => 'bread.svg',
+    'cheesesteak_bread' => 'bread.svg',
     'protein' => 'meat.svg',
     'condiments' => 'salt.svg',
     'dressing' => 'dressing.svg',
