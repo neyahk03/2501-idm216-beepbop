@@ -1,14 +1,14 @@
-function goToOrderStatus() {
-    window.location.href = "order-status.php";
-}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Script loaded");
 });
 
-function viewOrderStatus() {
+function viewStatus() {
     window.location.href = "order-status.php"
 }
+
+
 
 function gotoConfirmOrder() {
     window.location.href = "confirm.php"

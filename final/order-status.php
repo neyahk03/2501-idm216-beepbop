@@ -74,87 +74,90 @@ include "functions/status.php";
             <p>Your order is being prepared!</p>
             
 
+            <div class="receipt">
 
-            <?php if (empty($_SESSION['order']['items'])) :
-                header("Location: login-status.php");
-                exit();
-            else : ?>
-
-                <?php foreach ($_SESSION['order']['items'] as $index => $item) : ?>
-                    <div class="food-card">
-                        <img class="food-pic" src="../images/menu-item/<?= htmlspecialchars($item['image_link']) ?>" alt="<?= htmlspecialchars($item['menu_item']) ?>">
-                        
-                        <div class="food-details">
-                    
-                            <div class="food-description">
-
-                                <div class="food-details-title">
-                                    <h3><?= htmlspecialchars($item['menu_item']) ?></h3>
-                                    <p class="item-subtotal">$<?= number_format($item['subtotal'], 2) ?></p>
-                                </div>
-
-                            </div>
-
-                            <div class="custom-note-container">
-                                <p class="customization">
-                                    <?php 
-                                        if (!empty($item['customizations']) && is_array($item['customizations'])) {
-                                            $custom_choices = [];
-
-                                            foreach ($item['customizations'] as $category => $choices) {
-                                                if (is_array($choices)) {
-                                                    $custom_choices = array_merge($custom_choices, array_values($choices));
-                                                } else {
-                                                    $custom_choices[] = $choices;
-                                                }
-                                            }
-
-                                            echo !empty($custom_choices) ? implode(', ', array_map('htmlspecialchars', $custom_choices)) : 'No customizations';
-                                        } else {
-                                            echo 'No customizations';
-                                        }
-                                    ?>
-                                </p>
-
-                                <p class="note"><strong>Notes: </strong><?= !empty($item['note']) ? htmlspecialchars($item['note']) : 'None' ?></p>
-
-                            </div>
-
+                <?php if (empty($_SESSION['order']['items'])) :
+                    header("Location: login-signup.php");
+                    exit();
+                else : ?>
+    
+                    <?php foreach ($_SESSION['order']['items'] as $index => $item) : ?>
+                        <div class="food-card">
+                            <img class="food-pic" src="../images/menu-item/<?= htmlspecialchars($item['image_link']) ?>" alt="<?= htmlspecialchars($item['menu_item']) ?>">
                             
+                            <div class="food-details">
+                        
+                                <div class="food-description">
+    
+                                    <div class="food-details-title">
+                                        <h3><?= htmlspecialchars($item['menu_item']) ?></h3>
+                                        <p class="item-subtotal">$<?= number_format($item['subtotal'], 2) ?></p>
+                                    </div>
+    
+                                </div>
+    
+                                <div class="custom-note-container">
+                                    <p class="customization">
+                                        <?php 
+                                            if (!empty($item['customizations']) && is_array($item['customizations'])) {
+                                                $custom_choices = [];
+    
+                                                foreach ($item['customizations'] as $category => $choices) {
+                                                    if (is_array($choices)) {
+                                                        $custom_choices = array_merge($custom_choices, array_values($choices));
+                                                    } else {
+                                                        $custom_choices[] = $choices;
+                                                    }
+                                                }
+    
+                                                echo !empty($custom_choices) ? implode(', ', array_map('htmlspecialchars', $custom_choices)) : 'No customizations';
+                                            } else {
+                                                echo 'No customizations';
+                                            }
+                                        ?>
+                                    </p>
+    
+                                    <p class="note"><strong>Notes: </strong><?= !empty($item['note']) ? htmlspecialchars($item['note']) : 'None' ?></p>
+    
+                                </div>
+    
+                                
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+    
+                <?php endif; ?>
+    
+    
+                
+                <div class="total-container">
+        
+                    <div class="total">
+                        <div class="bag-subtotal">
+                            <h4>Subtotal</h4>
+                            <h4>$<?php echo number_format($subtotal, 2) ?></h4>
+                        </div>
+    
+                        <div class="tips">
+                            <p>Tips</p>
+                            <p>$<?php echo number_format($tip, 2) ?></p>
+                        </div>
+    
+                        <div class="tax">
+                            <p>Tax</p>
+                            <p>$<?php echo number_format($tax, 2) ?></p>
+                        </div>
+    
+                        <div class="bag-total">
+                            <h2>Total</h2>
+                            <h2>$<?php echo number_format($total, 2) ?></h2>
                         </div>
                     </div>
-                <?php endforeach; ?>
-
-            <?php endif; ?>
-
-
-
-
-            
-            <div class="total-container">
-    
-                <div class="total">
-                    <div class="bag-subtotal">
-                        <h4>Subtotal</h4>
-                        <h4>$<?php echo number_format($subtotal, 2) ?></h4>
-                    </div>
-
-                    <div class="tips">
-                        <p>Tips</p>
-                        <p>$<?php echo number_format($tip, 2) ?></p>
-                    </div>
-
-                    <div class="tax">
-                        <p>Tax</p>
-                        <p>$<?php echo number_format($tax, 2) ?></p>
-                    </div>
-
-                    <div class="bag-total">
-                        <h2>Total</h2>
-                        <h2>$<?php echo number_format($total, 2) ?></h2>
-                    </div>
                 </div>
+
             </div>
+
+
 
 
 

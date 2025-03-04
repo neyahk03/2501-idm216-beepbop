@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php");
+    header("Location: login-signup.php");
     exit();
 }
 
@@ -34,7 +34,7 @@ $_SESSION['order'] = [
     'total' => $_POST['new_total'] ?? 0.00,
     'tip' => $_POST['selected_tip'] ?? 0.00,
     'tax' => $_POST['tax'],
-    'pickup_time' => $_SESSION['pickup_time'] ?? "ASAP"
+    'pickup_time' => $_POST['pickup_time'] ?? "ASAP"
 ];
 
 // Reset cart after placing order
@@ -112,7 +112,7 @@ $pickup_time = $_SESSION['order']['pickup_time'];
 
             <div class="btn-container">
         
-                <button class="nofill-button" onclick="goToOrderStatus()">view order status</button>
+                <button class="nofill-button" onclick="viewStatus()">view order status</button>
         
                 <button class="filled-button" onclick="goHome()">home</button>
             </div>

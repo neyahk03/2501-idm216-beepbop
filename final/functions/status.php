@@ -3,7 +3,7 @@ session_start();
 
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php");
+    header("Location: login-signup.php");
     exit();
 }
 
@@ -13,10 +13,10 @@ if (!isset($_SESSION['order'])) {
     $_SESSION['order'] = [];
 }
 
-if (empty($_SESSION['order']['items'])) {
-    header("Location: login-status.php");
-    exit();
-}
+// if (empty($_SESSION['order']['items'])) {
+//     header("Location: order-status.php");
+//     exit();
+// }
 
 // echo '<pre>';
 // print_r($_SESSION['order']);

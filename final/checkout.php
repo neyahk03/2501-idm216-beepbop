@@ -18,6 +18,9 @@ if (!isset($_SESSION['bag_subtotal'])) {
 }
 
 
+$selected_tip = $_POST['selected_tip'] ?? 0;
+$tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
+
 $bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
 
 
@@ -91,6 +94,8 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
                 <input type="hidden" name="selected_tip" value="<?php echo $selected_tip; ?>">
                 <input type="hidden" name="bag_subtotal" value="<?php echo $bag_subtotal ?>">
                 <input type="hidden" name="tax" value="<?php echo $tax ?>">
+                <!-- <input type="hidden" id="selectedPickupTime" name="pickup_time" value="<?php echo $pickup_time; ?>"> -->
+
 
                 <div class="pickup-time">
                     <h4>Pick Up Time</h4>
@@ -99,10 +104,10 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
                         <?php
                         $times = ["ASAP", "11:20 AM", "11:50 AM", "12:20 PM", "12:50 PM", "1:20 PM", "1:50 PM"];
                         foreach ($times as $time) {
-                            $selected = ($pickup_time === $time) ? "selected" : "";
-                            echo "<label class='$selected' data-value='$time'>$time
-                                <input type='radio' name='pickup_time' value='$time' " . ($pickup_time === $time ? "checked" : "") . ">
-                            </label>";
+                            $selected = ($pickup_time === $time) ? "checked" : "";
+                            echo "<label class='pickup-option $selected'>
+                                    <input type='radio' name='pickup_time' value='$time' $selected> $time
+                                  </label>";
                         }
                         ?>
                     </div>
@@ -111,15 +116,14 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
 
                 <div class="add-tips">
                     <h4>Add Tips: </h4>
-
                     <div class="tips-selection">
                         <?php
-                        $tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
                         foreach ($tips as $value => $label) {
                             $selected = ($selected_tip == $value) ? "selected" : "";
+                            $checked = ($selected_tip == $value) ? "checked" : "";
                             echo "<label class='$selected' data-value='$value'>$label
-                                <input type='radio' name='selected_tip' value='$value' " . ($selected_tip == $value ? "checked" : "") . ">
-                            </label>";
+                                    <input type='radio' name='selected_tip' value='$value' $checked>
+                                </label>";
                         }
                         ?>
                     </div>
