@@ -26,7 +26,7 @@ $order = $_SESSION['order'] ?? [];
 
 $order_number = $order['order_number'] ?? 'N/A';
 $items = $order['items'] ?? [];
-$subtotal = $order['subtotal'] ?? 0.00;
+$bag_subtotal = $order['subtotal'] ?? 0.00;
 $total = $order['total'] ?? 0.00;
 $tip = $order['tip'] ?? 0.00;
 $tax = $order['tax'] ?? 0.00;
