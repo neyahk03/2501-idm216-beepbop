@@ -184,6 +184,8 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
                 <img src="../images/icons/profile.svg" alt="contact icon">
                 <p class="label">Profile</p>
             </a>
+
+            
         </div>
 
 
