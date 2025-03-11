@@ -65,11 +65,17 @@ h2,p {
 .option-title { 
     margin: 1rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
 
     h2 {
         text-transform: capitalize;
     }
+}
+
+.require {
+    color: var(--red);
+    font-size: 2rem;
 }
 
 .option h2 {
@@ -177,6 +183,8 @@ br {
     color: var(--brown);
 }
 
+
+
 /* Hide the default radio button appearance */
 input[type="radio"] {
     appearance: none;
@@ -213,5 +221,38 @@ input[type="radio"]:checked::before {
 
 input[type="radio" i] {
     margin: 0;
+}
+
+/* checkbox css */
+input[type="checkbox" i] {
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+
+    width: 1.35rem;
+    height: 1.25rem;
+    border: 2px solid black;  
+    border-radius: 0.25rem;     
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease; 
+}
+
+input[type="checkbox"]:checked {
+    background-color: white; 
+    border-color: black;
+
+    background-image: url('../../images/icons/check.svg');
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 

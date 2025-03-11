@@ -143,6 +143,7 @@ $total = $bag_subtotal + $tax;
             bottom: 2.5rem;
             z-index: 1000;
             width: 100%;
+            max-width: 27.5rem;
         }
     </style>
 

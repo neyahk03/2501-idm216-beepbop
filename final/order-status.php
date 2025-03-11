@@ -177,8 +177,3 @@ include "functions/status.php";
 </body>
 
 </html>
-
-<!-- <h2>Order Confirmation</h2>
-<p>Pickup Time: <?php echo htmlspecialchars($pickup_time); ?></p>
-<p>Tip: $<?php echo number_format($selected_tip, 2); ?></p>
-<p>Total: $<?php echo number_format($new_total, 2); ?></p> -->

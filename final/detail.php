@@ -92,7 +92,7 @@ $category_icons = [
     'soda_type' => 'soda_type.svg'
 ];
 
-
+$require = ['bread', 'cheesesteak_bread', 'dressig', 'preparation_option', 'drink_option', 'soda_type', 'drink_size' ];
 
 // Debug: Print Retrieved Customization Data
 // echo "<pre>Customization Data:\n";
@@ -195,7 +195,12 @@ $category_icons = [
                                             }
                                         ?>
                                     </h2>
-
+                                    
+                                    <?php 
+                                        if (in_array($custom_table, ['bread', 'cheesesteak_bread', 'dressing', 'preparation_option', 'drink_option', 'soda_type', 'drink_size'])) {
+                                            echo '<p class="require">*</p>';
+                                        }
+                                    ?>
                                 </div>
 
                                 <div class ="line">

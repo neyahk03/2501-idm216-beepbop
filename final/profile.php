@@ -31,6 +31,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
     <link rel="icon" type="image/gif" href="../images/logo.png" />
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/quantity.css">
 </head>
 <body>
 
