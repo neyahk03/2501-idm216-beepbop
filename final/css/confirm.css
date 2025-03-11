@@ -94,3 +94,8 @@ h1, p {
     z-index: 2000;
 }
 
+.order-number { 
+    text-align: center;
+    margin-top: .5rem;
+}
+
