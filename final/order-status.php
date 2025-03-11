@@ -36,42 +36,51 @@ include "functions/status.php";
 
         <div class="content">
 
-            <h1>Receipt Order</h1>
+            <section>
 
-            <p class="order-number">
-                <?= $order_number ?>
-            </p>
+                <h1>Receipt Order</h1>
+    
+                <p class="order-number">
+                    <?= $order_number ?>
+                </p>
+    
+    
+                <div class="estimate-time">
+                    <p>Estimated pick up time</p>
+                    <h2>
+                            <?php 
+                                if ($pickup_time === "ASAP") {
+                                    echo "in 15 minutes";
+                                } else {
+                                    echo htmlspecialchars($pickup_time);
+                                }
+                            ?>
+                    </h2>
+                </div>
 
+            </section>
 
-            <div class="estimate-time">
-                <p>Estimated pick up time</p>
-                <h2>
-                        <?php 
-                            if ($pickup_time === "ASAP") {
-                                echo "in 15 minutes";
-                            } else {
-                                echo htmlspecialchars($pickup_time);
-                            }
-                        ?>
-                </h2>
-            </div>
+            <section>
+
+                <div class="progress-bar">
+                    <div class="status">
+                        <img src="../images/logo.png" alt="logo" width="78px">
+                        <div class="step"></div>
+                    </div>
+                    <div class="status">
+                        <img src="../images/icons/frying-pan.svg" alt="frying-pan">
+                        <div class="step"></div>
+                    </div>
+                    <div class="status">
+                        <img src="../images/icons/checkmark.svg" alt="checkmark">
+                        <div class="step"></div>
+                    </div>
+                </div>            
+    
+                <p>Your order is being prepared!</p>
+            </section>
+
             
-            <div class="progress-bar">
-                <div class="status">
-                    <img src="../images/logo.png" alt="logo" width="78px">
-                    <div class="step"></div>
-                </div>
-                <div class="status">
-                    <img src="../images/icons/frying-pan.svg" alt="frying-pan">
-                    <div class="step"></div>
-                </div>
-                <div class="status">
-                    <img src="../images/icons/checkmark.svg" alt="checkmark">
-                    <div class="step"></div>
-                </div>
-            </div>            
-
-            <p>Your order is being prepared!</p>
             
 
             <div class="receipt">

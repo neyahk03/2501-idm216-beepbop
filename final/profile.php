@@ -91,7 +91,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
         <div class="bottom-nav">
 
             
-            <a href="home.html" class="icon-container">
+            <a href="home.php" class="icon-container">
                 <img src="../images/icons/home.svg" alt="home icon">
                 <p class="label">Home</p>
             </a>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
                 <p class="label">Menu</p>
             </a>
 
-            <a href="#" class="icon-container">
+            <a href="profile.php" class="icon-container">
                 <img src="../images/icons/profile.svg" alt="contact icon">
                 <p class="label">Profile</p>
             </a>
