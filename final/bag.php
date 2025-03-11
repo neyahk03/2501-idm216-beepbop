@@ -387,10 +387,8 @@ $total = $bag_subtotal + $tax;
 
 
     <script src="js/button.js"></script>
-    <script src="js/item-counter.js"></script>
+    <!-- <script src="js/item-counter.js"></script> -->
     <script src="js/change-quantity.js"></script>
 
- 
-    
 </body>
 </html>
