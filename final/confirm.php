@@ -81,10 +81,14 @@ $pickup_time = $_SESSION['order']['pickup_time'];
             <div class="content">
                 <h1>ORDER CONFIRMED!</h1>
 
-                <div class="stars-container">
+                <!-- <h2 class="order-number">Order Number:<p class="order-number">
+                <?= $order_number ?>
+                </p></h2> -->
+
+                <!-- <div class="stars-container">
                     <img src="../images/icons/3stars.svg" class="stars" alt="3 stars">
-                </div>                
-                <p>You earned <strong>772 pts</strong> with your order</p>
+                </div>                 -->
+                <!-- <p>You earned <strong>772 pts</strong> with your order</p> -->
     
                 <div class="animation">
                     <img class="heart-gif" src="../images/icons/heart.gif" alt="heart gif">

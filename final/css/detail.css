@@ -177,3 +177,36 @@ br {
     color: var(--brown);
 }
 
+/* Hide the default radio button appearance */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    width: 20px;
+    height: 20px;
+    border: 2px solid black; 
+    border-radius: 100%;       
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease; 
+}
+
+  /* Active (checked) state */
+input[type="radio"]:checked {
+    border-color: black; 
+}
+
+  /* Add a red dot inside when active */
+input[type="radio"]:checked::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    border-radius: 50%;
+    background-color: black; 
+}
+
