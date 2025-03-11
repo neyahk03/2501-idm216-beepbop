@@ -127,14 +127,26 @@ $total = $bag_subtotal + $tax;
     <title>Adding to bag...</title>
     <link rel="stylesheet" href="css/general.css">
     <link rel="icon" type="image/gif" href="../images/logo.png" />
-
+    <link rel="stylesheet" href="css/button.css">
     <style>
+        .screen-container {
+            height: 100vh;
+        }
+
         img {
             width: 100%;
             max-width: 27.5rem;
         }
+
+        .btn-container {
+            position: absolute;
+            bottom: 2.5rem;
+            z-index: 1000;
+            width: 100%;
+        }
     </style>
-    <script>
+
+    <!-- <script>
         setTimeout(() => {
             document.getElementById('gif-container').style.display = 'block';
 
@@ -142,19 +154,30 @@ $total = $bag_subtotal + $tax;
                 window.location.href = "menu.php";
             }, 800); 
         }, 1800);
-    </script>
+    </script> -->
 </head>
+
 <body>
 
     <div class="screen-container">
 
             <div id="gif-container">
-                <img src="../images/add-to-bag.gif" alt="Add to Bag GIF" id="gif">
+                <img src="../images/adding-to-bag.gif" alt="Add to Bag GIF" id="gif">
+            </div>
+
+            <div class="btn-container">
+
+                <button class="nofill-button" onclick="gotoMenu()">
+                    <h4>add more items</h4>
+                </button>
+
+                <button class="filled-button" onclick="gotoBag()">
+                    <h4>checkout</h4>
+                </button>
             </div>
     </div>
 
-
-
+    <script src="js/button.js"></script>
 
 </body>
 </html>

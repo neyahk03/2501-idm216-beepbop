@@ -33,3 +33,8 @@ function gotoCheckout() {
 function goHome() {
     window.location.href = "home.php"
 }
+
+function gotoBag() {
+    window.location.href = "bag.php"
+}
+
