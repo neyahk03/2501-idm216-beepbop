@@ -50,7 +50,6 @@ foreach ($tables as $table) {
     <link rel="stylesheet" href="css/general.css">
     <!-- <link rel="stylesheet" href="css/menu.css"> -->
     <link rel="stylesheet" href="css/menu-item.css">
-    <link rel="stylesheet" href="css/step1.css">
     <link rel="stylesheet" href="css/filter-bar.css">
     <link rel="stylesheet" href="css/quantity.css">
 </head>
@@ -184,7 +183,6 @@ foreach ($tables as $table) {
     
     <!-- <?php echo "ID: ". $_SESSION['guest_id'] . "<br>"; ?> -->
     
-    <script src="js/step.js"></script>
     <script src="js/filter-bar.js"></script>
 
     <script>
