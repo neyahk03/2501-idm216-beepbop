@@ -118,9 +118,8 @@ $category_icons = [
     <link rel="stylesheet" href="css/item-counter.css">
     <link rel="stylesheet" href="css/heart-button.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-
-    <link rel="stylesheet" href="css/step2.css">
 </head>
+
 <body>
     <div class="screen-container">
         <!-- nav bar -->
