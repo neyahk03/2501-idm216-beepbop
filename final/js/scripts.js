@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedPayment && selectedPaymentIcon) {
             // Replace the whole .choose-payment div content
             paymentContainer.innerHTML = `
-                <div class="selected-payment" style="padding-left: 1.5rem;">
+                <div class="selected-payment">
                     <img src="${selectedPaymentIcon}" alt="${selectedPayment}">
                 </div>
             `;
