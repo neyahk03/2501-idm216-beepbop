@@ -265,15 +265,11 @@ $total = $bag_subtotal + $tax;
                                 <img src="../images/menu-item/thai-tea.jpg" alt="Thai Tea">
 
                                 <div class="description">
-                                    <div>
-
-                                        <p>Thai Tea</p>
-                                        <p>$3.00</p>
+                                    <div class="item-info">
+                                        <p class="item-name">Thai Tea</p>
+                                        <p class="item-price">$3.00</p>
                                     </div>
-
-                                    <button class="add-button">
-                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                    </button>
+                                    <button class="add-button">VIEW ITEM</button>
                                 </div>
                             </a>
                                     
@@ -287,15 +283,11 @@ $total = $bag_subtotal + $tax;
                                 <img src="../images/menu-item/hashbrown.png " alt="Hashbrown">
 
                                 <div class="description">
-                                    <div>
-
-                                        <p>Hashbrown</p>
-                                        <p>$1.50</p>
+                                    <div class="item-info">
+                                        <p class="item-name">Hashbrown</p>
+                                        <p class="item-price">$1.50</p>
                                     </div>
-
-                                    <button class="add-button">
-                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                    </button>
+                                    <button class="add-button">VIEW ITEM</button>
                                 </div>
                                 
                             </a>
@@ -309,15 +301,11 @@ $total = $bag_subtotal + $tax;
                                 <img src="../images/menu-item/muffin.jpg " alt="Muffin">
 
                                 <div class="description">
-                                    <div>
-
-                                        <p>Muffin</p>
-                                        <p>$2.50</p>
+                                    <div class="item-info">
+                                        <p class="item-name">Muffin</p>
+                                        <p class="item-price">$2.50</p>
                                     </div>
-
-                                    <button class="add-button">
-                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                    </button>
+                                    <button class="add-button">VIEW ITEM</button>
                                 </div>
                             </a>
                                     
@@ -326,20 +314,16 @@ $total = $bag_subtotal + $tax;
 
                         <div class="pop-items-container">
                             
-                            <a href="detail.php?id=2&table=sandwiches&menu_item=Grilled+Cheese">
+                            <a href="detail.php?id=4&table=drinks&menu_item=Soda">
 
-                                <img src="../images/menu-item/grilled-cheese.jpg " alt="Grilled Cheese">
+                                <img src="../images/menu-item/soda.png " alt="Soda">
 
                                 <div class="description">
-                                    <div>
-
-                                        <p>Grilled Cheese</p>
-                                        <p>$3.50</p>
+                                    <div class="item-info">
+                                        <p class="item-name">Soda</p>
+                                        <p class="item-price">$1.50</p>
                                     </div>
-
-                                    <button class="add-button">
-                                        <img src="../images/icons/add-icon-border.svg" alt="add button">
-                                    </button>
+                                    <button class="add-button">VIEW ITEM</button>
                                 </div>
                             </a>
                                     
