@@ -46,11 +46,13 @@ nav {
 .content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.75rem;
 
     z-index: 40;
     position: relative;
     margin-top: 3.5rem;
+
+    padding: 0 2rem;
 
 
 }
@@ -76,7 +78,8 @@ h4 {
 .choose-payment {
     margin: 0 auto;
     border: 1px solid black;
-    width: 23.5rem;
+    width: 100%;
+    max-width: 23.5rem;
     height: 5.875rem;
     padding: 1.5rem;
     background-color: white;
@@ -126,11 +129,16 @@ h4 {
 
 .point-swirl {
     position: absolute;
-    transform: translateY(-6rem);
+    transform: translate(-2rem, -6rem);
+    width: 100%;
+    max-width: 27.5rem;
+
+    svg {
+        width: 100%;
+    }
 }
 
 .pickup-time, .add-tips {
-    padding: 0 2rem;
 
     position: relative;
     z-index: 4000;
@@ -212,6 +220,7 @@ input[type="radio"] {
 .total {
     width: 100%;
     max-width: 23.5rem;
+    padding: 0 2rem;
 
 
     display: flex;
