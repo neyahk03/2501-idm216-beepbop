@@ -71,7 +71,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
             <?php 
                 if (isset($_SESSION['order']['items']) && !empty($_SESSION['order']['items'])) {
                     echo '<a href="order-status.php" class="order-status">
-                        <h4>View your order in progress</h4>
+                        <h4>View your order</h4>
                         <img src="../images/icons/next.svg" alt="next icon">
                     </a>';
                 }
