@@ -46,21 +46,11 @@ body {
 .screen-container {
     max-width: 27.5rem;
     height: 100vh;
-
-    /* min-height: 59.75rem; */
     margin: auto;
-    /* border-radius: 1.5rem; */
-
     --main-font: 'Montserrat', sans-serif;
     --menu-font: 'Inter', sans-serif;
-
     background-color: white;
-
     overflow-y: auto;
-
-    /* display: flex;
-    flex-direction: column; */
-
 }
 
 
