@@ -80,6 +80,8 @@ h2,p {
 
 .option h2 {
     color: var(--red);
+    display: flex;
+    align-items: center;
 }
 
 .option img {

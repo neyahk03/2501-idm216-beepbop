@@ -97,6 +97,8 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
                 
         </div>
 
+
+
         <div class="bottom-nav">
 
             
