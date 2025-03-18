@@ -32,6 +32,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/quantity.css">
+    <link rel="stylesheet" href="css/button.css">
 </head>
 <body>
     <div class="screen-container-2">
@@ -67,30 +68,35 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
             
         </nav>
 
-        <div class="rewards-section">
+        <div class="content">
 
-            <div class="points">
-                <h2>You have:</h2>
-                <h1>0 Pts</h1>
-                <p>$10 spent = 1000pts</p>
-                <p>1000 pts = $1.00</p>
-            </div> 
-
-            <div class="rules">
-                <h1>How to Use Points:</h1>
-                <p>Redeem your points at checkout for cash value!</p>
-                <p>For every $10 spent, you gain 1000 points. Each 1000 points can be redeemed for $1.00 at checkout.   </p>
-                <p>Points can only be redeemed in increments of 1,000. For example: With 1,300 points, you can use 1,000 points and save the remaining 300 or wait until you reach 2,000 points.</p>
-                <p>Available for mobile orders through app only.</p>
+            <div class="rewards-section">
+    
+                <div class="points">
+                    <h2>You have:</h2>
+                    <h1>0 Pts</h1>
+                    <p>$10 spent = 1000pts</p>
+                    <p>1000 pts = $1.00</p>
+                </div> 
+    
+                <div class="rules">
+                    <h1>How to Use Points:</h1>
+                    <p>Redeem your points at checkout for cash value!</p>
+                    <p>For every $10 spent, you gain 1000 points. Each 1000 points can be redeemed for $1.00 at checkout.   </p>
+                    <p>Points can only be redeemed in increments of 1,000. For example: With 1,300 points, you can use 1,000 points and save the remaining 300 or wait until you reach 2,000 points.</p>
+                    <p>Available for mobile orders through app only.</p>
+                </div>
+    
             </div>
-
+    
+            <div class="reward-buttons">
+                <button class="filled-button">log in</button>
+    
+                <button class="nofill-button">sign up to earn rewards</button>
+            </div>
+                
         </div>
 
-        <div class="reward-buttons">
-            <a href="menu.php"><button class="reward-button">CHANGE USERNAME OR PASSWORD</button></a>
-            <a href="menu.php"><button class="reward2-button">YOUR SAVED PAYMENT METHODS</button></a>
-        </div>
-            
         <div class="bottom-nav">
 
             

@@ -61,12 +61,11 @@ h4 {
 }
 
 .total-container {
-    /* background-color: pink; */
     background-color: white;
     width: 100%;
     max-width: 27.5rem;
     
-    padding: 1rem 2rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

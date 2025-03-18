@@ -1,6 +1,45 @@
 <?php
 
-include "functions/status.php";
+session_start();
+
+
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login-signup.php");
+    exit();
+}
+
+
+if (!isset($_SESSION['order'])) {
+    $_SESSION['order'] = [];
+}
+
+
+$order = $_SESSION['order'] ?? [];
+
+$order_number = $order['order_number'] ?? 'N/A';
+$items = $order['items'] ?? [];
+$bag_subtotal = $order['subtotal'] ?? 0.00;
+$total = $order['total'] ?? 0.00;
+$tip = $order['tip'] ?? 0.00;
+$tax = $order['tax'] ?? 0.00;
+$pickup_time = $order['pickup_time'] ?? 'ASAP';
+
+foreach ($items as $item) {
+    $item_id = $item['id'];
+    $main_table = $item['main_table'];
+    $image_link = $item['image_link'];
+    $menu_item = $item['menu_item'];
+    $price = $item['price'];
+    $quantity = $item['quantity'];
+    $subtotal = $item['subtotal'];
+    $note = $item['note'] ?? '';
+    $customizations = $item['customizations'] ?? [];
+}
+
+$order_complete = $_SESSION['order_complete'] ?? false;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +80,13 @@ include "functions/status.php";
                 <h1>Receipt Order</h1>
     
                 <p class="order-number">
-                    <?= $order_number ?>
+                    #<?= $order_number ?>
                 </p>
     
     
                 <div class="estimate-time">
                     <p>Estimated pick up time</p>
-                    <h2>
+                    <h2 id="pickup-time">
                             <?php 
                                 if ($pickup_time === "ASAP") {
                                     echo "in 15 minutes";
@@ -67,17 +106,19 @@ include "functions/status.php";
                         <img src="../images/logo.png" alt="logo" width="78px">
                         <div class="step"></div>
                     </div>
-                    <div class="status">
+
+                    <div class="status in-progress">
                         <img src="../images/icons/frying-pan.svg" alt="frying-pan">
                         <div class="step"></div>
                     </div>
-                    <div class="status">
+
+                    <div id="done"  class="status">
                         <img src="../images/icons/checkmark.svg" alt="checkmark">
                         <div class="step"></div>
                     </div>
                 </div>            
     
-                <p>Your order is being prepared!</p>
+                <p id="order-status">Your order is being prepared!</p>
             </section>
 
             
@@ -174,6 +215,25 @@ include "functions/status.php";
     </div>
 
     <script src="js/button.js"></script>
+        
+    <script>
+            setTimeout(() => {
+        // Stop blinking by removing the animation
+        document.querySelector(".in-progress").style.animation = "none";
+        
+        // Show final icon
+        document.getElementById("done").style.opacity = "1";
+
+        // Change the order status text
+        document.getElementById("order-status").textContent = "Your order is completed!";
+
+        // Change the pickup time text
+        document.getElementById("pickup-time").textContent = "Now";
+    }, 3000);
+
+    </script>
+
+
 </body>
 
 </html>

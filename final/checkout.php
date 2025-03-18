@@ -105,7 +105,6 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
                 <input type="hidden" name="selected_tip" value="<?php echo $selected_tip; ?>">
                 <input type="hidden" name="bag_subtotal" value="<?php echo $bag_subtotal ?>">
                 <input type="hidden" name="tax" value="<?php echo $tax ?>">
-                <!-- <input type="hidden" id="selectedPickupTime" name="pickup_time" value="<?php echo $pickup_time; ?>"> -->
 
 
                 <div class="pickup-time">
