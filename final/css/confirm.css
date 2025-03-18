@@ -87,7 +87,7 @@ h1, p {
 .btn-container {
     width: 100%;
     max-width: 27.5rem;
-    padding: 2rem 0;
+    padding: 2rem 2rem;
     background-color: white;
     position: absolute;
     bottom: 0rem;

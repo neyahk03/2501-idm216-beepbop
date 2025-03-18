@@ -134,23 +134,6 @@ br {
 
     object-fit: contain;
 
-    /* .counter {
-        display: flex;
-        gap: 2rem;
-        padding:0 1rem;
-        border-radius: 2.5rem;
-        border: 3px solid var(--red);
-        overflow: visible;
-        align-items: center;
-
-        height: 2.5rem;
-
-        p {
-            font-size: 1.25rem;
-            color: var(--red);
-            font-weight: 400;
-        }
-    } */
 }
 
 
@@ -255,4 +238,9 @@ input[type="checkbox"]:checked {
     background-position: center;
 
 }
+
+input, label {
+    cursor: pointer;
+}
+
 
