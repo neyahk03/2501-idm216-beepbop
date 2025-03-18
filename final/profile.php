@@ -37,7 +37,7 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
 <body>
     <div class="screen-container-2">
     <div class="background">
-        <img src="../images/icons/bg-stars-2.svg" alt="background image">
+        <img src="../images/icons/bg-stars-3.svg" alt="background image">
     </div>
 
     <nav>

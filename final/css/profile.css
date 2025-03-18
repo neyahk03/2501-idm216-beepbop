@@ -88,6 +88,7 @@ h3 {
     height: 100vh;
     background-size: cover;
     z-index: 1;
+}
 
 .reward-buttons {
     padding: 0 2rem;
