@@ -11,7 +11,9 @@ button + button {
 /* filled button style */
 .filled-button {
     width: 100%;
-    max-width: 20.5rem;
+
+    /* max-width: 21.5rem; */
+
     height: 3.5rem;
     background-color: var(--brown);
     color: white;
@@ -35,9 +37,10 @@ button + button {
 
 /* no fill button style */
 .nofill-button {
-    /* margin-top: 5rem; */
+
     width: 100%;
-    max-width: 20.5rem;
+    /* max-width: 21.5rem; */
+
     height: 3.5rem;
     background-color: white; 
     color: var(--brown); 
