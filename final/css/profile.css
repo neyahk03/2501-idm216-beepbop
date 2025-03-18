@@ -1,155 +1,20 @@
 .content {
-    transform: translateY(4.5rem);
-
-    margin-bottom: 12rem;
+    margin-top: 3.5rem;
+    margin-bottom: 8rem;
     display: flex;
     flex-direction: column;
 
     overflow-x: hidden;
 }
 
-.hero-image {
-    width: 27.5rem;
-    height: 23.3rem;
-
-    img {
-        object-fit: cover;
-    }
-}
-
-.petes-fav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: 0 2rem;
-}
-
-.fav-container {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    
-
-    overflow-x: scroll;
-    scrollbar-width: none;
-}
-
-.fav {
-    width: 8.125rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-
-    img {
-        width: 8.125rem;
-        object-fit: contain;
-        border-radius: 0.5rem;
-    }
-}
-
-.description {
-    display: flex;
-    justify-content: space-between;
-}
-
-.location-container{
-    background-color: var(--light-yellow);
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-
-    h4 {
-        margin-bottom: 0.25rem;
-        color: black;
-    }
-    
-}
-
-/* order profress bar */
-.order-status {
-    cursor: pointer;
-    transform: translateY(4.5rem);
-    background-color: var(--brown);
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding:0.8rem 2rem;
-    
-    h4 {
-        text-decoration: underline;
-    }
-
-    img {
-        width: 1.5rem;
-        height: 2rem;
-    }
-
-}
-
-.CTA h1 {
-    text-align: center;
-    font-size: 1.75;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.CTA img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-}
-
-.login-button {
-    width: 23.5rem;
-    height: 3.5rem;
-    background-color: white;
-    color: var(--brown);
-    border: 3px solid var(--brown);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.1s ease, box-shadow 0.2s ease; 
-    align-items: center;
-}
-
-.login-button:active {
-    transform: scale(0.95); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
 
 a {
     text-decoration: none;
 }
 
-.map {
-    margin-top: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-
 h3 {
     margin-top: 2rem;
     font-size: 1.25rem;
-}
-
-.help {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
 }
 
 .rules p {
@@ -196,57 +61,11 @@ h3 {
     margin-bottom: .5rem;
 }
 
-.rewards-section { 
+/* .rewards-section { 
     margin-top: 6rem;
     margin-bottom: 3.56rem;
-}
+} */
 
-.reward-button {
-    width: 23.5rem;
-    height: 3.5rem;
-    background-color: white;
-    color: var(--brown);
-    border: 3px solid var(--brown);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: .5rem;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.1s ease, box-shadow 0.2s ease; 
-    align-items: center;
-}
-
-.reward-button:active {
-    transform: scale(0.95); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
-.reward2-button { 
-    width: 23.5rem;
-    height: 3.5rem;
-    background-color: var(--brown);
-    color: white;
-    /* border: 3px solid var(--brown); */
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.1s ease, box-shadow 0.2s ease; 
-    align-items: center;
+.reward-buttons {
+    padding: 0 2rem;
 }

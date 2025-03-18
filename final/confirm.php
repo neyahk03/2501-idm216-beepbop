@@ -79,10 +79,10 @@ $pickup_time = $_SESSION['order']['pickup_time'];
 
             
             <div class="content">
-                <h1>ORDER CONFIRMED!</h1>
+                <h1>Order Confirmed!</h1>
 
 
-                <p>Your order number: <strong><?= $order_number ?></strong>  </p>
+                <p>Your order number: <strong>#<?= $order_number ?></strong>  </p>
                
 
 

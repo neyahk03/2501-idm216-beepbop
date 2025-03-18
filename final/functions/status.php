@@ -13,6 +13,8 @@ if (!isset($_SESSION['order'])) {
     $_SESSION['order'] = [];
 }
 
+
+
 // if (empty($_SESSION['order']['items'])) {
 //     header("Location: order-status.php");
 //     exit();
@@ -43,5 +45,6 @@ foreach ($items as $item) {
     $note = $item['note'] ?? '';
     $customizations = $item['customizations'] ?? [];
 }
+
 
 ?>

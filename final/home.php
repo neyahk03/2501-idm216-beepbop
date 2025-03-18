@@ -82,8 +82,9 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
             <div class="CTA">
                 <h1>HI THERE, I'M PETE!</h1>
                 <img class="mascot" src="../images/homepage-featured-img.svg" alt="mascot">
-                <a href="menu.php"><button class="nofill-button">ORDER NOW</button></a>
+                <button class="nofill-button" onclick="gotoMenu()" style="width: 21.5rem;">order now</button>
             </div> 
+
 
             <div class="petes-fav">
                 <h3>Pete's Favorites</h3>
@@ -213,6 +214,8 @@ if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {
             });
         });
     </script>
+
+    <script src="js/button.js"></script>
 </body>
 </html>
 
