@@ -204,6 +204,7 @@ input[type="radio"] {
 .total {
     width: 100%;
     max-width: 23.5rem;
+    padding: 0 2rem;
 
 
     display: flex;
