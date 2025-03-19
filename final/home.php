@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php"); 
+    header("Location: login-signup.php"); 
     exit();
 }
 

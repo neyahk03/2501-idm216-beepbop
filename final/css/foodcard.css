@@ -50,18 +50,15 @@
 
 }
 
-.customization {
+.customization, .note {
     /* border: 1px solid black; */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 14rem;
+    max-width: 12rem;
     display: block;
 }
 
-.note {
-    text-wrap: wrap;
-}
 
 .clear-bag {
     color: black;

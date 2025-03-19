@@ -8,7 +8,7 @@ if (isset($_POST['guest'])) {
     // empty cart
     $_SESSION['cart'] = []; 
     $_SESSION['order'] = [];
-
+    
     header("Location: home.php");
     exit();
 }

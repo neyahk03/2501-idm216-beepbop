@@ -1,20 +1,16 @@
 <?php
 session_start();
 
-// check if there is session guest id exist
-if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php"); 
-    exit();
-}
-
+require_once '../includes/database.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once '../includes/database.php';
+// check if there is session guest id exist
 
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = session_id();
+if (!isset($_SESSION['guest_id'])) {
+    header("Location: login-signup.php"); 
+    exit();
 }
 
 if (!isset($_SESSION['cart'][$_SESSION['user_id']])) {

@@ -15,7 +15,8 @@ if (!isset($_SESSION['cart'])) {
 }
 
 
-// Retrieve form data from `step2.php`
+
+
 $item_id = $_POST['id'] ?? '';
 $main_table = $_POST['main_table'] ?? null;
 $image_link = $_POST['image_link'] ?? '';
@@ -24,7 +25,6 @@ $price = floatval($_POST['item_price'] ?? 0.00);
 $subtotal = floatval($_POST['subtotal'] ?? $price);
 $note = $_POST['note'] ?? '';
 $quantity = intval($_POST['quantity'] ?? 1);
-
 
 
 $selected_table = null;
@@ -43,7 +43,7 @@ foreach ($_POST as $key => $value) {
             $customizations[$key] = array_values($filtered_values);
         }
     } elseif (!in_array($key, ['id','main_table','image_link', 'menu_item', 'item_price', 'subtotal', 'note', 'quantity']) 
-              && strpos($key, '_price') === false && !is_numeric($value)) {
+            && strpos($key, '_price') === false && !is_numeric($value)) {
 
                 $customizations[$key] = $value;
     }
@@ -51,8 +51,8 @@ foreach ($_POST as $key => $value) {
 
 
 
-// Check if the item already exists in the cart (same item, same customizations)
 
+// Check if the item already exists in the cart (same item, same customizations)
 ksort($customizations);
 
 
