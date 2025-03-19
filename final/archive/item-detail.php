@@ -10,19 +10,8 @@ if (!isset($_GET['id']) || !isset($_GET['table'])) {
 $id = $_GET['id'];
 $table_to_display = $_GET['table'];
 
-$item_name = $_GET['item_name'] ?? '%';
-$price = $_GET['price'] ?? '%';
 
-// Define the main tables and their corresponding customization tables
-$customization_tables_map = [
-    'sandwiches' => ['bread', 'protein', 'condiments'],
-    'cheesesteaks' => ['cheesesteak_bread'],
-    'salads' => ['dressing'],
-    'pastries' => ['pastry_option'],
-    'drinks' => ['drink_option']
-];
 
-// Fetch the item from the correct table
 $query = "SELECT * FROM $table_to_display WHERE id = ?";
 $statement = $connection->prepare($query);
 $statement->bind_param('i', $id);
@@ -36,7 +25,17 @@ if (!$item) {
     exit;
 }
 
-// Fetch customization options based on the item's table
+$item_name = $_GET['item_name'] ?? '%';
+$price = $_GET['price'] ?? '%';
+
+$customization_tables_map = [
+    'sandwiches' => ['bread', 'protein', 'condiments'],
+    'cheesesteaks' => ['cheesesteak_bread'],
+    'salads' => ['dressing'],
+    'pastries' => ['pastry_option'],
+    'drinks' => ['drink_option']
+];
+
 $customizations = [];
 
 if (isset($customization_tables_map[$table_to_display])) {
