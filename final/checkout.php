@@ -18,18 +18,20 @@ if (!isset($_SESSION['bag_subtotal'])) {
 }
 
 
-$selected_tip = $_POST['selected_tip'] ?? 0;
+// $selected_tip = $_POST['selected_tip'] ?? 0;
 $tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
+$times = ["ASAP", "11:20 AM", "11:50 AM", "12:20 PM", "12:50 PM", "1:20 PM", "1:50 PM"];
 
+$selected_tip = $_SESSION['selected_tip'] ?? 0.00;
+// $selected_time = $_SESSION['pickup_time'] ?? "";
 
 $bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
 
 // print_r($bag_subtotal);
 
-$selected_tip = $_SESSION['selected_tip'] ?? 0.00;
+
 $tax = $bag_subtotal * 0.06;
 $new_total = $bag_subtotal + $tax + $selected_tip;
-$pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
 
 ?>
 
@@ -102,7 +104,6 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
             <form action="confirm.php" method="post">
 
                 <input type="hidden" name="new_total" value="<?php echo $new_total; ?>">
-                <input type="hidden" name="selected_tip" value="<?php echo $selected_tip; ?>">
                 <input type="hidden" name="bag_subtotal" value="<?php echo $bag_subtotal ?>">
                 <input type="hidden" name="tax" value="<?php echo $tax ?>">
 
@@ -111,15 +112,21 @@ $pickup_time = $_SESSION['pickup_time'] ?? "ASAP";
                     <h4>Pick Up Time</h4>
                 
                     <div class="pickup-selection">
-                        <?php
-                        $times = ["ASAP", "11:20 AM", "11:50 AM", "12:20 PM", "12:50 PM", "1:20 PM", "1:50 PM"];
-                        foreach ($times as $time) {
-                            $selected = ($pickup_time === $time) ? "checked" : "";
-                            echo "<label class='pickup-option $selected'>
-                                    <input type='radio' id='selectedPickupTime'  name='pickup_time' value='$time' $selected> $time
-                                  </label>";
-                        }
-                        ?>
+                    <?php
+
+                    $preselected = $selected_time ?? "ASAP"; 
+
+                    foreach ($times as $time) {
+                        $isSelected = ($preselected === $time);
+                        $selectedClass = $isSelected ? "selected" : "";
+                        $checked = $isSelected ? "checked" : "";
+                        
+                        echo "<label class='pickup-option $selectedClass'>
+                                <input type='radio' name='pickup_time' value='" . htmlspecialchars($time, ENT_QUOTES) . "' $checked> 
+                                " . htmlspecialchars($time) . "
+                            </label>";
+                    }
+                    ?>
                     </div>
 
                 </div>

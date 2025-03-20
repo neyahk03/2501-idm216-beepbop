@@ -64,7 +64,7 @@ a:visited {
     color: black;
 
     p {
-        font-family: var(--menu-font);
+        font-family: var(--main-font);
     }
 }
 

@@ -44,6 +44,7 @@ $_SESSION['cart'] = [];
 
 $pickup_time = $_SESSION['order']['pickup_time'];
 
+
 ?>
 
 <!DOCTYPE html>
