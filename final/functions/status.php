@@ -20,9 +20,9 @@ if (!isset($_SESSION['order'])) {
 //     exit();
 // }
 
-// echo '<pre>';
-// print_r($_SESSION['order']);
-// echo '</pre>';
+echo '<pre>';
+print_r($_SESSION['order']);
+echo '</pre>';
 
 $order = $_SESSION['order'] ?? [];
 

@@ -19,7 +19,7 @@ if (!isset($_SESSION['order_number'])) {
     $_SESSION['order_number']++;
 }
 
-// Reset if it exceeds 999
+
 if ($_SESSION['order_number'] > 999) {
     $_SESSION['order_number'] = 1;
 }

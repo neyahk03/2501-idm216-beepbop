@@ -3,9 +3,8 @@ session_start();
 
 include '../includes/database.php';
 
-// Redirect if not logged in
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php");
+    header("Location: login-signup.php");
     exit();
 }
 
@@ -16,17 +15,12 @@ if (!isset($_SESSION['cart'])) {
 }
 
 
-
-// echo '<pre>';
-// print_r($_SESSION['cart']);
-// echo '</pre>';
-
-
 // Get the item index from URL
 $index = isset($_GET['index']) ? intval($_GET['index']) : -1;
 
 // Check if index exists in cart
 if ($index >= 0 && $index < count($_SESSION['cart'])) {
+    
     $item = $_SESSION['cart'][$index];
 
 

@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php");
+    header("Location: login-signup.php");
     exit();
 }
 
@@ -77,6 +77,7 @@ foreach ($_SESSION['cart'] as &$cart_item) {
 
 
 // If item is new, add it to the cart
+
 if (!$found && !empty($menu_item)) {
     $_SESSION['cart'][] = [
         'id' => $item_id ?: uniqid(),
@@ -210,6 +211,7 @@ $total = $bag_subtotal + $tax;
                         <div class="actions">
 
                             <div class="button-container">
+
                                 <a href="edit.php?index=<?= $index ?>" class="edit-button">
                                     <img src="../images/icons/edit.svg" alt="edit icon">
                                 </a>
@@ -248,11 +250,6 @@ $total = $bag_subtotal + $tax;
 
             <?php endif; ?>
 
-
-                
-                                            
-    
-                
                 <div class="fav-section">
                     <h4>Popular items to add to your order:</h4>
 
@@ -371,7 +368,6 @@ $total = $bag_subtotal + $tax;
 
 
     <script src="js/button.js"></script>
-    <!-- <script src="js/item-counter.js"></script> -->
     <script src="js/change-quantity.js"></script>
 
 </body>

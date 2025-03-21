@@ -3,6 +3,7 @@
 
 
 // for the payment selection confirm button
+
 function confirmPayment() {
     const selectedPayment = document.querySelector('input[name="payment"]:checked');
 
