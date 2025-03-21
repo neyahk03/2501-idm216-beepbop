@@ -266,3 +266,19 @@ a:hover {
 a::after {
     color: black;
 }
+
+.directory-container {
+    text-align: center;
+}
+
+.nav-buttons {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    margin: 0.3rem auto; /* Center buttons */
+    border-radius: 0.5rem;
+    background-color: var(--dark-blue);
+    color: white;
+    border: 1px solid black;
+}
