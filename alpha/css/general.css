@@ -7,9 +7,7 @@
 }
 
 html {
-
     margin: 0;
-
     --red: #C73715;
     --grey: #414141;
     --black: #000;
@@ -18,16 +16,12 @@ html {
     --mustard-yellow: #FFBB00;
     --light-yellow: #FFEEDC;
     --bg-yellow: #FFD598;
-
     --background-color: #A63B33;
-
     --main-font: 'Montserrat', sans-serif;
     --menu-font: 'Inter', sans-serif;
-
     /* font-size */
     --bottom-nav-font-size: 0.75rem;
     --bottom-nav-font-weight: 700;
-
     scroll-behavior: smooth;
 }
 

@@ -67,10 +67,22 @@ h1 {
     
 }
 
+.nav-buttons {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    margin: .3rem 0 0 0;
+    border-radius: 0.5rem;
+    background-color: var(--dark-blue);
+    color: white;
+    border: 1px solid black;
+}
+
 .button-container {
     display: flex;
-    gap: 2rem;
-    justify-content: center;
+    gap: .5rem;
+    justify-content: space-between;
 }
 
 .button {
@@ -174,6 +186,18 @@ h1 {
     }
 }
 
+.pic2 {
+    aspect-ratio: 1/1;
+    text-align: center;
+
+    img {
+        object-fit: contain;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+}
+
 .info {
     text-align: center;
 
@@ -181,6 +205,18 @@ h1 {
         font-family: 'gomepixel-rounded';
         font-size: 1.75rem;
         margin-top: 0;
+    }
+}
+
+.info2 {
+    text-align: center;
+
+    h3 {
+        font-family: 'gomepixel-rounded';
+        font-size: 1.75rem;
+        margin-top: 0;
+        margin: .5;
+        margin-bottom: 0;
     }
 }
 
