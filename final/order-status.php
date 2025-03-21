@@ -19,7 +19,6 @@ $order = $_SESSION['order'] ?? [];
 $order_number = $order['order_number'] ?? 'N/A';
 $items = $order['items'] ?? [];
 $bag_subtotal = $order['subtotal'] ?? 0.00;
-$total = $order['total'] ?? 0.00;
 $tip = $order['tip'] ?? 0.00;
 $tax = $order['tax'] ?? 0.00;
 $pickup_time = $order['pickup_time'] ?? 'ASAP';
@@ -35,6 +34,8 @@ foreach ($items as $item) {
     $note = $item['note'] ?? '';
     $customizations = $item['customizations'] ?? [];
 }
+
+$total = $bag_subtotal + $tip + $tax;
 
 $order_complete = $_SESSION['order_complete'] ?? false;
 
@@ -224,7 +225,7 @@ $order_complete = $_SESSION['order_complete'] ?? false;
         document.getElementById("done").style.opacity = "1";
 
         // Change the order status text
-        document.getElementById("order-status").textContent = "Your order is completed!";
+        document.getElementById("order-status").textContent = "Your order is ready to pick up!";
 
         // Change the pickup time text
         document.getElementById("pickup-time").textContent = "Now";

@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['guest_id'])) {
-    header("Location: login.php");
+    header("Location: login-signup.php");
     exit();
 }
 
@@ -17,13 +17,10 @@ if (!isset($_SESSION['bag_subtotal'])) {
     $_SESSION['bag_subtotal'] = [];
 }
 
-
-// $selected_tip = $_POST['selected_tip'] ?? 0;
 $tips = [0 => "No Tip", 1.00 => "$1.00", 2.00 => "$2.00", 3.00 => "$3.00"];
 $times = ["ASAP", "11:20 AM", "11:50 AM", "12:20 PM", "12:50 PM", "1:20 PM", "1:50 PM"];
 
 $selected_tip = $_SESSION['selected_tip'] ?? 0.00;
-// $selected_time = $_SESSION['pickup_time'] ?? "";
 
 $bag_subtotal = $_SESSION['bag_subtotal'] ?? 0.00;
 
@@ -191,7 +188,8 @@ $new_total = $bag_subtotal + $tax + $selected_tip;
     <script src="js/pickup-tips.js"></script>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        
+    document.addEventListener("DOMContentLoaded", function () {
     console.log("Payment screen loaded");
 
     const paymentContainer = document.querySelector(".choose-payment");
